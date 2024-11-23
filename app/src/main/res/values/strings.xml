@@ -8,4 +8,5 @@
     <string name="masukan_password">Masukan Password</string>
     <string name="masukan_email">Masukan Email</string>
     <string name="login">Login</string>
+    <string name="register">Register</string>
 </resources>
