@@ -9,4 +9,9 @@
     <string name="masukan_email">Masukan Email</string>
     <string name="login">Login</string>
     <string name="register">Register</string>
+    <string name="nama_lengkap">Nama Lengkap</string>
+    <string name="masukan_nama_lengkap">Masukan Nama Lengkap</string>
+    <string name="konfirmasi_pasword">Konfirmasi Pasword</string>
+    <string name="buat_password">Buat Password</string>
+    <string name="konfirmasi_password">Konfirmasi Password</string>
 </resources>

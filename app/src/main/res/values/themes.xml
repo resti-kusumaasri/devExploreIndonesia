@@ -14,4 +14,17 @@
         <!-- Customize your theme here. -->
     </style>
 
+
+    <style name="Edit_teks">
+        <item name="android:textColor">@color/merahmarun</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="android:background">@drawable/edt_background</item>
+        <item name="android:paddingStart">20dp</item>
+        <item name="android:paddingHorizontal">3dp</item>
+        <item name="android:layout_width">308dp</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:layout_marginHorizontal">3dp</item>
+        <item name="android:layout_marginBottom">50dp</item>
+    </style>
 </resources>

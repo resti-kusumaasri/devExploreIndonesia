@@ -1,11 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:layout_margin="5dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.auth_ui.RegisterFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_bold"
+        android:labelFor="@+id/edt_email"
+        android:text="@string/email"
+        android:textColor="@color/merahmarun"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/edt_email"
+        app:layout_constraintEnd_toEndOf="@+id/edt_email"
+        app:layout_constraintStart_toStartOf="@+id/edt_email"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <EditText
+        android:id="@+id/edt_email"
+        style="@style/Edit_teks"
+        android:layout_marginBottom="32dp"
+        android:hint="@string/masukan_email"
+        android:inputType="textEmailAddress"
+        android:textColor="@color/merahmarun"
+        app:layout_constraintBottom_toTopOf="@+id/edt_nama_lengkap"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_bold"
+        android:labelFor="@+id/edt_nama_lengkap"
+        android:text="@string/nama_lengkap"
+        android:textColor="@color/merahmarun"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/edt_nama_lengkap"
+        app:layout_constraintEnd_toEndOf="@+id/edt_nama_lengkap"
+        app:layout_constraintStart_toStartOf="@+id/edt_nama_lengkap"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <EditText
+        android:id="@+id/edt_nama_lengkap"
+        style="@style/Edit_teks"
+        android:layout_marginBottom="32dp"
+        android:hint="@string/masukan_nama_lengkap"
+        android:inputType="textPersonName"
+        android:textColor="@color/merahmarun"
+        app:layout_constraintBottom_toTopOf="@+id/edt_password"
+        app:layout_constraintEnd_toEndOf="@+id/edt_email"
+        app:layout_constraintStart_toStartOf="@+id/edt_email" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="10dp"
+        android:fontFamily="@font/poppins_bold"
+        android:labelFor="@+id/edt_password"
+        android:text="@string/password"
+        android:textColor="@color/merahmarun"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/edt_password"
+        app:layout_constraintEnd_toEndOf="@+id/edt_password"
+        app:layout_constraintStart_toStartOf="@+id/edt_password"
+        app:layout_constraintTop_toBottomOf="@+id/edt_nama_lengkap" />
+
+    <EditText
+        android:id="@+id/edt_password"
+        style="@style/Edit_teks"
+        android:layout_marginBottom="32dp"
+        android:fontFamily="@font/poppins_medium"
+        android:hint="@string/buat_password"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toTopOf="@+id/edt_konfirmasi_password"
+        app:layout_constraintEnd_toEndOf="@+id/edt_nama_lengkap"
+        app:layout_constraintStart_toStartOf="@+id/edt_nama_lengkap" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="10dp"
+        android:fontFamily="@font/poppins_bold"
+        android:labelFor="@+id/edt_konfirmasi_password"
+        android:text="@string/konfirmasi_pasword"
+        android:textColor="@color/merahmarun"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/edt_konfirmasi_password"
+        app:layout_constraintEnd_toEndOf="@+id/edt_konfirmasi_password"
+        app:layout_constraintStart_toStartOf="@+id/edt_konfirmasi_password"
+        app:layout_constraintTop_toBottomOf="@+id/edt_password" />
+
+    <EditText
+        android:id="@+id/edt_konfirmasi_password"
+        style="@style/Edit_teks"
+        android:layout_marginBottom="24dp"
+        android:fontFamily="@font/poppins_medium"
+        android:hint="@string/konfirmasi_password"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/edt_password"
+        app:layout_constraintStart_toStartOf="@+id/edt_password" />
 
 
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

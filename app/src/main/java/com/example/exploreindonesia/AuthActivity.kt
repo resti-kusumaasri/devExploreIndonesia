@@ -56,7 +56,7 @@ class AuthActivity : AppCompatActivity() {
         setButton()
 
 
-//        supportActionBar?.hide()
+        supportActionBar?.hide()
     }
 
     fun setButton(){
