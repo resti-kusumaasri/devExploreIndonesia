@@ -10,6 +10,9 @@
     tools:context=".ui.auth_ui.LoginFragment">
 
 
+
+
+
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="wrap_content"
@@ -17,33 +20,32 @@
         android:layout_marginTop="16dp"
         android:layout_marginBottom="24dp"
         android:src="@drawable/tarsius"
-        app:layout_constraintBottom_toTopOf="@+id/edt_email"
+        app:layout_constraintBottom_toTopOf="@+id/edt_login_email"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins_bold"
-        android:labelFor="@+id/edt_email"
+        android:labelFor="@+id/edt_login_email"
         android:text="@string/email"
         android:textColor="@color/merahmarun"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/edt_email"
-        app:layout_constraintEnd_toEndOf="@+id/edt_email"
-        app:layout_constraintStart_toStartOf="@+id/edt_email"
+        app:layout_constraintBottom_toTopOf="@+id/edt_login_email"
+        app:layout_constraintEnd_toEndOf="@+id/edt_login_email"
+        app:layout_constraintStart_toStartOf="@+id/edt_login_email"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
         app:layout_constraintVertical_bias="1.0" />
 
     <EditText
-        android:id="@+id/edt_email"
+        android:id="@+id/edt_login_email"
         style="@style/Edit_teks"
         android:hint="@string/masukan_email"
         android:inputType="textEmailAddress"
         android:textColor="@color/merahmarun"
-        app:layout_constraintBottom_toTopOf="@+id/edt_password"
+        app:layout_constraintBottom_toTopOf="@+id/edt_login_password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -52,23 +54,24 @@
         android:layout_height="wrap_content"
         android:layout_marginVertical="10dp"
         android:fontFamily="@font/poppins_bold"
-        android:labelFor="@+id/edt_password"
+        android:labelFor="@+id/edt_login_password"
         android:text="@string/password"
         android:textColor="@color/merahmarun"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/edt_password"
-        app:layout_constraintEnd_toEndOf="@+id/edt_password"
-        app:layout_constraintStart_toStartOf="@+id/edt_password"
-        app:layout_constraintTop_toBottomOf="@+id/edt_email" />
+        app:layout_constraintBottom_toTopOf="@+id/edt_login_password"
+        app:layout_constraintEnd_toEndOf="@+id/edt_login_password"
+        app:layout_constraintStart_toStartOf="@+id/edt_login_password"
+        app:layout_constraintTop_toBottomOf="@+id/edt_login_email" />
+
 
     <EditText
-        android:id="@+id/edt_password"
+        android:id="@+id/edt_login_password"
         style="@style/Edit_teks"
         android:fontFamily="@font/poppins_medium"
         android:hint="@string/masukan_password"
         android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/edt_email"
-        app:layout_constraintStart_toStartOf="@+id/edt_email" />
+        app:layout_constraintEnd_toEndOf="@+id/edt_login_email"
+        app:layout_constraintStart_toStartOf="@+id/edt_login_email" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
