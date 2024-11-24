@@ -32,6 +32,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -52,9 +53,34 @@
         android:hint="@string/masukan_nama_lengkap"
         android:inputType="textPersonName"
         android:textColor="@color/merahmarun"
-        app:layout_constraintBottom_toTopOf="@+id/edt_password"
+        app:layout_constraintBottom_toTopOf="@+id/edt_username"
         app:layout_constraintEnd_toEndOf="@+id/edt_email"
         app:layout_constraintStart_toStartOf="@+id/edt_email" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="10dp"
+        android:fontFamily="@font/poppins_bold"
+        android:labelFor="@+id/edt_username"
+        android:text="Masukan Username"
+        android:textColor="@color/merahmarun"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/edt_username"
+        app:layout_constraintEnd_toEndOf="@+id/edt_username"
+        app:layout_constraintStart_toStartOf="@+id/edt_username"
+        app:layout_constraintTop_toBottomOf="@+id/edt_nama_lengkap" />
+
+    <EditText
+        android:id="@+id/edt_username"
+        style="@style/Edit_teks"
+        android:layout_marginBottom="32dp"
+        android:hint="@string/masukan_nama_lengkap"
+        android:inputType="textPersonName"
+        android:textColor="@color/merahmarun"
+        app:layout_constraintBottom_toTopOf="@+id/edt_password"
+        app:layout_constraintEnd_toEndOf="@+id/edt_nama_lengkap"
+        app:layout_constraintStart_toStartOf="@+id/edt_nama_lengkap" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -68,7 +94,7 @@
         app:layout_constraintBottom_toTopOf="@+id/edt_password"
         app:layout_constraintEnd_toEndOf="@+id/edt_password"
         app:layout_constraintStart_toStartOf="@+id/edt_password"
-        app:layout_constraintTop_toBottomOf="@+id/edt_nama_lengkap" />
+        app:layout_constraintTop_toBottomOf="@+id/edt_username" />
 
     <EditText
         android:id="@+id/edt_password"
