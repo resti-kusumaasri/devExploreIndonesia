@@ -1,6 +1,7 @@
 package com.example.exploreindonesia
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -85,6 +86,9 @@ class AuthActivity : AppCompatActivity() {
                 var email = findViewById<EditText>(R.id.edt_login_email).text.toString()
                 var password = findViewById<EditText>(R.id.edt_login_password).text.toString()
                 Toast.makeText(this, "email: $email, password: $password", Toast.LENGTH_SHORT).show()
+
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
             }  else {
                 var name = findViewById<EditText>(R.id.edt_nama_lengkap).text.toString()
                 var username = findViewById<EditText>(R.id.edt_username).text.toString()
@@ -97,7 +101,7 @@ class AuthActivity : AppCompatActivity() {
 
 
         setButton()
-        supportActionBar?.hide()
+        supportActionBar?.show()
     }
 
     fun setButton(){

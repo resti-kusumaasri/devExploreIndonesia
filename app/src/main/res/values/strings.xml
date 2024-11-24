@@ -15,4 +15,6 @@
     <string name="buat_password">Buat Password</string>
     <string name="konfirmasi_password">Konfirmasi Password</string>
     <string name="masukan_username">Masukan Username</string>
+    <string name="greetings">Selamat datang</string>
+    <string name="profile_name">profile name</string>
 </resources>
