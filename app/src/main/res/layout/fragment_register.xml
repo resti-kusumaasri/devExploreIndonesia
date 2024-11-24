@@ -75,7 +75,7 @@
         android:id="@+id/edt_username"
         style="@style/Edit_teks"
         android:layout_marginBottom="32dp"
-        android:hint="@string/masukan_nama_lengkap"
+        android:hint="@string/masukan_username"
         android:inputType="textPersonName"
         android:textColor="@color/merahmarun"
         app:layout_constraintBottom_toTopOf="@+id/edt_password"
