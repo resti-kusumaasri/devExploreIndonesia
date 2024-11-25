@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.example.exploreindonesia.R.id.edt_login_password
@@ -25,6 +26,7 @@ class AuthActivity : AppCompatActivity() {
     private lateinit var btnregister: ImageView
     private lateinit var btnsubmit: Button
     private lateinit var authViewModel: AuthViewModel
+    private lateinit var progressBar: ProgressBar
 
 
     private lateinit var edt_login_email: EditText
@@ -62,6 +64,7 @@ class AuthActivity : AppCompatActivity() {
         btnregister = binding.btnRegister
         btnsubmit = binding.btnSubmit
 
+        progressBar = binding.progressBar
 
         btnregister.setOnClickListener {
             btnsubmit.setText(R.string.register)
@@ -83,21 +86,32 @@ class AuthActivity : AppCompatActivity() {
 
         btnsubmit.setOnClickListener {
             if (btnsubmit.text == "Login") {
-                var email = findViewById<EditText>(R.id.edt_login_email).text.toString()
-                var password = findViewById<EditText>(R.id.edt_login_password).text.toString()
+
+                val email = findViewById<EditText>(R.id.edt_login_email).text.toString()
+                val password = findViewById<EditText>(R.id.edt_login_password).text.toString()
                 Toast.makeText(this, "email: $email, password: $password", Toast.LENGTH_SHORT).show()
 
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
             }  else {
-                var name = findViewById<EditText>(R.id.edt_nama_lengkap).text.toString()
-                var username = findViewById<EditText>(R.id.edt_username).text.toString()
-                var email = findViewById<EditText>(R.id.edt_register_email).text.toString()
-                var password = findViewById<EditText>(R.id.edt_register_password).text.toString()
-                var confirm_password = findViewById<EditText>(R.id.edt_konfirmasi_password).text.toString()
-                Toast.makeText(this, "name: $name", Toast.LENGTH_SHORT).show()
+                progressBar.visibility = View.VISIBLE
+                val name = findViewById<EditText>(R.id.edt_nama_lengkap).text.toString()
+                val username = findViewById<EditText>(R.id.edt_username).text.toString()
+                val email = findViewById<EditText>(R.id.edt_register_email).text.toString()
+                val password = findViewById<EditText>(R.id.edt_register_password).text.toString()
+                val confirm_password = findViewById<EditText>(R.id.edt_konfirmasi_password).text.toString()
+                progressBar.visibility = View.GONE
+
+                Toast.makeText(this, "name  : $name", Toast.LENGTH_SHORT).show()
+//                authViewModel.registerAccount(name, username, email, password, confirm_password)
+//
+//                authViewModel.registerResult.observe(this) { result ->
+//                    Toast.makeText(this, result, Toast.LENGTH_SHORT).show()
+            //               }
             }
         }
+
+
 
 
         setButton()

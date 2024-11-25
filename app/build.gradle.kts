@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     id("com.google.gms.google-services")
+    id("kotlin-parcelize")
 }
 
 android {
@@ -48,6 +49,12 @@ dependencies {
 
     //Coroutines
     implementation(libs.kotlinx.coroutines.android)
+
+    //Retrofit
+    implementation(libs.squareup.retrofit)
+    implementation(libs.retrofit2.converter.gson)
+    implementation (libs.squareup.logging.interceptor)
+
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
