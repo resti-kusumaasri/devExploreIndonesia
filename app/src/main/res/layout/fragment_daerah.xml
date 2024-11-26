@@ -27,7 +27,6 @@
         android:background="@drawable/edt_background"
         android:drawableStart="@drawable/baseline_search_24"
         android:drawableTint="@color/merahmarun"
-        android:filterTouchesWhenObscured="false"
         android:hint="@string/cari_daerah_disini"
         android:maxWidth="340dp"
         android:maxLines="1"

@@ -11,7 +11,6 @@ import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
-import com.example.exploreindonesia.R.id.edt_login_password
 import com.example.exploreindonesia.databinding.ActivityAuthBinding
 import com.example.exploreindonesia.databinding.FragmentLoginBinding
 import com.example.exploreindonesia.ui.auth_ui.AuthViewModel
@@ -50,7 +49,7 @@ class AuthActivity : AppCompatActivity() {
         setContentView(R.layout.activity_auth)
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.container, LoginFragment.newInstance())
+                .replace(R.id.container_auth, LoginFragment.newInstance())
                 .commitNow()
         }
 
@@ -71,7 +70,7 @@ class AuthActivity : AppCompatActivity() {
             btnlogin.setImageResource(R.drawable.btn_login_inactive)
             btnregister.setImageResource(R.drawable.btn_register_active)
             supportFragmentManager.beginTransaction()
-                .replace(R.id.container, RegisterFragment.newInstance())
+                .replace(R.id.container_auth, RegisterFragment.newInstance())
                 .commitNow()
         }
 
@@ -80,7 +79,7 @@ class AuthActivity : AppCompatActivity() {
             btnlogin.setImageResource(R.drawable.btn_login_active)
             btnregister.setImageResource(R.drawable.btn_register_inactive)
             supportFragmentManager.beginTransaction()
-                .replace(R.id.container, LoginFragment.newInstance())
+                .replace(R.id.container_auth, LoginFragment.newInstance())
                 .commitNow()
         }
 
@@ -119,7 +118,7 @@ class AuthActivity : AppCompatActivity() {
     }
 
     fun setButton(){
-        if (supportFragmentManager.findFragmentById(R.id.container) is LoginFragment) {
+        if (supportFragmentManager.findFragmentById(R.id.container_auth) is LoginFragment) {
             btnlogin.setImageResource(R.drawable.btn_login_active)
             btnregister.setImageResource(R.drawable.btn_register_inactive)
         } else {

@@ -16,9 +16,9 @@
         android:layout_marginEnd="148dp"
         android:src="@drawable/logo"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-        app:layout_constraintEnd_toEndOf="@+id/container"
+        app:layout_constraintEnd_toEndOf="@+id/container_auth"
         app:layout_constraintHorizontal_bias="0.506"
-        app:layout_constraintStart_toStartOf="@+id/container"
+        app:layout_constraintStart_toStartOf="@+id/container_auth"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
@@ -29,12 +29,12 @@
         android:background="@drawable/login_button"
         android:fontFamily="@font/poppins_bold"
         android:text="@string/login"
-        app:layout_constraintEnd_toEndOf="@+id/container"
-        app:layout_constraintStart_toStartOf="@+id/container"
-        app:layout_constraintTop_toBottomOf="@+id/container" />
+        app:layout_constraintEnd_toEndOf="@+id/container_auth"
+        app:layout_constraintStart_toStartOf="@+id/container_auth"
+        app:layout_constraintTop_toBottomOf="@+id/container_auth" />
 
     <FrameLayout
-        android:id="@+id/container"
+        android:id="@+id/container_auth"
         android:layout_width="wrap_content"
         android:layout_height="450dp"
         android:background="@drawable/backgroudauthfragment"
@@ -55,8 +55,8 @@
         android:text="Kenali Budaya Indonesia dengan cara yang menarik"
         android:textAlignment="center"
         android:textColor="@color/merahmarun"
-        app:layout_constraintEnd_toEndOf="@+id/container"
-        app:layout_constraintStart_toStartOf="@+id/container"
+        app:layout_constraintEnd_toEndOf="@+id/container_auth"
+        app:layout_constraintStart_toStartOf="@+id/container_auth"
         app:layout_constraintTop_toBottomOf="@+id/btn_submit" />
 
 
@@ -67,7 +67,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="-20dp"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/container"
+        app:layout_constraintBottom_toTopOf="@+id/container_auth"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.50"
         app:layout_constraintStart_toStartOf="parent">
