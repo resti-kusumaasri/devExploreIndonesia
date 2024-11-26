@@ -9,4 +9,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="merahmarun">#9C0413</color>
     <color name="krem">#ffe6e4</color>
+    <color name="hint_color">#4D9C0413</color>
 </resources>
