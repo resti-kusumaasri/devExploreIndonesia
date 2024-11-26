@@ -25,4 +25,7 @@
     <string name="kuliner_nusantara">Kuliner Nusantara</string>
     <string name="deskripsi_kuliner">Yuk jelajahi cita rasa kuliner dari penjuru Nusantara</string>
     <string name="selengkapnya">Selengkapnya</string>
+    <string name="kategori">Kategori</string>
+    <string name="daerah">Daerah</string>
+    <string name="cari_daerah_disini">Cari daerah disini</string>
 </resources>

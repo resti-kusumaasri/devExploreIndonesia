@@ -5,15 +5,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
+    <FrameLayout
+        android:id="@+id/container_dashboard"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="1.0"
+        tools:background="@color/krem" />
+
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/container_dashboard"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintStart_toStartOf="parent">
 
         <ImageView
             android:id="@+id/btn_daerah"
@@ -21,6 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="1dp"
             android:clickable="true"
+            android:contentDescription="@string/daerah"
             android:contextClickable="true"
             android:focusable="auto"
             android:src="@drawable/daerah_enable" />
@@ -31,11 +44,11 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="1dp"
             android:clickable="true"
+            android:contentDescription="@string/kategori"
             android:contextClickable="true"
             android:focusable="auto"
             android:src="@drawable/kategori_disable" />
     </LinearLayout>
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

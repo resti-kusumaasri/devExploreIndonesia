@@ -76,11 +76,13 @@
             android:id="@+id/btn_login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingEnd="1dp"
             android:layout_marginStart="88dp"
             android:src="@drawable/btn_login_active" />
 
         <ImageView
             android:id="@+id/btn_register"
+            android:paddingStart="1dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="92dp"

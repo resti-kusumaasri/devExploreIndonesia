@@ -11,6 +11,8 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.exploreindonesia.MainActivity
 import com.example.exploreindonesia.R
 import com.example.exploreindonesia.databinding.FragmentDashboardBinding
+import com.example.exploreindonesia.ui.main_ui.dashboard.sub_ui.daerah.DaerahFragment
+import com.google.android.gms.dynamic.SupportFragmentWrapper
 
 class DashBoardFragment : Fragment() {
 
@@ -34,14 +36,23 @@ class DashBoardFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
+        childFragmentManager.beginTransaction()
+            .replace(R.id.container_dashboard, DaerahFragment.newInstance())
+            .commit()
+
         binding.btnDaerah.setOnClickListener {
             binding.btnDaerah.setImageResource(R.drawable.daerah_enable)
             binding.btnKategori.setImageResource(R.drawable.kategori_disable)
+
+            childFragmentManager.beginTransaction()
+                .replace(R.id.container, DaerahFragment.newInstance())
+                .commit()
         }
 
         binding.btnKategori.setOnClickListener {
             binding.btnDaerah.setImageResource(R.drawable.daerah_disable)
             binding.btnKategori.setImageResource(R.drawable.kategori_enable)
+
         }
     }
 }

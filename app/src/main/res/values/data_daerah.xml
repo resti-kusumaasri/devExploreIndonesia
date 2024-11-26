@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="gambar_daerah">
+        <item>@drawable/sumatera_utara</item>
+        <item>@drawable/sulawesi_selatan</item>
+        <item>@drawable/papua</item>
+        <item>@drawable/daerah_lainnya</item>
+    </array>
+</resources>
