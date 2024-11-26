@@ -103,11 +103,11 @@ class AuthActivity : AppCompatActivity() {
                 progressBar.visibility = View.GONE
 
                 Toast.makeText(this, "name  : $name", Toast.LENGTH_SHORT).show()
-//                authViewModel.registerAccount(name, username, email, password, confirm_password)
-//
-//                authViewModel.registerResult.observe(this) { result ->
-//                    Toast.makeText(this, result, Toast.LENGTH_SHORT).show()
-            //               }
+                authViewModel.registerAccount(name, username, email, password, confirm_password)
+
+                authViewModel.registerResult.observe(this) { result ->
+                    Toast.makeText(this, result, Toast.LENGTH_SHORT).show()
+                }
             }
         }
 

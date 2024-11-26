@@ -8,6 +8,7 @@
     android:background="@drawable/main_background"
     android:paddingTop="10dp">
 
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/nav_view"
         android:layout_width="0dp"

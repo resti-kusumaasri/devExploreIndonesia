@@ -12,6 +12,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.example.exploreindonesia.AuthActivity
@@ -34,6 +35,7 @@ class LoginFragment : Fragment() {
     }
 
     private val viewModel: AuthViewModel by viewModels()
+    lateinit var button: ImageView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,6 +51,14 @@ class LoginFragment : Fragment() {
         binding = FragmentLoginBinding.inflate(inflater, container, false)
         edt_login_email = binding.edtLoginEmail
         edt_login_password = binding.edtLoginPassword
+
+        button = binding.imageView2
+
+        button.setOnClickListener {
+            Toast.makeText(context, "Halo", Toast.LENGTH_SHORT).show()
+        }
+
+
 
         return inflater.inflate(R.layout.fragment_login, container, false)
     }

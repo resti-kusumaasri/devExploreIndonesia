@@ -14,9 +14,7 @@ import com.example.exploreindonesia.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var button_home_first: LinearLayout
-    lateinit var button_home_second: LinearLayout
-    lateinit var button_home_third: LinearLayout
+
 
     private lateinit var binding: ActivityMainBinding
 
@@ -30,13 +28,7 @@ class MainActivity : AppCompatActivity() {
 
         supportActionBar?.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.actionbarcorner))
 
-        button_home_first = findViewById(R.id.button_home_first)
-        button_home_second = findViewById(R.id.button_home_second)
-        button_home_third = findViewById(R.id.button_home_third)
 
-        button_home_first.setOnClickListener {
-            Toast.makeText(this, "Home First", Toast.LENGTH_SHORT).show()
-        }
 
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
         // Passing each menu ID as a set of Ids because each
@@ -46,6 +38,8 @@ class MainActivity : AppCompatActivity() {
                 R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications
             )
         )
+
+
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
     }
