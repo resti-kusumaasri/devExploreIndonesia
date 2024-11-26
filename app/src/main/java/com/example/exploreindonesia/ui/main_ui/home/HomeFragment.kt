@@ -5,12 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
-import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.example.exploreindonesia.R
 import com.example.exploreindonesia.databinding.FragmentHomeBinding
+import com.example.exploreindonesia.ui.main_ui.search.SearchFragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class HomeFragment : Fragment() {
 
@@ -41,6 +43,22 @@ class HomeFragment : Fragment() {
 
         button_home_first.setOnClickListener {
             Toast.makeText(context, "button_home_first", Toast.LENGTH_SHORT).show()
+        }
+        button_home_second.setOnClickListener {
+            Toast.makeText(context, "button_home_second", Toast.LENGTH_SHORT).show()
+        }
+
+        button_home_third.setOnClickListener {
+
+            val bundle = Bundle()
+            bundle.putBoolean("s", true)
+
+            SearchFragment().arguments = bundle
+
+            val navView = requireActivity().findViewById<BottomNavigationView>(R.id.nav_view)
+            navView.selectedItemId = R.id.navigation_search
+            findNavController().navigate(R.id.navigation_search, bundle)
+
         }
 
 

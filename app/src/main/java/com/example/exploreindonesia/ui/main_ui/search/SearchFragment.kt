@@ -1,4 +1,4 @@
-package com.example.exploreindonesia.ui.main_ui.dashboard
+package com.example.exploreindonesia.ui.main_ui.search
 
 import androidx.fragment.app.viewModels
 import android.os.Bundle
@@ -8,52 +8,57 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.exploreindonesia.R
-import com.example.exploreindonesia.databinding.FragmentDashboardBinding
-import com.example.exploreindonesia.ui.main_ui.dashboard.sub_ui.daerah.DaerahFragment
+import com.example.exploreindonesia.databinding.FragmentSearchBinding
 
-class DashBoardFragment : Fragment() {
+import com.example.exploreindonesia.ui.main_ui.search.sub_ui.daerah.DaerahFragment
+import com.example.exploreindonesia.ui.main_ui.search.sub_ui.kategori.KategoriFragment
+
+class SearchFragment : Fragment() {
 
     companion object {
-        fun newInstance() = DashBoardFragment()
+        fun newInstance() = SearchFragment()
     }
 
-    private val viewModel: DashBoardViewModel by viewModels()
-    private lateinit var binding: FragmentDashboardBinding
+    private val viewModel: SearchViewModel by viewModels()
+    private lateinit var binding: FragmentSearchBinding
     private lateinit var conatiner: ConstraintLayout
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentDashboardBinding.inflate(inflater, container, false)
+        binding = FragmentSearchBinding.inflate(inflater, container, false)
         return binding.root
-
-
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
+
         if (savedInstanceState==null) {
             childFragmentManager.beginTransaction()
-                .replace(R.id.container_dashboard, DaerahFragment.newInstance())
+                .replace(R.id.container_search, DaerahFragment.newInstance())
                 .commitNow()
         }
 
         binding.btnDaerah.setOnClickListener {
             binding.btnDaerah.setImageResource(R.drawable.daerah_enable)
             binding.btnKategori.setImageResource(R.drawable.kategori_disable)
-            binding.btnDaerah.isClickable = false
-            binding.btnKategori.isClickable = true
+
 
             childFragmentManager.beginTransaction()
-                .replace(R.id.container_dashboard, DaerahFragment.newInstance())
+                .replace(R.id.container_search, DaerahFragment.newInstance())
                 .commitNow()
         }
 
         binding.btnKategori.setOnClickListener {
             binding.btnDaerah.setImageResource(R.drawable.daerah_disable)
             binding.btnKategori.setImageResource(R.drawable.kategori_enable)
+
+            childFragmentManager.beginTransaction()
+                .replace(R.id.container_search, KategoriFragment.newInstance())
+                .commitNow()
 
         }
 

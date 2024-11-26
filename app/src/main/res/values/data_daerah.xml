@@ -6,4 +6,19 @@
         <item>@drawable/papua</item>
         <item>@drawable/daerah_lainnya</item>
     </array>
+
+    <string-array name="gambar_kategori">
+        <item>@drawable/sejarah_nusantara</item>
+        <item>@drawable/tradisi_nusantara</item>
+        <item>@drawable/pakaian_nusantara</item>
+        <item>@drawable/rumah_adat</item>
+        <item>@drawable/tarian_nusantara</item>
+        <item>@drawable/musik_nusantara</item>
+        <item>@drawable/dongeng_nusantara</item>
+        <item>@drawable/kuliner_nusantara</item>
+        <item>@drawable/wisata_nusantara</item>
+        <item>@drawable/kerajinan_nusantara</item>
+        <item>@drawable/bahasa_nusantara</item>
+        <item>@drawable/quiz_nusantara</item>
+    </string-array>
 </resources>

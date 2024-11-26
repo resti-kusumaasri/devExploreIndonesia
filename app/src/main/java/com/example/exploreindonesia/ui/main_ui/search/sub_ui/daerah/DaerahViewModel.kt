@@ -1,4 +1,4 @@
-package com.example.exploreindonesia.ui.main_ui.dashboard.sub_ui.daerah
+package com.example.exploreindonesia.ui.main_ui.search.sub_ui.daerah
 
 import androidx.lifecycle.ViewModel
 

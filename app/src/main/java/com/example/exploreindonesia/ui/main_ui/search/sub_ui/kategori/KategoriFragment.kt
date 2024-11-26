@@ -1,43 +1,40 @@
-package com.example.exploreindonesia.ui.main_ui.dashboard.sub_ui.daerah
+package com.example.exploreindonesia.ui.main_ui.search.sub_ui.kategori
 
 import androidx.fragment.app.viewModels
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.exploreindonesia.R
 import com.example.exploreindonesia.data.adapter.DaerahAdapter
 
-class DaerahFragment : Fragment() {
+class KategoriFragment : Fragment() {
 
     companion object {
-        fun newInstance() = DaerahFragment()
+        fun newInstance() = KategoriFragment()
     }
 
-    private val viewModel: DaerahViewModel by viewModels()
+    private val viewModel: KategoriViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // TODO: Use the ViewModel
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(R.layout.fragment_daerah, container, false)
+        return inflater.inflate(R.layout.fragment_kategori, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
 
-
-        val daerah = resources.obtainTypedArray(R.array.gambar_daerah)
+        val daerah = resources.obtainTypedArray(R.array.gambar_kategori)
         val daerahList = mutableListOf<Int>()
         for (i in 0 until daerah.length()) {
             daerahList.add(daerah.getResourceId(i, -1))
@@ -45,11 +42,9 @@ class DaerahFragment : Fragment() {
         daerah.recycle()
 
 
-        val daerahRecyclerView = view.findViewById<RecyclerView>(R.id.recyclerView_daerah)
+        val kategoriRecyclerView = view.findViewById<RecyclerView>(R.id.recyclerView_kategori)
         val adapter = DaerahAdapter(daerahList)
-        daerahRecyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
-        daerahRecyclerView.adapter = adapter
-
-
+        kategoriRecyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
+        kategoriRecyclerView.adapter = adapter
     }
 }

@@ -7,7 +7,7 @@ import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.exploreindonesia.R
 
-class DaerahAdapter(private var listDaerah: MutableList<Int>) : RecyclerView.Adapter<DaerahAdapter.DaerahViewholder>() {
+class DaerahAdapter(private var list: MutableList<Int>) : RecyclerView.Adapter<DaerahAdapter.DaerahViewholder>() {
 
     class DaerahViewholder(view: View) : RecyclerView.ViewHolder(view) {
         val imageView: ImageView = view.findViewById(R.id.image_item_daerah)
@@ -18,15 +18,15 @@ class DaerahAdapter(private var listDaerah: MutableList<Int>) : RecyclerView.Ada
         return DaerahViewholder(view)
     }
 
-    override fun getItemCount() = listDaerah.size
+    override fun getItemCount() = list.size
 
     override fun onBindViewHolder(holder: DaerahViewholder, position: Int) {
-        holder.imageView.setImageResource(listDaerah[position])
+        holder.imageView.setImageResource(list[position])
     }
 
     fun updateData(newList: List<Int>) {
-        listDaerah.clear()
-        listDaerah.addAll(newList)
+        list.clear()
+        list.addAll(newList)
         notifyDataSetChanged()
     }
 }
