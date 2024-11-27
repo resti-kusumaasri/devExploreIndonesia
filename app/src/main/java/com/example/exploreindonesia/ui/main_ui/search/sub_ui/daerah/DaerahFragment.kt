@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.exploreindonesia.R
-import com.example.exploreindonesia.data.adapter.DaerahAdapter
+import com.example.exploreindonesia.data.adapter.SearchAdapter
 
 class DaerahFragment : Fragment() {
 
@@ -43,7 +43,7 @@ class DaerahFragment : Fragment() {
 
 
         val daerahRecyclerView = view.findViewById<RecyclerView>(R.id.recyclerView_daerah)
-        val adapter = DaerahAdapter(daerahList)
+        val adapter = SearchAdapter(daerahList)
         daerahRecyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
         daerahRecyclerView.adapter = adapter
 

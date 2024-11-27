@@ -7,7 +7,7 @@ import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.exploreindonesia.R
 
-class DaerahAdapter(private var list: MutableList<Int>) : RecyclerView.Adapter<DaerahAdapter.DaerahViewholder>() {
+class SearchAdapter(private var list: MutableList<Int>) : RecyclerView.Adapter<SearchAdapter.DaerahViewholder>() {
 
     class DaerahViewholder(view: View) : RecyclerView.ViewHolder(view) {
         val imageView: ImageView = view.findViewById(R.id.image_item_daerah)

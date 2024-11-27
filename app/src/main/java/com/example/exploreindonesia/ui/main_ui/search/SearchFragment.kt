@@ -34,8 +34,6 @@ class SearchFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
-
         if (savedInstanceState==null) {
             childFragmentManager.beginTransaction()
                 .replace(R.id.container_search, DaerahFragment.newInstance())
@@ -62,6 +60,11 @@ class SearchFragment : Fragment() {
 
         }
 
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        
     }
 
 

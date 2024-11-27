@@ -14,12 +14,12 @@
     <fragment
         android:id="@+id/navigation_search"
         android:name="com.example.exploreindonesia.ui.main_ui.search.SearchFragment"
-        android:label="@string/title_dashboard"
+        android:label="@string/search"
         tools:layout="@layout/fragment_search" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.example.exploreindonesia.ui.main_ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_history"
+        android:name="com.example.exploreindonesia.ui.main_ui.Histori.HistoriFragment"
+        android:label="@string/history"
+        tools:layout="@layout/fragment_histori" />
 </navigation>
