@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 import com.example.exploreindonesia.R
 
 // TODO: Rename parameter arguments, choose names that match
@@ -19,6 +20,8 @@ private const val ARG_PARAM2 = "param2"
  */
 class RegisterFragment : Fragment() {
 
+
+
     companion object {
         fun newInstance() = RegisterFragment()
     }
@@ -26,6 +29,7 @@ class RegisterFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
+
 
         }
     }

@@ -1,33 +1,53 @@
 package com.example.exploreindonesia.ui.auth_ui
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.example.exploreindonesia.data.request.LoginRequest
+import com.example.exploreindonesia.data.request.RegisterRequest
+import com.example.exploreindonesia.data.response.RegisterResponse
+import com.example.exploreindonesia.data.retrofit.ApiConfig
+import com.google.gson.Gson
+import kotlinx.coroutines.launch
+import retrofit2.HttpException
 
 class AuthViewModel : ViewModel() {
 
-    private val _registerResult = MutableLiveData<String>()
-    val registerResult: LiveData<String> get() = _registerResult
+    private val _registerResult = MutableLiveData<String?>()
+    val registerResult: MutableLiveData<String?> get() = _registerResult
 
-    fun registerAccount(
-        fullname: String,
-        username: String,
-        email: String,
-        password: String,
-        confirmPassword: String
+    fun registerUser(
+        request: RegisterRequest
     ) {
-        // Validasi sederhana
-        if (fullname.isBlank() || username.isBlank() || email.isBlank() || password.isBlank() || confirmPassword.isBlank()) {
-            _registerResult.value = "All fields must be filled"
-            return
+        viewModelScope.launch {
+            try {
+                val response = ApiConfig.getApiService().registerUser(request)
+                _registerResult.value = response.message
+            } catch (e: HttpException) {
+                val erroBody = e.response()?.errorBody()?.string()
+                val errorRegisterResponse = Gson().fromJson(erroBody, RegisterResponse::class.java)
+                _registerResult.value = errorRegisterResponse.error
+            } catch (e: Exception) {
+                _registerResult.value = e.message
+            }
         }
-        if (password != confirmPassword) {
-            _registerResult.value = "Password does not match"
-            return
-        }
+    }
 
-        // Proses registrasi (bisa ditambahkan logika API atau database di sini)
-        // Misalnya simulasi registrasi berhasil:
-        _registerResult.value = "Registration successful for user $username"
+    fun loginUser(
+        request: LoginRequest
+    ) {
+        viewModelScope.launch {
+            try {
+                val response = ApiConfig.getApiService().loginUser(request)
+                _registerResult.value = response.token
+            } catch (e: HttpException) {
+                val erroBody = e.response()?.errorBody()?.string()
+                val errorRegisterResponse = Gson().fromJson(erroBody, RegisterResponse::class.java)
+                _registerResult.value = errorRegisterResponse.error
+            }
+            catch (e: Exception) {
+                _registerResult.value = e.message
+            }
+        }
     }
 }
