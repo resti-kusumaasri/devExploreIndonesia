@@ -53,10 +53,10 @@ dependencies {
     //Retrofit
     implementation(libs.squareup.retrofit)
     implementation(libs.retrofit2.converter.gson)
-    implementation (libs.squareup.logging.interceptor)
+    implementation(libs.squareup.logging.interceptor)
 
     //Glide
-    implementation (libs.glide)
+    implementation(libs.glide)
 
 
     implementation(libs.androidx.core.ktx)

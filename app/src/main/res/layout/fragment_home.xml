@@ -97,7 +97,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/image_button_region"/>
+            android:src="@drawable/image_button_region" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -109,21 +109,21 @@
                 android:layout_height="wrap_content"
                 style="@style/title_teks"
                 android:layout_marginStart="5dp"
-                android:text="@string/sejarah_nusantara"/>
+                android:text="@string/sejarah_nusantara" />
 
             <TextView
                 android:layout_width="160dp"
                 android:layout_height="wrap_content"
                 style="@style/teks"
                 android:layout_marginStart="5dp"
-                android:text="@string/deskripsi_sejarah"/>
+                android:text="@string/deskripsi_sejarah" />
         </LinearLayout>
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/button_jelajah"
-            android:padding="5dp"/>
+            android:padding="5dp" />
     </LinearLayout>
 
     <LinearLayout
@@ -142,7 +142,7 @@
             android:layout_margin="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/image_button_region"/>
+            android:src="@drawable/image_button_region" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -154,21 +154,21 @@
                 android:layout_height="wrap_content"
                 style="@style/title_teks"
                 android:layout_marginStart="5dp"
-                android:text="@string/kuliner_nusantara"/>
+                android:text="@string/kuliner_nusantara" />
 
             <TextView
                 android:layout_width="160dp"
                 android:layout_height="wrap_content"
                 style="@style/teks"
                 android:layout_marginStart="5dp"
-                android:text="@string/deskripsi_kuliner"/>
+                android:text="@string/deskripsi_kuliner" />
         </LinearLayout>
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/button_jelajah"
-            android:padding="5dp"/>
+            android:padding="5dp" />
 
 
     </LinearLayout>
@@ -192,13 +192,13 @@
             android:layout_marginStart="5dp"
             android:textSize="30sp"
             android:paddingHorizontal="10dp"
-            android:text="@string/selengkapnya"/>
+            android:text="@string/selengkapnya" />
 
         <ImageView
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:src="@drawable/button_jelajah"
-            android:padding="5dp"/>
+            android:padding="5dp" />
     </LinearLayout>
 
 

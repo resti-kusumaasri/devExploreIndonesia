@@ -11,7 +11,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.exploreindonesia.R
 import com.example.exploreindonesia.data.model.daerah_model
 
-class DaerahAdapter(private var list: List<daerah_model>) : RecyclerView.Adapter<DaerahAdapter.DaerahViewholder>(),
+class DaerahAdapter(private var list: List<daerah_model>) :
+    RecyclerView.Adapter<DaerahAdapter.DaerahViewholder>(),
     Filterable {
 
     private var listFull: List<daerah_model> = list

@@ -9,4 +9,4 @@ data class histori_model(
     val activityName: String,
     val timestamp: String
 
-):Parcelable
+) : Parcelable

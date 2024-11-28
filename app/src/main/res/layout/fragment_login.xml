@@ -10,9 +10,6 @@
     tools:context=".ui.auth_ui.LoginFragment">
 
 
-
-
-
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="wrap_content"

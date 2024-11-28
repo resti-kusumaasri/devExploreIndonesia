@@ -36,4 +36,5 @@
     <string name="nama_daerah">nama Daerah</string>
     <string name="view_keatgori_item">view keatgori item</string>
     <string name="logout">Logout</string>
+    <string name="username">Username</string>
 </resources>

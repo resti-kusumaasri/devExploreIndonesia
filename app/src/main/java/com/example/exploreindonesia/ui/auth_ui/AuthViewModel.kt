@@ -39,13 +39,12 @@ class AuthViewModel : ViewModel() {
         viewModelScope.launch {
             try {
                 val response = ApiConfig.getApiService().loginUser(request)
-                _registerResult.value = response.token
+                _registerResult.value = response.userId
             } catch (e: HttpException) {
                 val erroBody = e.response()?.errorBody()?.string()
                 val errorRegisterResponse = Gson().fromJson(erroBody, RegisterResponse::class.java)
                 _registerResult.value = errorRegisterResponse.error
-            }
-            catch (e: Exception) {
+            } catch (e: Exception) {
                 _registerResult.value = e.message
             }
         }

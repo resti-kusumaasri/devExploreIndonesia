@@ -9,10 +9,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.exploreindonesia.R
-import com.example.exploreindonesia.data.model.daerah_model
 import com.example.exploreindonesia.data.model.kategori_model
 
-class KategoriAdapter(private var list: List<kategori_model>) : RecyclerView.Adapter<KategoriAdapter.KategoriViewholder>(),
+class KategoriAdapter(private var list: List<kategori_model>) :
+    RecyclerView.Adapter<KategoriAdapter.KategoriViewholder>(),
     Filterable {
 
     private var listFull: List<kategori_model> = list

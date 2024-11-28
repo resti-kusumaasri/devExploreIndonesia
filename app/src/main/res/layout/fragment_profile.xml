@@ -9,14 +9,27 @@
 
     <ImageView
         android:id="@+id/image_profile"
-        android:scaleType="centerCrop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/tarsius"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/tarsius" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/username_teks"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="32dp"
+        android:text="@string/username"
+        android:textAlignment="center"
+        style="@style/title_teks"
+        app:layout_constraintBottom_toTopOf="@+id/email_teks"
+        app:layout_constraintTop_toBottomOf="@+id/image_profile"
+        tools:layout_editor_absoluteX="12dp" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/email_teks"

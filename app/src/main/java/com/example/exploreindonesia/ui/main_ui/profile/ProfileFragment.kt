@@ -2,14 +2,15 @@ package com.example.exploreindonesia.ui.main_ui.profile
 
 import android.content.Context.MODE_PRIVATE
 import android.content.Intent
-import androidx.fragment.app.viewModels
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.Toast
+import android.widget.TextView
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.viewModelScope
 import com.example.exploreindonesia.AuthActivity
 import com.example.exploreindonesia.R
 
@@ -40,6 +41,26 @@ class ProfileFragment : Fragment() {
         val btnLogout = view.findViewById<Button>(R.id.btn_logout)
 
         val akunSharedPreferences = requireActivity().getSharedPreferences("akun", MODE_PRIVATE)
+        var userId = akunSharedPreferences.getString("userId", null).toString()
+
+        var username = view.findViewById<TextView>(R.id.username_teks)
+        var email = view.findViewById<TextView>(R.id.email)
+        var name = view.findViewById<TextView>(R.id.name)
+
+        viewModel.getProfile(userId)
+
+       viewModel.username.observe(viewLifecycleOwner) {
+           username.text = it
+       }
+       viewModel.email.observe(viewLifecycleOwner) {
+           email.text = it
+       }
+
+        viewModel.fullname.observe(viewLifecycleOwner) {
+            name.text = it
+       }
+
+
 
         btnLogout.setOnClickListener {
             akunSharedPreferences.edit().clear().apply()

@@ -1,15 +1,14 @@
 package com.example.exploreindonesia.ui.main_ui.search
 
-import androidx.fragment.app.viewModels
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import com.example.exploreindonesia.R
 import com.example.exploreindonesia.databinding.FragmentSearchBinding
-
 import com.example.exploreindonesia.ui.main_ui.search.sub_ui.daerah.DaerahFragment
 import com.example.exploreindonesia.ui.main_ui.search.sub_ui.kategori.KategoriFragment
 
@@ -34,7 +33,7 @@ class SearchFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        if (savedInstanceState==null) {
+        if (savedInstanceState == null) {
             childFragmentManager.beginTransaction()
                 .replace(R.id.container_search, DaerahFragment.newInstance())
                 .commitNow()
@@ -64,7 +63,7 @@ class SearchFragment : Fragment() {
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        
+
     }
 
 

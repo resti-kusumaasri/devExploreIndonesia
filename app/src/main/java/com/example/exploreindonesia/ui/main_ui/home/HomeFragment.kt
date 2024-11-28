@@ -38,7 +38,7 @@ class HomeFragment : Fragment() {
         val root: View = binding.root
 
         button_home_first = binding.buttonHomeFirst
-        button_home_second =binding.buttonHomeSecond
+        button_home_second = binding.buttonHomeSecond
         button_home_third = binding.buttonHomeThird
 
         button_home_first.setOnClickListener {

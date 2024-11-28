@@ -8,7 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.exploreindonesia.R
 import com.example.exploreindonesia.data.model.histori_model
 
-class HistoriAdapter (private val historiList: List<histori_model>) : RecyclerView.Adapter<HistoriAdapter.HistoriViewHolder>() {
+class HistoriAdapter(private val historiList: List<histori_model>) :
+    RecyclerView.Adapter<HistoriAdapter.HistoriViewHolder>() {
     class HistoriViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val activityName: TextView = itemView.findViewById(R.id.nama_item_histori)
         val timestamp: TextView = itemView.findViewById(R.id.waktu_item_hostori)

@@ -4,8 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.example.exploreindonesia.databinding.ActivitySplashScreenBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -29,7 +27,7 @@ class SplashScreen : AppCompatActivity() {
         }
     }
 
-    private fun toAuthActivity(){
+    private fun toAuthActivity() {
         val intent = Intent(this, AuthActivity::class.java)
         startActivity(intent)
         finish()

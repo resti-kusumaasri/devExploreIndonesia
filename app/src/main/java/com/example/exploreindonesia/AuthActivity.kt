@@ -1,28 +1,21 @@
 package com.example.exploreindonesia
 
-import android.annotation.SuppressLint
 import android.content.Intent
-import android.media.session.MediaSession.Token
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.view.View.INVISIBLE
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
-import android.widget.ProgressBar
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.example.exploreindonesia.data.request.LoginRequest
 import com.example.exploreindonesia.data.request.RegisterRequest
 import com.example.exploreindonesia.databinding.ActivityAuthBinding
-import com.example.exploreindonesia.databinding.FragmentLoginBinding
 import com.example.exploreindonesia.ui.auth_ui.AuthViewModel
 import com.example.exploreindonesia.ui.auth_ui.LoginFragment
 import com.example.exploreindonesia.ui.auth_ui.RegisterFragment
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -33,7 +26,7 @@ class AuthActivity : AppCompatActivity() {
     private lateinit var btnregister: ImageView
     private lateinit var btnsubmit: Button
     private lateinit var authViewModel: AuthViewModel
-    private var token: String? = null
+    private var userId: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,10 +39,10 @@ class AuthActivity : AppCompatActivity() {
 
         val akunSharedPreferences = getSharedPreferences("akun", MODE_PRIVATE)
 
-        if (akunSharedPreferences.getString("token",null)!=null) {
-                val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent)
-                finish()
+        if (akunSharedPreferences.getString("userId", null) != null) {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
         }
 
         authViewModel = ViewModelProvider(this).get(AuthViewModel::class.java)
@@ -86,45 +79,48 @@ class AuthActivity : AppCompatActivity() {
                 Toast.makeText(this, "Proses Login Diproses", Toast.LENGTH_SHORT).show()
                 val email = findViewById<EditText>(R.id.edt_login_email).text.toString()
                 val password = findViewById<EditText>(R.id.edt_login_password).text.toString()
-                if (email!="" && password!="") {
+                if (email != "" && password != "") {
                     val loginData = LoginRequest(email, password)
                     authViewModel.loginUser(loginData)
                 }
                 Toast.makeText(this, "Proses Login Selesai", Toast.LENGTH_SHORT).show()
                 authViewModel.registerResult.observe(this) { result ->
                     val intent = Intent(this, MainActivity::class.java)
-                    CoroutineScope(Dispatchers.Main).launch{
+                    CoroutineScope(Dispatchers.Main).launch {
                         delay(500)
-                        token = result.toString()
-                        akunSharedPreferences.edit().putString("token", token).apply()
+                        userId = result.toString()
+                        akunSharedPreferences.edit().putString("userId", userId).apply()
                         if (result != null) {
                             startActivity(intent)
                             finish()
                         } else {
-                            Toast.makeText((this@AuthActivity), "Login Gagal", Toast.LENGTH_SHORT).show()
+                            Toast.makeText((this@AuthActivity), "Login Gagal", Toast.LENGTH_SHORT)
+                                .show()
                         }
                     }
                 }
 
-            }  else {
+            } else {
                 Toast.makeText(this, "Proses Register Diproses", Toast.LENGTH_SHORT).show()
 
                 val name = findViewById<EditText>(R.id.edt_nama_lengkap).text.toString()
                 val email = findViewById<EditText>(R.id.edt_register_email).text.toString()
                 val username = findViewById<EditText>(R.id.edt_username).text.toString()
                 val password = findViewById<EditText>(R.id.edt_register_password).text.toString()
-                val confirm_password = findViewById<EditText>(R.id.edt_konfirmasi_password).text.toString()
+                val confirm_password =
+                    findViewById<EditText>(R.id.edt_konfirmasi_password).text.toString()
 
 
-                if (name!="" && email!="" && username!="" && password!="" && confirm_password!="") {
+                if (name != "" && email != "" && username != "" && password != "" && confirm_password != "") {
                     val registerData =
                         RegisterRequest(name, email, username, password, confirm_password)
                     authViewModel.registerUser(registerData)
                 }
                 authViewModel.registerResult.observe(this) { result ->
-                    Toast.makeText(this," $result dengan email : $email", Toast.LENGTH_SHORT).show()
-                    if (result=="Registrasi berhasil") {
-                        CoroutineScope(Dispatchers.Main).launch{
+                    Toast.makeText(this, " $result dengan email : $email", Toast.LENGTH_SHORT)
+                        .show()
+                    if (result == "Registrasi berhasil") {
+                        CoroutineScope(Dispatchers.Main).launch {
                             delay(1000)
                             btnlogin.setImageResource(R.drawable.btn_login_active)
                             btnregister.setImageResource(R.drawable.btn_register_inactive)
@@ -141,7 +137,7 @@ class AuthActivity : AppCompatActivity() {
         supportActionBar?.show()
     }
 
-    fun setButton(){
+    fun setButton() {
         if (supportFragmentManager.findFragmentById(R.id.container_auth) is LoginFragment) {
             btnlogin.setImageResource(R.drawable.btn_login_active)
             btnregister.setImageResource(R.drawable.btn_register_inactive)
