@@ -6,6 +6,7 @@ import android.media.session.MediaSession.Token
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.view.View.INVISIBLE
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
@@ -32,7 +33,7 @@ class AuthActivity : AppCompatActivity() {
     private lateinit var btnregister: ImageView
     private lateinit var btnsubmit: Button
     private lateinit var authViewModel: AuthViewModel
-    private lateinit var token: String
+    private var token: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,14 +44,13 @@ class AuthActivity : AppCompatActivity() {
                 .commitNow()
         }
 
-
         val akunSharedPreferences = getSharedPreferences("akun", MODE_PRIVATE)
 
-//        if (token.isNotEmpty()) {
-//                val intent = Intent(this, MainActivity::class.java)
-//                startActivity(intent)
-//                finish()
-//        }
+        if (akunSharedPreferences.getString("token",null)!=null) {
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+                finish()
+        }
 
         authViewModel = ViewModelProvider(this).get(AuthViewModel::class.java)
 
@@ -83,13 +83,14 @@ class AuthActivity : AppCompatActivity() {
 
         btnsubmit.setOnClickListener {
             if (btnsubmit.text == "Login") {
+                Toast.makeText(this, "Proses Login Diproses", Toast.LENGTH_SHORT).show()
                 val email = findViewById<EditText>(R.id.edt_login_email).text.toString()
                 val password = findViewById<EditText>(R.id.edt_login_password).text.toString()
                 if (email!="" && password!="") {
                     val loginData = LoginRequest(email, password)
                     authViewModel.loginUser(loginData)
                 }
-                binding.containerAuth.visibility = View.VISIBLE
+                Toast.makeText(this, "Proses Login Selesai", Toast.LENGTH_SHORT).show()
                 authViewModel.registerResult.observe(this) { result ->
                     val intent = Intent(this, MainActivity::class.java)
                     CoroutineScope(Dispatchers.Main).launch{
@@ -106,6 +107,7 @@ class AuthActivity : AppCompatActivity() {
                 }
 
             }  else {
+                Toast.makeText(this, "Proses Register Diproses", Toast.LENGTH_SHORT).show()
 
                 val name = findViewById<EditText>(R.id.edt_nama_lengkap).text.toString()
                 val email = findViewById<EditText>(R.id.edt_register_email).text.toString()
@@ -120,13 +122,20 @@ class AuthActivity : AppCompatActivity() {
                     authViewModel.registerUser(registerData)
                 }
                 authViewModel.registerResult.observe(this) { result ->
-                    Toast.makeText(this, result, Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this," $result dengan email : $email", Toast.LENGTH_SHORT).show()
+                    if (result=="Registrasi berhasil") {
+                        CoroutineScope(Dispatchers.Main).launch{
+                            delay(1000)
+                            btnlogin.setImageResource(R.drawable.btn_login_active)
+                            btnregister.setImageResource(R.drawable.btn_register_inactive)
+                            supportFragmentManager.beginTransaction()
+                                .replace(R.id.container_auth, LoginFragment.newInstance())
+                                .commitNow()
+                        }
+                    }
                 }
             }
         }
-
-
-
 
         setButton()
         supportActionBar?.show()

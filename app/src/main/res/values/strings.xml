@@ -35,4 +35,5 @@
     <string name="search_for_find_region">Search for find Region</string>
     <string name="nama_daerah">nama Daerah</string>
     <string name="view_keatgori_item">view keatgori item</string>
+    <string name="logout">Logout</string>
 </resources>
