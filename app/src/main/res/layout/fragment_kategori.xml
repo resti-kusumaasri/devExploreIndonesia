@@ -6,8 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".ui.main_ui.search.sub_ui.kategori.KategoriFragment">
 
-    <EditText
-        android:id="@+id/serch_bar"
+    <SearchView
+        android:id="@+id/search_bar_kategori"
         android:layout_width="340dp"
         android:layout_height="50dp"
         android:layout_marginTop="32dp"
@@ -25,14 +25,15 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:contentDescription="@string/view_keatgori_item"
         android:id="@+id/recyclerView_kategori"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="150dp"
         android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/serch_bar"
-        app:layout_constraintStart_toStartOf="@+id/serch_bar"
+        app:layout_constraintEnd_toEndOf="@+id/search_bar_kategori"
+        app:layout_constraintStart_toStartOf="@+id/search_bar_kategori"
         app:layout_constraintTop_toTopOf="parent"
         tools:listitem="@layout/item_daerah" />
 

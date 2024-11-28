@@ -43,7 +43,14 @@ class AuthActivity : AppCompatActivity() {
                 .commitNow()
         }
 
+
         val akunSharedPreferences = getSharedPreferences("akun", MODE_PRIVATE)
+
+//        if (token.isNotEmpty()) {
+//                val intent = Intent(this, MainActivity::class.java)
+//                startActivity(intent)
+//                finish()
+//        }
 
         authViewModel = ViewModelProvider(this).get(AuthViewModel::class.java)
 

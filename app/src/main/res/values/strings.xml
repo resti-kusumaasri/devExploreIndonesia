@@ -32,4 +32,7 @@
     <string name="history">History</string>
     <string name="profile">Profile</string>
     <string name="this_email">This Email</string>
+    <string name="search_for_find_region">Search for find Region</string>
+    <string name="nama_daerah">nama Daerah</string>
+    <string name="view_keatgori_item">view keatgori item</string>
 </resources>

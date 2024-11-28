@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <array name="gambar_daerah">
+    <string-array name="gambar_daerah">
         <item>@drawable/sumatera_utara</item>
         <item>@drawable/sulawesi_selatan</item>
         <item>@drawable/papua</item>
         <item>@drawable/daerah_lainnya</item>
-    </array>
+    </string-array>
+
+    <string-array name="nama_daerah">
+        <item>Sumatera Utara</item>
+        <item>Sulawesi Selatan</item>
+        <item>Papua</item>
+        <item>Daerah Lainnya</item>
+    </string-array>
 
     <string-array name="gambar_kategori">
         <item>@drawable/sejarah_nusantara</item>
@@ -21,4 +28,21 @@
         <item>@drawable/bahasa_nusantara</item>
         <item>@drawable/quiz_nusantara</item>
     </string-array>
+
+    <string-array name="nama_kategori">
+        <item>Sejarah Nusantara</item>
+        <item>Tradisi Nusantara</item>
+        <item>Pakaian Nusantara</item>
+        <item>Rumah Adat</item>
+        <item>Tarian Nusantara</item>
+        <item>Musik Nusantara</item>
+        <item>Dongeng Nusantara</item>
+        <item>Kuliner Nusantara</item>
+        <item>Wisata Nusantara</item>
+        <item>Kerajinan Nusantara</item>
+        <item>Bahasa Nusantara</item>
+        <item>Quiz Nusantara</item>
+    </string-array>
+
+
 </resources>
