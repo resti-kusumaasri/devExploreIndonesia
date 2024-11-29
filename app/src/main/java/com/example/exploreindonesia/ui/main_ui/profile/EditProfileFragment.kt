@@ -2,6 +2,8 @@ package com.example.exploreindonesia.ui.main_ui.profile
 
 import android.content.Context.MODE_PRIVATE
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -49,6 +51,11 @@ class EditProfileFragment : Fragment() {
         val akunSharedPreferences = requireActivity().getSharedPreferences("akun", MODE_PRIVATE)
         var userId = akunSharedPreferences.getString("userId", null).toString()
 
+        val akunEditprefences = requireActivity().getSharedPreferences("edit", MODE_PRIVATE)
+
+
+
+
         val viewModel = ViewModelProvider(this)[ProfileViewModel::class.java]
 
         viewModel.getProfile(userId)
@@ -64,11 +71,9 @@ class EditProfileFragment : Fragment() {
             editUsername.setText(it)
         }
 
-        val newNama = editName.text.toString()
-        val newUsername = editUsername.text.toString()
 
-        viewModel.newName.value = newNama
-        viewModel.newUsername.value = newUsername
+
+
 
     }
 }

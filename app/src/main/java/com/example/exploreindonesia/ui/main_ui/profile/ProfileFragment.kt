@@ -1,5 +1,6 @@
 package com.example.exploreindonesia.ui.main_ui.profile
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context.MODE_PRIVATE
 import android.content.Intent
@@ -10,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.coroutineScope
@@ -20,6 +22,7 @@ import com.example.exploreindonesia.AuthActivity
 import com.example.exploreindonesia.R
 import com.example.exploreindonesia.data.request.EditRequest
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -44,6 +47,7 @@ class ProfileFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_profile, container, false)
     }
 
+    @SuppressLint("CutPasteId")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -78,20 +82,28 @@ class ProfileFragment : Fragment() {
                     .commitNow()
             } else if (btnEditProfile.text == "Simpan") {
 
+                val newName = view.findViewById<EditText>(R.id.name_edit)
+                val newUsername = view.findViewById<EditText>(R.id.username_edit)
+
+
                 var bundle = Bundle()
                 bundle.putBoolean("edit", true)
-                var name = viewModel.newName.value
-                var username = viewModel.newUsername.value
+                var name = newName.text.toString()
+                var username = newUsername.text.toString()
 
                 val request = EditRequest(name  , username)
 
+                Toast.makeText(requireContext(), "Ubah Profile Sedang di Proses", Toast.LENGTH_SHORT).show()
                 viewModel.editProfile(userId, request)
-
                 btnEditProfile.text = "Edit Profile"
                 btnLogout.text = "Logout"
-                childFragmentManager.beginTransaction()
-                    .replace(R.id.profile_container, ViewProfileFragment())
-                    .commitNow()
+                Toast.makeText(requireContext(), "Ubah Profile Berhasil", Toast.LENGTH_SHORT).show()
+                CoroutineScope(Dispatchers.Main).launch {
+                    delay(1000)
+                    childFragmentManager.beginTransaction()
+                        .replace(R.id.profile_container, ViewProfileFragment())
+                        .commitNow()
+                }
             }
 
         }

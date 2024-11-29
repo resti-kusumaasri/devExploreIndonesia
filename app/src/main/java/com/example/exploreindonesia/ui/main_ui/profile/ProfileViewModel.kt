@@ -24,9 +24,6 @@ class ProfileViewModel : ViewModel() {
     private val _profileResult = MutableLiveData<ResponseProfile?>()
     val profileResult: MutableLiveData<ResponseProfile?> = _profileResult
 
-    val newUsername = MutableLiveData<String>()
-    val newName = MutableLiveData<String>()
-
 
 
 
@@ -61,7 +58,6 @@ class ProfileViewModel : ViewModel() {
             try {
                 val response = ApiConfig.getApiService()
                     .editProfile(id, request)
-                Log.d("ProfileViewModel", "Response: $response")
                 _fullname.value = response.data?.fullname.toString()
                 _username.value = response.data?.fullname.toString()
             } catch (e: HttpException) {
