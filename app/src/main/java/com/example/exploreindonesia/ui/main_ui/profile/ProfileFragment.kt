@@ -1,5 +1,6 @@
 package com.example.exploreindonesia.ui.main_ui.profile
 
+import android.app.Activity
 import android.content.Context.MODE_PRIVATE
 import android.content.Intent
 import android.os.Bundle
@@ -7,12 +8,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.coroutineScope
 import androidx.lifecycle.viewModelScope
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.example.exploreindonesia.AuthActivity
 import com.example.exploreindonesia.R
+import com.example.exploreindonesia.data.request.EditRequest
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class ProfileFragment : Fragment() {
 
@@ -39,36 +48,69 @@ class ProfileFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val btnLogout = view.findViewById<Button>(R.id.btn_logout)
+        val btnEditProfile = view.findViewById<Button>(R.id.btn_edit_profile)
 
         val akunSharedPreferences = requireActivity().getSharedPreferences("akun", MODE_PRIVATE)
         var userId = akunSharedPreferences.getString("userId", null).toString()
 
-        var username = view.findViewById<TextView>(R.id.username_teks)
-        var email = view.findViewById<TextView>(R.id.email)
-        var name = view.findViewById<TextView>(R.id.name)
-
         viewModel.getProfile(userId)
 
-       viewModel.username.observe(viewLifecycleOwner) {
-           username.text = it
-       }
-       viewModel.email.observe(viewLifecycleOwner) {
-           email.text = it
-       }
+        val editName = view.findViewById<EditText>(R.id.name_edit)
+        val editUsername = view.findViewById<EditText>(R.id.username_edit)
 
-        viewModel.fullname.observe(viewLifecycleOwner) {
-            name.text = it
-       }
+
+
+
+        childFragmentManager.beginTransaction()
+            .replace(R.id.profile_container, ViewProfileFragment())
+            .commitNow()
+
+
+
+
+
+        btnEditProfile.setOnClickListener {
+            if (btnEditProfile.text == "Edit Profile") {
+                btnEditProfile.text = "Simpan"
+                btnLogout.text = "Batal"
+                childFragmentManager.beginTransaction()
+                    .replace(R.id.profile_container, EditProfileFragment())
+                    .commitNow()
+            } else if (btnEditProfile.text == "Simpan") {
+
+                var bundle = Bundle()
+                bundle.putBoolean("edit", true)
+                var name = viewModel.newName.value
+                var username = viewModel.newUsername.value
+
+                val request = EditRequest(name  , username)
+
+                viewModel.editProfile(userId, request)
+
+                btnEditProfile.text = "Edit Profile"
+                btnLogout.text = "Logout"
+                childFragmentManager.beginTransaction()
+                    .replace(R.id.profile_container, ViewProfileFragment())
+                    .commitNow()
+            }
+
+        }
 
 
 
         btnLogout.setOnClickListener {
-            akunSharedPreferences.edit().clear().apply()
+            if (btnLogout.text == "Logout") {
+                akunSharedPreferences.edit().clear().apply()
 
-            val intent = Intent(requireContext(), AuthActivity::class.java)
-            startActivity(intent)
+                val intent = Intent(requireContext(), AuthActivity::class.java)
+                startActivity(intent)
+            } else if (btnLogout.text == "Batal") {
+                btnEditProfile.text = "Edit Profile"
+                btnLogout.text = "Logout"
+               childFragmentManager.beginTransaction()
+                   .replace(R.id.profile_container, ViewProfileFragment())
+                   .commitNow()
+            }
         }
     }
-
-
 }

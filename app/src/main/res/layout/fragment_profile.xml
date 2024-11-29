@@ -7,111 +7,35 @@
     tools:context=".ui.main_ui.profile.ProfileFragment">
 
 
-    <ImageView
-        android:id="@+id/image_profile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/tarsius"
+    <FrameLayout
+        android:id="@+id/profile_container"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/username_teks"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="32dp"
-        android:text="@string/username"
-        android:textAlignment="center"
-        style="@style/title_teks"
-        app:layout_constraintBottom_toTopOf="@+id/email_teks"
-        app:layout_constraintTop_toBottomOf="@+id/image_profile"
-        tools:layout_editor_absoluteX="12dp" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/email_teks"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="50dp"
-        app:layout_constraintEnd_toEndOf="@+id/image_profile"
-        app:layout_constraintStart_toStartOf="@+id/image_profile"
-        app:layout_constraintTop_toBottomOf="@+id/image_profile">
-
-        <TextView
-            style="@style/title_teks"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:gravity="center"
-            android:text="@string/nama_lengkap"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/email"
-            style="@style/title_teks"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="144dp"
-            android:gravity="center"
-            android:text="This Nama Lengkap"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/name_teks"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="@+id/email_teks"
-        app:layout_constraintStart_toStartOf="@+id/email_teks"
-        app:layout_constraintTop_toBottomOf="@+id/email_teks">
-
-        <TextView
-            style="@style/title_teks"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:gravity="center"
-            android:text="@string/email"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/name"
-            style="@style/title_teks"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="144dp"
-            android:gravity="center"
-            android:text="@string/this_email"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/btn_logout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
         android:text="@string/logout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name_teks" />
+        app:layout_constraintEnd_toEndOf="@+id/btn_edit_profile"
+        app:layout_constraintStart_toStartOf="@+id/btn_edit_profile"
+        app:layout_constraintTop_toBottomOf="@+id/btn_edit_profile" />
+
+    <Button
+        android:id="@+id/btn_edit_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:text="@string/edit_profile"
+        app:layout_constraintEnd_toEndOf="@id/profile_container"
+        app:layout_constraintStart_toStartOf="@+id/profile_container"
+        app:layout_constraintTop_toBottomOf="@+id/profile_container" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
