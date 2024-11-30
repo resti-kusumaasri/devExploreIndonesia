@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.exploreindonesia.R
 import com.example.exploreindonesia.data.adapter.DaerahAdapter
 import com.example.exploreindonesia.data.model.daerah_model
+import com.example.exploreindonesia.ui.main_ui.search.sub_ui.daerah.papua.PapuaActivity
 import com.example.exploreindonesia.ui.main_ui.search.sub_ui.daerah.sulawesi_selatan.SulawesiSelatanActivity
 import com.example.exploreindonesia.ui.main_ui.search.sub_ui.daerah.sumatra_utara.SumatraUtaraActivity
 
@@ -49,6 +50,10 @@ class DaerahFragment : Fragment() {
 
                 "Sulawesi Selatan" -> {
                     val intent = Intent(requireContext(), SulawesiSelatanActivity::class.java)
+                    startActivity(intent)
+                }
+                "Papua" -> {
+                    val intent = Intent(requireContext(), PapuaActivity::class.java)
                     startActivity(intent)
                 }
                 else -> {
