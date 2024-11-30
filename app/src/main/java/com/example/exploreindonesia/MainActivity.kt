@@ -1,5 +1,6 @@
 package com.example.exploreindonesia
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -19,12 +20,15 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         val akunSharedPreferences = getSharedPreferences("akun", MODE_PRIVATE)
+        if (akunSharedPreferences.getString("userId", null) == null) {
+            val intent = Intent(this, AuthActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
 
-        val token = akunSharedPreferences.getString("token", null)
 
 
 
-        var intent = intent.getStringExtra("daerah")
 
 
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -54,5 +58,28 @@ class MainActivity : AppCompatActivity() {
 
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+    }
+
+
+
+    override fun onResume() {
+        super.onResume()
+        var intent = intent.getStringExtra("daerah")
+
+        if (intent == "true") {
+            val navGraph = findNavController(R.id.nav_host_fragment_activity_main).navInflater.inflate(R.navigation.mobile_navigation)
+            navGraph.setStartDestination(R.id.navigation_search)
+            findNavController(R.id.nav_host_fragment_activity_main).graph = navGraph
+        }
+    }
+
+    override fun onResumeFragments() {
+        super.onResumeFragments()
+        val akunsharedPreferences = getSharedPreferences("akun", MODE_PRIVATE)
+        if (akunsharedPreferences.getString("userId", null) == null) {
+            val intent = Intent(this, AuthActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 }

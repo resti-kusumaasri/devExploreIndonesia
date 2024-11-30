@@ -18,7 +18,6 @@ class SulawesiSelatanActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
         supportActionBar?.title = "Sulawesi Selatan"
-
         supportFragmentManager.beginTransaction()
             .add(R.id.container_sulawesi_selatan,SulawesiSelatanFragment())
             .commitNow()

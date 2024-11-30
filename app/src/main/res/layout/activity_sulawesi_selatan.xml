@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
+    android:background="@drawable/main_background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.main_ui.search.sub_ui.daerah.sulawesi_selatan.SulawesiSelatanActivity">
@@ -11,7 +12,7 @@
         android:id="@+id/container_sulawesi_selatan"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#98FFE6E4"
+        android:background="#9AFFE6E4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.636"

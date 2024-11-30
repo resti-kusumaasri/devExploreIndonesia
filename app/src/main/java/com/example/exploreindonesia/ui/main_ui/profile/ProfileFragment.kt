@@ -113,7 +113,6 @@ class ProfileFragment : Fragment() {
         btnLogout.setOnClickListener {
             if (btnLogout.text == "Logout") {
                 akunSharedPreferences.edit().clear().apply()
-
                 val intent = Intent(requireContext(), AuthActivity::class.java)
                 startActivity(intent)
             } else if (btnLogout.text == "Batal") {

@@ -62,10 +62,6 @@ class ViewProfileFragment : Fragment() {
         viewModel.fullname.observe(viewLifecycleOwner) {
             name.text = it
         }
-
-
-
-
     }
 
 
