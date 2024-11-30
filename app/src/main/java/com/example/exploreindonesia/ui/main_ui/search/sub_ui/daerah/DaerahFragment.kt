@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.exploreindonesia.R
 import com.example.exploreindonesia.data.adapter.DaerahAdapter
 import com.example.exploreindonesia.data.model.daerah_model
+import com.example.exploreindonesia.ui.main_ui.search.sub_ui.daerah.sulawesi_selatan.SulawesiSelatanActivity
 import com.example.exploreindonesia.ui.main_ui.search.sub_ui.daerah.sumatra_utara.SumatraUtaraActivity
 
 class DaerahFragment : Fragment() {
@@ -40,9 +41,19 @@ class DaerahFragment : Fragment() {
 
         val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerView_daerah)
         val adapter = DaerahAdapter(getList(), onItemClick = {
-            if (it.nama == "Sumatra Utara") {
-                val intent = Intent(requireContext(), SumatraUtaraActivity::class.java)
-                startActivity(intent)
+            when (it.nama) {
+                "Sumatra Utara" -> {
+                    val intent = Intent(requireContext(), SumatraUtaraActivity::class.java)
+                    startActivity(intent)
+                }
+
+                "Sulawesi Selatan" -> {
+                    val intent = Intent(requireContext(), SulawesiSelatanActivity::class.java)
+                    startActivity(intent)
+                }
+                else -> {
+
+                }
             }
         })
         recyclerView.adapter = adapter
