@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.exploreindonesia.R
 import com.example.exploreindonesia.data.model.daerah_model
 
-class DaerahAdapter(private var list: List<daerah_model>) :
+class DaerahAdapter(private var list: List<daerah_model>, private val onItemClick: (daerah_model) -> Unit) :
     RecyclerView.Adapter<DaerahAdapter.DaerahViewholder>(),
     Filterable {
 
@@ -33,6 +33,7 @@ class DaerahAdapter(private var list: List<daerah_model>) :
 
     override fun onBindViewHolder(holder: DaerahViewholder, position: Int) {
         val daerah = list[position]
+        holder.itemView.setOnClickListener { onItemClick(daerah) }
         holder.imageView.setImageResource(daerah.gambar)
         holder.textView.text = daerah.nama
     }

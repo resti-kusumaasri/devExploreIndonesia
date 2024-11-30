@@ -22,9 +22,10 @@ class MainActivity : AppCompatActivity() {
 
         val token = akunSharedPreferences.getString("token", null)
 
-        if (token != null) {
 
-        }
+
+        var intent = intent.getStringExtra("daerah")
+
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -39,8 +40,11 @@ class MainActivity : AppCompatActivity() {
         )
 
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
+
+        if (intent == "true") {
+            navController.navigate(R.id.navigation_search)
+        }
+
         val appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.navigation_home,

@@ -13,6 +13,9 @@
         android:theme="@style/Theme.ExploreIndonesia"
         tools:targetApi="31">
         <activity
+            android:name=".ui.main_ui.search.sub_ui.daerah.sumatra_utara.SumatraUtaraActivity"
+            android:exported="false" />
+        <activity
             android:name=".AuthActivity"
             android:exported="false" />
         <activity
@@ -26,7 +29,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
     </application>
 
 </manifest>
