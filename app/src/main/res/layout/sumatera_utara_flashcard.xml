@@ -4,15 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.main_ui.search.sub_ui.daerah.sumatra_utara.SumateraUtaraFlashcardFragment">
+    android:background="@drawable/main_background"
+    android:layout_gravity="center"
+    tools:context=".ui.main_ui.search.sub_ui.daerah.sumatra_utara.SumateraUtaraFlashcardActivity">
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_sumatra_utara_flashcard"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#8DFFE6E4"
+        android:padding="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/flashcard_layout"/>
+        tools:listitem="@layout/flashcard_layout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

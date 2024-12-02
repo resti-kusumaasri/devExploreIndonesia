@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/questview"
+    android:orientation="vertical"
+    android:background="@color/krem">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:layout_weight="1"
+        android:padding="8dp"
+        android:gravity="center"
+        android:textColor="@color/merahmarun"
+        android:text="Question No 1"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:scrollbars="vertical"
+        android:inputType="textMultiLine"
+        android:elevation="5dp"
+        android:translationZ="3dp"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:textColor="@color/merahmarun"
+        android:textStyle="bold"
+        android:text="Option A"
+        android:textSize="16dp"
+        android:elevation="3dp"
+        android:translationZ="3dp"
+        android:stateListAnimator="@null"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:textColor="@color/merahmarun"
+        android:textStyle="bold"
+        android:text="Option B"
+        android:textSize="16dp"
+        android:elevation="3dp"
+        android:translationZ="3dp"
+        android:stateListAnimator="@null"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:textColor="@color/merahmarun"
+        android:textStyle="bold"
+        android:text="Option C"
+        android:textSize="16dp"
+        android:elevation="3dp"
+        android:translationZ="3dp"
+        android:stateListAnimator="@null"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:textColor="@color/merahmarun"
+        android:textStyle="bold"
+        android:text="Option D"
+        android:textSize="16dp"
+
+        android:elevation="3dp"
+        android:translationZ="3dp"
+        android:stateListAnimator="@null"
+        />
+
+</LinearLayout>

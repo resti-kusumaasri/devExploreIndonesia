@@ -57,4 +57,5 @@ class SumateraUtaraFragment : Fragment() {
         return list
     }
 
+
 }

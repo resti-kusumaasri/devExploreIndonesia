@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
 
     <TextView
@@ -21,15 +21,16 @@
         android:layout_width="350dp"
         android:layout_height="match_parent"
         android:layout_marginTop="24dp"
-        android:background="@color/krem"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/kategori_flashcard">
 
         <ImageView
+            android:padding="5dp"
             android:id="@+id/image_flashcard"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="150dp"
             android:layout_marginTop="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -37,6 +38,7 @@
             tools:src="@tools:sample/avatars" />
 
         <TextView
+            android:padding="5dp"
             android:id="@+id/title_flashcard"
             style="@style/title_teks_bold"
             android:layout_width="match_parent"
@@ -49,6 +51,7 @@
             app:layout_constraintTop_toBottomOf="@+id/image_flashcard" />
 
         <TextView
+            android:padding="5dp"
             android:id="@+id/description_flashcard"
             style="@style/title_teks"
             android:layout_width="match_parent"
@@ -62,10 +65,10 @@
         <TextView
             android:id="@+id/daerah"
             style="@style/title_teks"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:layout_marginEnd="295dp"
+            android:padding="5dp"
             android:text="@string/daerah"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -74,10 +77,10 @@
         <TextView
             android:id="@+id/id_flashcard"
             style="@style/teks"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:layout_marginEnd="341dp"
+            android:padding="5dp"
             android:text="ID"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

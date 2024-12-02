@@ -24,7 +24,6 @@
         <item>@drawable/dongeng_nusantara</item>
         <item>@drawable/kuliner_nusantara</item>
         <item>@drawable/wisata_nusantara</item>
-        <item>@drawable/kerajinan_nusantara</item>
         <item>@drawable/bahasa_nusantara</item>
         <item>@drawable/quiz_nusantara</item>
     </string-array>
@@ -39,7 +38,6 @@
         <item>Dongeng Nusantara</item>
         <item>Kuliner Nusantara</item>
         <item>Wisata Nusantara</item>
-        <item>Kerajinan Nusantara</item>
         <item>Bahasa Nusantara</item>
         <item>Quiz Nusantara</item>
     </string-array>

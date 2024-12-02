@@ -1,5 +1,6 @@
 package com.example.exploreindonesia.data.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.exploreindonesia.R
 import com.example.exploreindonesia.data.model.kategori_model
+import com.example.exploreindonesia.ui.main_ui.search.sub_ui.daerah.sumatra_utara.SumateraUtaraFlashcardActivity
 
 class SumatraUtaraAdapter(
     private val SumatraUtaraList: List<kategori_model>
@@ -30,5 +32,11 @@ class SumatraUtaraAdapter(
         val daerah = SumatraUtaraList[position]
         holder.imageView.setImageResource(daerah.gambar)
         holder.textView.text = daerah.nama
+
+        holder.itemView.setOnClickListener {
+            val intent = Intent(holder.itemView.context, SumateraUtaraFlashcardActivity::class.java)
+            intent.putExtra("kategori", daerah.nama)
+            holder.itemView.context.startActivity(intent)
+        }
     }
 }

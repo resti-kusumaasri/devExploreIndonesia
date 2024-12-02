@@ -13,6 +13,9 @@
         android:theme="@style/Theme.ExploreIndonesia"
         tools:targetApi="31">
         <activity
+            android:name=".ui.main_ui.search.sub_ui.daerah.sumatra_utara.SumateraUtaraFlashcardActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.main_ui.search.sub_ui.daerah.papua.PapuaActivity"
             android:exported="false" />
         <activity

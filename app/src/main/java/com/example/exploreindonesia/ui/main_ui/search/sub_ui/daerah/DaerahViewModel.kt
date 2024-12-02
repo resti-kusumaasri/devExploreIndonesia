@@ -1,7 +1,30 @@
-package com.example.exploreindonesia.ui.main_ui.search.sub_ui.daerah
+    package com.example.exploreindonesia.ui.main_ui.search.sub_ui.daerah
 
-import androidx.lifecycle.ViewModel
+    import android.util.Log
+    import androidx.lifecycle.LiveData
+    import androidx.lifecycle.MutableLiveData
+    import androidx.lifecycle.ViewModel
+    import androidx.lifecycle.viewModelScope
+    import com.example.exploreindonesia.data.model.FlashCardModel
+    import com.example.exploreindonesia.data.response.FlashcardResponseItem
+    import com.example.exploreindonesia.data.retrofit.ApiConfig
+    import kotlinx.coroutines.launch
+    import retrofit2.HttpException
 
-class DaerahViewModel : ViewModel() {
-    // TODO: Implement the ViewModel
-}
+    class DaerahViewModel : ViewModel() {
+
+        private val _flashcards = MutableLiveData<List<FlashcardResponseItem>>()
+        val flashcards: LiveData<List<FlashcardResponseItem>> = _flashcards
+
+        fun getFlashCards(daerah: String, kategori: String) {
+            viewModelScope.launch {
+                try {
+                    val response = ApiConfig.getApiService().getFlashCards(daerah, kategori)
+                    _flashcards.value = response
+                } catch (e: HttpException) {
+                    Log.e("DaerahViewModel", "Error: ${e.message()}")
+                }
+            }
+        }
+
+    }

@@ -1,10 +1,12 @@
 package com.example.exploreindonesia.data.retrofit
 
+import com.example.exploreindonesia.data.model.FlashCardModel
 import com.example.exploreindonesia.data.request.EditRequest
 import com.example.exploreindonesia.data.request.LoginRequest
 import com.example.exploreindonesia.data.request.RegisterRequest
 import com.example.exploreindonesia.data.response.EditResponse
 import com.example.exploreindonesia.data.response.FlashcardResponse
+import com.example.exploreindonesia.data.response.FlashcardResponseItem
 import com.example.exploreindonesia.data.response.LoginResponse
 import com.example.exploreindonesia.data.response.RegisterResponse
 import com.example.exploreindonesia.data.response.ResponseProfile
@@ -41,6 +43,6 @@ interface ApiService {
     suspend fun getFlashCards(
         @Path("daerah") daerah: String,
         @Path("kategori") kategori: String
-    ): FlashcardResponse
+    ) : List<FlashcardResponseItem>
 
 }

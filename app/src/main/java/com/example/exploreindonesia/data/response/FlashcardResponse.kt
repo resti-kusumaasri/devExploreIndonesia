@@ -8,7 +8,7 @@ import com.google.gson.annotations.SerializedName
 data class FlashcardResponse(
 
 	@field:SerializedName("FlashcardResponse")
-	val flashcardResponse: List<FlashcardResponseItem?>? = null
+	val flashcardResponse: List<FlashcardResponseItem> = listOf()
 ) : Parcelable
 
 @Parcelize
