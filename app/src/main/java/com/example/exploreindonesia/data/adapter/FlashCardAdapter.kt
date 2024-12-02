@@ -1,7 +1,5 @@
 package com.example.exploreindonesia.data.adapter
 
-import android.os.Parcel
-import android.os.Parcelable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,19 +8,21 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.exploreindonesia.R
-import com.example.exploreindonesia.data.response.FlashcardResponse
+import com.example.exploreindonesia.data.request.AddRiwayatRequest
 import com.example.exploreindonesia.data.response.FlashcardResponseItem
+import com.example.exploreindonesia.ui.main_ui.search.sub_ui.daerah.DaerahViewModel
 
 
-class FlashcardAdapter : RecyclerView.Adapter<FlashcardAdapter.FlashcardViewHolder>() {
+class FlashcardAdapter(
+    private  val userId: String
+) : RecyclerView.Adapter<FlashcardAdapter.FlashcardViewHolder>() {
 
-    // Menggunakan mutable list yang dapat diubah
-    private var flashcards: List<FlashcardResponseItem> = listOf()
+    var flashcards: List<FlashcardResponseItem> = listOf()
+    private val viewModel = DaerahViewModel()
 
-    // Method untuk memperbarui data flashcards
     fun updateFlashcards(newFlashcards: List<FlashcardResponseItem>) {
         this.flashcards = newFlashcards
-        notifyDataSetChanged()  // Memberitahukan adapter untuk memperbarui data
+        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FlashcardViewHolder {
@@ -50,15 +50,21 @@ class FlashcardAdapter : RecyclerView.Adapter<FlashcardAdapter.FlashcardViewHold
             KategoriTextView.text = flashcard.category
             titleTextView.text = flashcard.title
             descriptionTextView.text = flashcard.description
-            areaTextView.text = flashcard.category
+            areaTextView.text = flashcard.languageType
             idTextView.text = flashcard.id
 
             flashcard.mediaURL?.let {
-                Glide.with(itemView.context)
-                    .load(it)
-                    .placeholder(R.drawable.baseline_image_24)
-                    .error(R.drawable.baseline_image_24)
-                    .into(imageView)
+                if (it.isNotEmpty()) {
+                    Glide.with(itemView.context)
+                        .load(it)
+                        .placeholder(R.drawable.baseline_image_24)
+                        .error(R.drawable.baseline_image_24)
+                        .centerCrop()
+                        .into(imageView)
+                }
+                else {
+                    imageView.setImageResource(R.drawable.baseline_image_24)
+                }
             }
         }
     }

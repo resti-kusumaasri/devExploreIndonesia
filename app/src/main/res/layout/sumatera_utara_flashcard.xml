@@ -5,14 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/main_background"
-    android:layout_gravity="center"
     tools:context=".ui.main_ui.search.sub_ui.daerah.sumatra_utara.SumateraUtaraFlashcardActivity">
 
     <androidx.recyclerview.widget.RecyclerView
+        android:background="#98FFE6E4"
+        android:layout_marginTop="5dp"
         android:id="@+id/rv_sumatra_utara_flashcard"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#8DFFE6E4"
         android:padding="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

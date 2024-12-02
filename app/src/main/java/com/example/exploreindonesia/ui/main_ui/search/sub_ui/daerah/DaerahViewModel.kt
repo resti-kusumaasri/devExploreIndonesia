@@ -6,6 +6,7 @@
     import androidx.lifecycle.ViewModel
     import androidx.lifecycle.viewModelScope
     import com.example.exploreindonesia.data.model.FlashCardModel
+    import com.example.exploreindonesia.data.request.AddRiwayatRequest
     import com.example.exploreindonesia.data.response.FlashcardResponseItem
     import com.example.exploreindonesia.data.retrofit.ApiConfig
     import kotlinx.coroutines.launch
@@ -27,4 +28,14 @@
             }
         }
 
+        fun addRiwayat(request: AddRiwayatRequest) {
+            viewModelScope.launch {
+                try {
+                    val response = ApiConfig.getApiService().addRiwayat(request)
+                    Log.d("DaerahViewModel", "Response: $response")
+                } catch (e: HttpException) {
+                    Log.e("DaerahViewModel", "Error: ${e.message()}")
+                }
+            }
+        }
     }
