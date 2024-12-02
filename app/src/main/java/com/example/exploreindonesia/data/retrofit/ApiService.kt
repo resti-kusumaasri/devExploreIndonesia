@@ -4,6 +4,7 @@ import com.example.exploreindonesia.data.request.EditRequest
 import com.example.exploreindonesia.data.request.LoginRequest
 import com.example.exploreindonesia.data.request.RegisterRequest
 import com.example.exploreindonesia.data.response.EditResponse
+import com.example.exploreindonesia.data.response.FlashcardResponse
 import com.example.exploreindonesia.data.response.LoginResponse
 import com.example.exploreindonesia.data.response.RegisterResponse
 import com.example.exploreindonesia.data.response.ResponseProfile
@@ -35,5 +36,11 @@ interface ApiService {
         @Path("id") id: String,
         @Body request: EditRequest
     ): EditResponse
+
+    @GET("api/flashcards/{daerah}/{kategori}")
+    suspend fun getFlashCards(
+        @Path("daerah") daerah: String,
+        @Path("kategori") kategori: String
+    ): FlashcardResponse
 
 }
