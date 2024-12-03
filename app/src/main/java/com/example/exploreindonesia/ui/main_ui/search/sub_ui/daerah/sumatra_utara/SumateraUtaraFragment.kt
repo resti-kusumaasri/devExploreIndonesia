@@ -11,16 +11,7 @@ import com.example.exploreindonesia.R
 import com.example.exploreindonesia.data.adapter.SumatraUtaraAdapter
 import com.example.exploreindonesia.data.model.kategori_model
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [SumateraUtaraFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class SumateraUtaraFragment : Fragment() {
 
 
@@ -56,6 +47,4 @@ class SumateraUtaraFragment : Fragment() {
         }
         return list
     }
-
-
 }

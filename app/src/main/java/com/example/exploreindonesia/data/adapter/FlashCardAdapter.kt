@@ -14,11 +14,9 @@ import com.example.exploreindonesia.ui.main_ui.search.sub_ui.daerah.DaerahViewMo
 
 
 class FlashcardAdapter(
-    private  val userId: String
 ) : RecyclerView.Adapter<FlashcardAdapter.FlashcardViewHolder>() {
 
     var flashcards: List<FlashcardResponseItem> = listOf()
-    private val viewModel = DaerahViewModel()
 
     fun updateFlashcards(newFlashcards: List<FlashcardResponseItem>) {
         this.flashcards = newFlashcards

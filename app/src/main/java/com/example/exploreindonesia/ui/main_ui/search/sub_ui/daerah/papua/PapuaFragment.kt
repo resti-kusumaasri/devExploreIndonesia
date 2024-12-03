@@ -13,10 +13,6 @@ import com.example.exploreindonesia.data.model.kategori_model
 
 
 class PapuaFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-
-
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

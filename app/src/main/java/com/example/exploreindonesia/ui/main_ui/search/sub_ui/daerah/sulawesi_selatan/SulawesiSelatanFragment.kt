@@ -16,11 +16,7 @@ import com.example.exploreindonesia.data.model.kategori_model
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [SulawesiSelatanFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+
 class SulawesiSelatanFragment : Fragment() {
 
 

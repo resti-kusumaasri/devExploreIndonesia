@@ -1,51 +1,54 @@
-package com.example.exploreindonesia.ui.main_ui.search.sub_ui.daerah.sumatra_utara
+package com.example.exploreindonesia.ui.main_ui.search.sub_ui.daerah.sulawesi_selatan
 
 import android.os.Bundle
 import android.view.MenuItem
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
+import androidx.viewbinding.ViewBinding
 import com.example.exploreindonesia.R
 import com.example.exploreindonesia.data.adapter.FlashcardAdapter
 import com.example.exploreindonesia.data.request.AddRiwayatRequest
 import com.example.exploreindonesia.ui.main_ui.search.sub_ui.daerah.DaerahViewModel
+import com.example.exploreindonesia.ui.main_ui.search.sub_ui.daerah.sumatra_utara.SumateraUtaraFlashcardActivity.Companion.Medan
 
-class SumateraUtaraFlashcardActivity : AppCompatActivity() {
-
-    companion object {
-        const val Medan = "Medan"
-    }
+class SulawesiSelatanFlashcardActivity : AppCompatActivity() {
 
     private var lastVisibleItemId: String? = null
 
+    companion object {
+        const val Makassar = "Makassar"
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_sumatera_utara_flashcard)
+   
+        setContentView(R.layout.activity_sulawesi_selatan_flashcard)
 
         val viewModel = ViewModelProvider(this)[DaerahViewModel::class.java]
 
         val kategori = intent.getStringExtra("kategori")
-        val rvSumatraUtara = findViewById<RecyclerView>(R.id.rv_sumatra_utara_flashcard)
-        rvSumatraUtara.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        val rvSulawesiSelatan = findViewById<RecyclerView>(R.id.rv_sulawesi_selatan_flashcard)
+        rvSulawesiSelatan.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
 
         val pagerSnapHelper = PagerSnapHelper()
-        pagerSnapHelper.attachToRecyclerView(rvSumatraUtara)
+        pagerSnapHelper.attachToRecyclerView(rvSulawesiSelatan)
 
         val adapter = FlashcardAdapter()
-        rvSumatraUtara.adapter = adapter
+        rvSulawesiSelatan.adapter = adapter
 
         viewModel.flashcards.observe(this, Observer { flashcards ->
             adapter.updateFlashcards(flashcards)
         })
 
+        viewModel.getFlashCards(Makassar, kategori ?: "")
 
-        viewModel.getFlashCards(Medan, kategori ?: "")
-
-
-        rvSumatraUtara.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+        rvSulawesiSelatan.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
                 val layoutManager = recyclerView.layoutManager as LinearLayoutManager
@@ -56,11 +59,13 @@ class SumateraUtaraFlashcardActivity : AppCompatActivity() {
                     lastVisibleItemId = lastVisibleItem.id
                 }
             }
+
         })
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.title = "Sumatra Utara"
+        supportActionBar?.title = "Sulawesi Selatan"
     }
+
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == android.R.id.home) {
