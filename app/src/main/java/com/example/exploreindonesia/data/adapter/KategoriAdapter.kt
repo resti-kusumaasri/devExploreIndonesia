@@ -1,5 +1,6 @@
 package com.example.exploreindonesia.data.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.exploreindonesia.R
 import com.example.exploreindonesia.data.model.kategori_model
+import com.example.exploreindonesia.ui.main_ui.search.sub_ui.kategori.KategoriFlashCardActivity
 
 class KategoriAdapter(private var list: List<kategori_model>) :
     RecyclerView.Adapter<KategoriAdapter.KategoriViewholder>(),
@@ -35,6 +37,12 @@ class KategoriAdapter(private var list: List<kategori_model>) :
         val daerah = list[position]
         holder.imageView.setImageResource(daerah.gambar)
         holder.textView.text = daerah.nama
+
+        holder.itemView.setOnClickListener {
+            val intent = Intent(holder.itemView.context, KategoriFlashCardActivity::class.java)
+            intent.putExtra("kategori", daerah.nama)
+            holder.itemView.context.startActivity(intent)
+        }
     }
 
     override fun getFilter(): Filter {

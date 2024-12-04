@@ -2,6 +2,7 @@ package com.example.exploreindonesia.ui.main_ui.search.sub_ui.daerah.papua
 
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -40,6 +41,7 @@ class PapuaFlashcardActivity : AppCompatActivity() {
         rvPapua.adapter = adapter
 
         viewModel.flashcards.observe(this, Observer { flashcards ->
+            Toast.makeText(this, "Data Sedang Diproses, Mohon Tunggu Sebentar Setelah Data diambil", Toast.LENGTH_SHORT).show()
             adapter.updateFlashcards(flashcards)
         })
 

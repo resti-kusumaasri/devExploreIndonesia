@@ -24,7 +24,10 @@
                     _flashcards.value = response
                 } catch (e: HttpException) {
                     Log.e("DaerahViewModel", "Error: ${e.message()}")
+                } catch (e: Exception) {
+                    Log.e("DaerahViewModel", "Error: ${e.message}")
                 }
+
             }
         }
 

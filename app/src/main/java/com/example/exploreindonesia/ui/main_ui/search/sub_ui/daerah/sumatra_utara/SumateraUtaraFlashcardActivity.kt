@@ -2,6 +2,9 @@ package com.example.exploreindonesia.ui.main_ui.search.sub_ui.daerah.sumatra_uta
 
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.View
+import android.widget.ProgressBar
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -37,7 +40,10 @@ class SumateraUtaraFlashcardActivity : AppCompatActivity() {
         val adapter = FlashcardAdapter()
         rvSumatraUtara.adapter = adapter
 
+
+
         viewModel.flashcards.observe(this, Observer { flashcards ->
+            Toast.makeText(this, "Data Sedang Diproses, Mohon Tunggu Sebentar Setelah Data diambil", Toast.LENGTH_SHORT).show()
             adapter.updateFlashcards(flashcards)
         })
 

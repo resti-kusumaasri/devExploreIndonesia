@@ -12,6 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ExploreIndonesia"
         tools:targetApi="31">
+
+        <activity
+            android:name=".ui.main_ui.search.sub_ui.kategori.KategoriFlashCardActivity"
+            android:exported="false" />
         <activity
             android:name=".ui.main_ui.search.sub_ui.daerah.papua.PapuaFlashcardActivity"
             android:exported="false" />
