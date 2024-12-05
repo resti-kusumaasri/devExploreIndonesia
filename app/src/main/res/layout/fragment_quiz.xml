@@ -78,16 +78,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
-
-                <Button
-                    android:background="@drawable/submit_button"
-                    android:id="@+id/btn_previous"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Sebelumnya"
-                    android:layout_margin="8dp"
-                    android:textColor="@color/white"
-                    android:layout_marginTop="16dp"/>
                 <Button
                     android:background="@drawable/submit_button"
                     android:id="@+id/btn_next"

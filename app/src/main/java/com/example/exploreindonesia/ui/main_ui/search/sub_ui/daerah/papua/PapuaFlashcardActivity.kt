@@ -1,10 +1,12 @@
 package com.example.exploreindonesia.ui.main_ui.search.sub_ui.daerah.papua
 
 import android.content.Context
+import android.content.Intent
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.Button
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -19,6 +21,7 @@ import com.example.exploreindonesia.R
 import com.example.exploreindonesia.data.adapter.FlashcardAdapter
 import com.example.exploreindonesia.data.request.AddRiwayatRequest
 import com.example.exploreindonesia.ui.main_ui.search.sub_ui.daerah.DaerahViewModel
+import com.example.exploreindonesia.ui.main_ui.search.sub_ui.daerah.Quiz.QuizActivity
 import com.example.exploreindonesia.ui.main_ui.search.sub_ui.daerah.sumatra_utara.SumateraUtaraFlashcardActivity.Companion.Medan
 
 class PapuaFlashcardActivity : AppCompatActivity() {
@@ -31,6 +34,8 @@ class PapuaFlashcardActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_papua_flashcard)
+
+        val btnQuizPapua = findViewById<Button>(R.id.btn_quiz_papua)
 
         val kategori = intent.getStringExtra("kategori")
         val rvPapua = findViewById<RecyclerView>(R.id.rv_papua_flashcard)
@@ -69,6 +74,13 @@ class PapuaFlashcardActivity : AppCompatActivity() {
                 }
             }
         })
+
+        btnQuizPapua.setOnClickListener {
+            val intent = Intent(this, QuizActivity::class.java)
+            intent.putExtra("Daerah", "Papua")
+            intent.putExtra("kategori", kategori)
+            startActivity(intent)
+        }
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = "Papua"

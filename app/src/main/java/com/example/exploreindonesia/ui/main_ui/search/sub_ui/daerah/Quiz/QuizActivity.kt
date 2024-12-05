@@ -16,7 +16,7 @@ class QuizActivity : AppCompatActivity() {
         setContentView(R.layout.activity_quiz)
 
         supportActionBar?.apply {
-            title = "Quiz Sumatra Utara"
+            title = "Quiz"
             setDisplayHomeAsUpEnabled(true)
             setDisplayShowHomeEnabled(true)
         }
@@ -27,15 +27,16 @@ class QuizActivity : AppCompatActivity() {
 
         val daerah = intent.getStringExtra("Daerah").toString()
         val kategori = intent.getStringExtra("kategori").toString()
+        val c = intent.getBooleanExtra("c", false)
 
         viewModel.setDaerah(daerah)
         viewModel.setKategori(kategori)
 
-        Log.d("QuizActivity", "Daerah: $daerah, Kategori: $kategori")
 
         val bundle = Bundle()
         bundle.putString("daerah", daerah)
         bundle.putString("kategori", kategori)
+        bundle.putBoolean("c", c)
 
         val quizFragment = QuizFragment()
         quizFragment.arguments = bundle

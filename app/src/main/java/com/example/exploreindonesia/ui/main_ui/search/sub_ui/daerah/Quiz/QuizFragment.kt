@@ -16,14 +16,17 @@ import androidx.fragment.app.viewModels
 import com.example.exploreindonesia.MainActivity
 import com.example.exploreindonesia.R
 import com.example.exploreindonesia.data.response.QuizResponse
-
+import com.example.exploreindonesia.ui.main_ui.ScoreActivity
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 
 class QuizFragment : Fragment() {
 
     private val userAnswers = mutableMapOf<Int, String>()
-    private val correctAnswers = mutableMapOf<Int, String>() // Jawaban yang benar
-    private var score = 0 // Skor penggun
+    private  var score = 0
 
     private val quizViewModel: QuizViewModel by viewModels()
 
@@ -34,7 +37,6 @@ class QuizFragment : Fragment() {
     private lateinit var jawabanC: RadioButton
     private lateinit var jawabanD: RadioButton
     private lateinit var btnNext: Button
-    private lateinit var btnPrevious: Button
     private var currentQuestionIndex = 0
 
     override fun onCreateView(
@@ -58,6 +60,8 @@ class QuizFragment : Fragment() {
             return
         }
 
+        val c = arguments?.getBoolean("c") ?: false
+
         Log.d("QuizFragment", "Daerah: $daerah, Kategori: $kategori")
 
         pertanyaan = view.findViewById(R.id.pertanyaan)
@@ -67,7 +71,6 @@ class QuizFragment : Fragment() {
         jawabanC = view.findViewById(R.id.jawabanC)
         jawabanD = view.findViewById(R.id.jawabanD)
         btnNext = view.findViewById(R.id.btn_next)
-        btnPrevious = view.findViewById(R.id.btn_previous)
 
         quizViewModel.quizList.observe(viewLifecycleOwner) { quizList ->
             if (quizList.isNotEmpty()) {
@@ -83,22 +86,24 @@ class QuizFragment : Fragment() {
                     saveUserAnswer()
                     val correctAnswer = quizList[currentQuestionIndex].rightAnswer
                     val userAnswer = userAnswers[currentQuestionIndex]
-
-
                     if (userAnswer == correctAnswer) {
-                        Toast.makeText(context, "Jawaban Benar!", Toast.LENGTH_SHORT).show()
                         score++
+                        //Toast.makeText(context, "Jawaban Benar!", Toast.LENGTH_SHORT).show()
                     } else {
-                        Toast.makeText(context, "Jawaban Salah!", Toast.LENGTH_SHORT).show()
+                        //Toast.makeText(context, "Jawaban Salah!", Toast.LENGTH_SHORT).show()
                     }
                     if (currentQuestionIndex < quizList.size - 1) {
                         currentQuestionIndex++
                         updateQuestionUI(quizList)
-                        restoreUserAnswer()
                     } else {
-                        val intent = Intent(context, MainActivity::class.java)
-                        intent.putExtra("score", score)
-                        startActivity(intent)
+                        val nilai = score
+                        CoroutineScope(Dispatchers.Main).launch {
+                            delay(1000)
+                            val intent = Intent(context, ScoreActivity::class.java)
+                            intent.putExtra("score", nilai)
+                            intent.putExtra("jml_soal", quizList.size)
+                            startActivity(intent)
+                        }
                     }
                 }
             } else {
@@ -106,8 +111,12 @@ class QuizFragment : Fragment() {
             }
         }
 
-
-        quizViewModel.getQuiz(daerah, kategori)
+        if (c==true) {
+            quizViewModel.getQuizCategory(kategori)
+        }
+        else {
+            quizViewModel.getQuiz(daerah, kategori)
+        }
     }
 
     private fun updateQuestionUI(quizList: List<QuizResponse>) {
@@ -138,18 +147,6 @@ class QuizFragment : Fragment() {
 
         selectedAnswer?.let {
             userAnswers[currentQuestionIndex] = it
-        }
-    }
-
-    private fun restoreUserAnswer() {
-        val savedAnswer = userAnswers[currentQuestionIndex]
-        setjawaban.clearCheck() // Hapus pilihan sebelumnya
-
-        when (savedAnswer) {
-            jawabanA.text.toString() -> jawabanA.isChecked = true
-            jawabanB.text.toString() -> jawabanB.isChecked = true
-            jawabanC.text.toString() -> jawabanC.isChecked = true
-            jawabanD.text.toString() -> jawabanD.isChecked = true
         }
     }
 

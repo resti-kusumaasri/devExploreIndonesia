@@ -1,10 +1,12 @@
 package com.example.exploreindonesia.ui.main_ui.search.sub_ui.kategori
 
 import android.content.Context
+import android.content.Intent
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.Button
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -20,6 +22,7 @@ import com.example.exploreindonesia.data.adapter.FlashCardCategoryAdapter
 import com.example.exploreindonesia.data.adapter.FlashcardAdapter
 import com.example.exploreindonesia.data.request.AddRiwayatRequest
 import com.example.exploreindonesia.ui.main_ui.search.sub_ui.daerah.DaerahViewModel
+import com.example.exploreindonesia.ui.main_ui.search.sub_ui.daerah.Quiz.QuizActivity
 
 class KategoriFlashCardActivity : AppCompatActivity() {
 
@@ -32,6 +35,7 @@ class KategoriFlashCardActivity : AppCompatActivity() {
 
 
      val viewModel = ViewModelProvider(this)[KategoriViewModel::class.java]
+     val btnQuizKategori = findViewById<Button>(R.id.btn_quiz_kategori)
 
      val kategori = intent.getStringExtra("kategori").toString()
      val rvKategori = findViewById<RecyclerView>(R.id.rv_kategori_flashcard)
@@ -73,6 +77,13 @@ class KategoriFlashCardActivity : AppCompatActivity() {
              }
          }
      })
+
+     btnQuizKategori.setOnClickListener {
+         val intent = Intent(this, QuizActivity::class.java)
+         intent.putExtra("kategori", kategori)
+         intent.putExtra("c", true)
+         startActivity(intent)
+     }
  }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

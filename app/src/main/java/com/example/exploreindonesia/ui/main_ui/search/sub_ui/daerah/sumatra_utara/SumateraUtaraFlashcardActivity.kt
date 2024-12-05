@@ -58,9 +58,6 @@ class SumateraUtaraFlashcardActivity : AppCompatActivity() {
             Toast.makeText(this, "Data Sedang Diproses, Mohon Tunggu", Toast.LENGTH_SHORT).show()
         }
 
-        quizButton.setOnClickListener {
-            val akunSharedPreferences = getSharedPreferences("akun", MODE_PRIVATE)
-        }
 
 
         viewModel.getFlashCards(Medan, kategori ?: "")

@@ -7,7 +7,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.exploreindonesia.data.response.QuizResponse
 import com.example.exploreindonesia.data.retrofit.ApiConfig
-import com.example.exploreindonesia.data.retrofit.ApiService
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
 
@@ -39,6 +38,27 @@ class QuizViewModel : ViewModel()  {
         viewModelScope.launch {
             try {
                 val response = ApiConfig.getApiService().getQuiz(daerah, kategori)
+                _quizList.postValue(response)
+            }catch (e: HttpException) {
+                Log.e("error", e.message.toString())
+            }
+            catch (e: NullPointerException) {
+                Log.e("error", e.message.toString())
+            }
+            catch (e: Exception) {
+                Log.e("error", e.message.toString())
+            }
+        }
+    }
+
+    fun getQuizCategory(kategori: String) {
+        viewModelScope.launch {
+            try {
+                val response1 = ApiConfig.getApiService().getQuiz("Medan", kategori)
+                val response2 = ApiConfig.getApiService().getQuiz("Makassar", kategori)
+                val response3 = ApiConfig.getApiService().getQuiz("Papua", kategori)
+
+                val response = response1 + response2 + response3
                 _quizList.postValue(response)
             }catch (e: HttpException) {
                 Log.e("error", e.message.toString())

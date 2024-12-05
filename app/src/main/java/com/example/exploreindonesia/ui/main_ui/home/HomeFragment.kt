@@ -1,5 +1,6 @@
 package com.example.exploreindonesia.ui.main_ui.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +13,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.exploreindonesia.R
 import com.example.exploreindonesia.databinding.FragmentHomeBinding
 import com.example.exploreindonesia.ui.main_ui.search.SearchFragment
+import com.example.exploreindonesia.ui.main_ui.search.sub_ui.kategori.KategoriFlashCardActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class HomeFragment : Fragment() {
@@ -42,10 +44,14 @@ class HomeFragment : Fragment() {
         button_home_third = binding.buttonHomeThird
 
         button_home_first.setOnClickListener {
-            Toast.makeText(context, "button_home_first", Toast.LENGTH_SHORT).show()
+            val intent = Intent(context, KategoriFlashCardActivity::class.java)
+            intent.putExtra("kategori", "Sejarah Nusantara")
+            startActivity(intent)
         }
         button_home_second.setOnClickListener {
-            Toast.makeText(context, "button_home_second", Toast.LENGTH_SHORT).show()
+            val intent = Intent(context, KategoriFlashCardActivity::class.java)
+            intent.putExtra("kategori", "Kuliner Nusantara")
+            startActivity(intent)
         }
 
         button_home_third.setOnClickListener {
