@@ -27,7 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="-20dp"
-        android:background="@drawable/login_button"
+        android:background="@drawable/submit_button"
         android:fontFamily="@font/poppins_bold"
         android:text="@string/login"
         app:layout_constraintEnd_toEndOf="@+id/container_auth"
@@ -91,17 +91,5 @@
             android:layout_marginEnd="92dp"
             android:src="@drawable/btn_register_inactive" />
     </LinearLayout>
-
-    <ProgressBar
-        android:id="@+id/progressBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        tools:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

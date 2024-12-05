@@ -1,5 +1,8 @@
 package com.example.exploreindonesia.ui.main_ui.search.sub_ui.kategori
 
+import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Toast
@@ -43,10 +46,17 @@ class KategoriFlashCardActivity : AppCompatActivity() {
      viewModel.flashcards.observe(this, Observer { flashcards ->
          adapter.updateFlashcards(flashcards)
      })
-     Toast.makeText(this, "Data Sedang Diproses, Mohon Tunggu", Toast.LENGTH_SHORT).show()
+
+     if (!isInternetAvailable()) {
+         Toast.makeText(this, "Tidak ada koneksi internet", Toast.LENGTH_SHORT).show()
+         return
+     }else {
+         Toast.makeText(this, "Data Sedang Diproses, Mohon Tunggu", Toast.LENGTH_SHORT).show()
+     }
      viewModel.getFlashCards(kategori)
 
      supportActionBar?.setDisplayHomeAsUpEnabled(true)
+     supportActionBar?.setDisplayShowHomeEnabled(true)
      supportActionBar?.title = "Kategori"
 
      rvKategori.addOnScrollListener(object : RecyclerView.OnScrollListener() {
@@ -79,5 +89,17 @@ class KategoriFlashCardActivity : AppCompatActivity() {
             return true
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun isInternetAvailable(): Boolean {
+        val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val network = connectivityManager.activeNetwork ?: return false
+        val activeNetwork = connectivityManager.getNetworkCapabilities(network) ?: return false
+        return when {
+            activeNetwork.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) -> true
+            activeNetwork.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) -> true
+            activeNetwork.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET) -> true
+            else -> false
+        }
     }
 }

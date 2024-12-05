@@ -26,11 +26,6 @@ class MainActivity : AppCompatActivity() {
             finish()
         }
 
-
-
-
-
-
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 

@@ -1,9 +1,12 @@
 package com.example.exploreindonesia.ui.main_ui.search.sub_ui.daerah.sumatra_utara
 
+import android.content.Context
+import android.content.Intent
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import android.os.Bundle
 import android.view.MenuItem
-import android.view.View
-import android.widget.ProgressBar
+import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -15,6 +18,7 @@ import com.example.exploreindonesia.R
 import com.example.exploreindonesia.data.adapter.FlashcardAdapter
 import com.example.exploreindonesia.data.request.AddRiwayatRequest
 import com.example.exploreindonesia.ui.main_ui.search.sub_ui.daerah.DaerahViewModel
+import com.example.exploreindonesia.ui.main_ui.search.sub_ui.daerah.Quiz.QuizActivity
 
 class SumateraUtaraFlashcardActivity : AppCompatActivity() {
 
@@ -33,6 +37,7 @@ class SumateraUtaraFlashcardActivity : AppCompatActivity() {
         val kategori = intent.getStringExtra("kategori")
         val rvSumatraUtara = findViewById<RecyclerView>(R.id.rv_sumatra_utara_flashcard)
         rvSumatraUtara.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        val quizButton = findViewById<Button>(R.id.btn_quiz_sumatra_utara)
 
         val pagerSnapHelper = PagerSnapHelper()
         pagerSnapHelper.attachToRecyclerView(rvSumatraUtara)
@@ -43,9 +48,19 @@ class SumateraUtaraFlashcardActivity : AppCompatActivity() {
 
 
         viewModel.flashcards.observe(this, Observer { flashcards ->
-            Toast.makeText(this, "Data Sedang Diproses, Mohon Tunggu Sebentar Setelah Data diambil", Toast.LENGTH_SHORT).show()
             adapter.updateFlashcards(flashcards)
         })
+
+        if (!isInternetAvailable()) {
+            Toast.makeText(this, "Tidak ada koneksi internet", Toast.LENGTH_SHORT).show()
+            return
+        }else {
+            Toast.makeText(this, "Data Sedang Diproses, Mohon Tunggu", Toast.LENGTH_SHORT).show()
+        }
+
+        quizButton.setOnClickListener {
+            val akunSharedPreferences = getSharedPreferences("akun", MODE_PRIVATE)
+        }
 
 
         viewModel.getFlashCards(Medan, kategori ?: "")
@@ -66,6 +81,13 @@ class SumateraUtaraFlashcardActivity : AppCompatActivity() {
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = "Sumatra Utara"
+
+        quizButton.setOnClickListener {
+            val intent = Intent(this, QuizActivity::class.java)
+            intent.putExtra("Daerah", "Medan")
+            intent.putExtra("kategori", kategori)
+            startActivity(intent)
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -82,5 +104,17 @@ class SumateraUtaraFlashcardActivity : AppCompatActivity() {
             return true
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun isInternetAvailable(): Boolean {
+        val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val network = connectivityManager.activeNetwork ?: return false
+        val activeNetwork = connectivityManager.getNetworkCapabilities(network) ?: return false
+        return when {
+            activeNetwork.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) -> true
+            activeNetwork.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) -> true
+            activeNetwork.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET) -> true
+            else -> false
+        }
     }
 }

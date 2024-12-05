@@ -9,6 +9,7 @@ import com.example.exploreindonesia.data.response.EditResponse
 import com.example.exploreindonesia.data.response.FlashcardResponse
 import com.example.exploreindonesia.data.response.FlashcardResponseItem
 import com.example.exploreindonesia.data.response.LoginResponse
+import com.example.exploreindonesia.data.response.QuizResponse
 import com.example.exploreindonesia.data.response.RegisterResponse
 import com.example.exploreindonesia.data.response.ResponseProfile
 import retrofit2.Call
@@ -51,5 +52,13 @@ interface ApiService {
      suspend fun addRiwayat(
         @Body request: AddRiwayatRequest
     ): AddRiwayatResponse
+
+
+     @GET("api/quiz/latihan/{daerah}/{kategori}")
+     suspend fun getQuiz(
+         @Path("daerah") daerah: String,
+         @Path("kategori") kategori: String
+     ) : List<QuizResponse>
+
 
 }

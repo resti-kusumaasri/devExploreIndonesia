@@ -25,8 +25,6 @@ class PapuaActivity : AppCompatActivity() {
         supportActionBar?.title = "Papua"
 
 
-
-
         supportFragmentManager.beginTransaction()
             .add(R.id.container_papua, PapuaFragment())
             .commitNow()

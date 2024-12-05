@@ -42,14 +42,12 @@ class FlashcardAdapter(
         private val titleTextView: TextView = itemView.findViewById(R.id.title_flashcard)
         private val descriptionTextView: TextView = itemView.findViewById(R.id.description_flashcard)
         private val areaTextView: TextView = itemView.findViewById(R.id.daerah)
-        private val idTextView: TextView = itemView.findViewById(R.id.id_flashcard)
 
         fun bind(flashcard: FlashcardResponseItem) {
             KategoriTextView.text = flashcard.category
             titleTextView.text = flashcard.title
             descriptionTextView.text = flashcard.description
             areaTextView.text = flashcard.languageType
-            idTextView.text = flashcard.id
 
             flashcard.mediaURL?.let {
                 if (it.isNotEmpty()) {

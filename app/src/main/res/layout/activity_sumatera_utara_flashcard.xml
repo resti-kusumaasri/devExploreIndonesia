@@ -4,20 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/main_background"
+    android:background="@color/krem"
     tools:context=".ui.main_ui.search.sub_ui.daerah.sumatra_utara.SumateraUtaraFlashcardActivity">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:background="#98FFE6E4"
-        android:layout_marginTop="5dp"
         android:id="@+id/rv_sumatra_utara_flashcard"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btn_quiz_sumatra_utara"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:listitem="@layout/flashcard_layout" />
+
+    <Button
+        android:id="@+id/btn_quiz_sumatra_utara"
+        style="@style/title_teks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/submit_button"
+        android:text="@string/quiz"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,19 +6,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/main_background"
-    tools:context=".ui.main_ui.search.sub_ui.daerah.sumatra_utara.SumatraUtaraActivity">
+    tools:context=".ui.main_ui.search.sub_ui.daerah.Quiz.QuizActivity">
 
     <FrameLayout
-        android:id="@+id/container_sumatra_utara"
+        android:id="@+id/container_quiz"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#98FFE6E4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.636"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.161" />
-
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

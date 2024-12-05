@@ -34,10 +34,11 @@
 
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout"
                 android:layout_width="350dp"
                 android:layout_height="match_parent"
-                android:layout_marginTop="24dp"
 
+                android:layout_marginTop="24dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.491"
@@ -48,6 +49,7 @@
                     android:id="@+id/image_flashcard"
                     android:layout_width="400dp"
                     android:layout_height="200dp"
+                    android:layout_marginTop="8dp"
                     android:padding="5dp"
                     android:src="@drawable/baseline_image_24"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -81,44 +83,40 @@
                     app:layout_constraintTop_toBottomOf="@+id/title_flashcard" />
 
 
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/kategori_flashcard">
+
                 <TextView
+                    android:id="@+id/textView5"
                     style="@style/title_teks"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
                     android:text="@string/daerah"
-                    app:layout_constraintBottom_toBottomOf="@+id/daerah"
-                    app:layout_constraintEnd_toStartOf="@+id/daerah"
-                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/daerah"
-                    app:layout_constraintVertical_bias="1.0" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/daerah"
                     style="@style/title_teks"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginEnd="208dp"
+                    android:layout_marginStart="16dp"
                     android:padding="5dp"
                     android:text="@string/daerah"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/description_flashcard" />
-
-                <TextView
-                    android:id="@+id/id_flashcard"
-                    style="@style/teks"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:padding="5dp"
-                    android:text="ID"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/daerah" />
-
-
+                    app:layout_constraintStart_toEndOf="@+id/textView5"
+                    app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>

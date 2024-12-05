@@ -1,5 +1,8 @@
 package com.example.exploreindonesia.ui.main_ui.search.sub_ui.daerah.sulawesi_selatan
 
+import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Toast
@@ -44,9 +47,17 @@ class SulawesiSelatanFlashcardActivity : AppCompatActivity() {
         rvSulawesiSelatan.adapter = adapter
 
         viewModel.flashcards.observe(this, Observer { flashcards ->
-            Toast.makeText(this, "Data Sedang Diproses, Mohon Tunggu Sebentar Setelah Data diambil", Toast.LENGTH_SHORT).show()
+
             adapter.updateFlashcards(flashcards)
         })
+
+        if (!isInternetAvailable()) {
+            Toast.makeText(this, "Tidak ada koneksi internet", Toast.LENGTH_SHORT).show()
+            return
+        }else {
+            Toast.makeText(this, "Data Sedang Diproses, Mohon Tunggu", Toast.LENGTH_SHORT).show()
+        }
+
 
         viewModel.getFlashCards(Makassar, kategori ?: "")
 
@@ -83,5 +94,17 @@ class SulawesiSelatanFlashcardActivity : AppCompatActivity() {
             return true
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun isInternetAvailable(): Boolean {
+        val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val network = connectivityManager.activeNetwork ?: return false
+        val activeNetwork = connectivityManager.getNetworkCapabilities(network) ?: return false
+        return when {
+            activeNetwork.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) -> true
+            activeNetwork.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) -> true
+            activeNetwork.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET) -> true
+            else -> false
+        }
     }
 }

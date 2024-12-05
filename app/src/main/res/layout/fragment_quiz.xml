@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.main_ui.search.sub_ui.daerah.Quiz.QuizFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:id="@+id/pertanyaan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pertanyaan akan tampil di sini"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_marginBottom="16dp"
+
+                android:gravity="center" />
+
+
+            <RadioGroup
+                android:id="@+id/setjawaban"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="24dp">
+
+                <RadioButton
+                    android:id="@+id/jawabanA"
+                    style="@style/title_teks"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:text="Pilihan A"
+                    android:textSize="16sp" />
+
+                <RadioButton
+                    android:id="@+id/jawabanB"
+                    style="@style/title_teks"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:text="Pilihan B"
+                    android:textSize="16sp" />
+
+                <RadioButton
+                    android:id="@+id/jawabanC"
+                    style="@style/title_teks"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:text="Pilihan C"
+                    android:textSize="16sp" />
+
+                <RadioButton
+                    android:id="@+id/jawabanD"
+                    style="@style/title_teks"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:text="Pilihan D"
+                    android:textSize="16sp" />
+            </RadioGroup>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:background="@drawable/submit_button"
+                    android:id="@+id/btn_previous"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sebelumnya"
+                    android:layout_margin="8dp"
+                    android:textColor="@color/white"
+                    android:layout_marginTop="16dp"/>
+                <Button
+                    android:background="@drawable/submit_button"
+                    android:id="@+id/btn_next"
+                    android:layout_margin="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Selanjutnya"
+                    android:textColor="@color/white"
+                    android:layout_marginTop="16dp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>
