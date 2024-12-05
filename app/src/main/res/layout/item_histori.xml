@@ -10,22 +10,45 @@
         android:id="@+id/nama_item_histori"
         style="@style/title_teks_bold"
         android:layout_width="wrap_content"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:gravity="center_vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/waktu_item_hostori"
-        app:layout_constraintHorizontal_bias="0.013"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintVertical_bias="0.213"
         tools:text="Aktivitas" />
+
+    <TextView
+        android:id="@+id/daerah_item_histori"
+        style="@style/title_teks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/kategori_flashcard"
+        app:layout_constraintStart_toEndOf="@+id/kategori_flashcard"
+        app:layout_constraintTop_toTopOf="@+id/kategori_flashcard"
+        app:layout_constraintVertical_bias="0.0"
+        tools:text="@string/daerah" />
+
+    <TextView
+        android:id="@+id/kategori_flashcard"
+        style="@style/title_teks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/nama_item_histori"
+        app:layout_constraintTop_toBottomOf="@+id/nama_item_histori"
+        app:layout_constraintVertical_bias="0.0"
+        tools:text="@string/daerah" />
 
     <TextView
         android:id="@+id/waktu_item_hostori"
         style="@style/title_teks_bold"
         android:layout_width="wrap_content"
-        android:layout_height="100dp"
+        android:layout_height="80dp"
         android:layout_marginEnd="16dp"
         android:gravity="center_vertical"
         app:layout_constraintBottom_toBottomOf="parent"

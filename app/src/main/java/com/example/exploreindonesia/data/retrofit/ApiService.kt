@@ -12,6 +12,7 @@ import com.example.exploreindonesia.data.response.LoginResponse
 import com.example.exploreindonesia.data.response.QuizResponse
 import com.example.exploreindonesia.data.response.RegisterResponse
 import com.example.exploreindonesia.data.response.ResponseProfile
+import com.example.exploreindonesia.data.response.RiwayatResponse
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -60,5 +61,8 @@ interface ApiService {
          @Path("kategori") kategori: String
      ) : List<QuizResponse>
 
-
+     @GET("api/riwayat/{id}")
+     suspend fun getRiwayat(
+         @Path("id") id: String
+     ) : RiwayatResponse
 }
