@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.exploreindonesia.R
 import com.example.exploreindonesia.data.model.kategori_model
+import com.example.exploreindonesia.ui.main_ui.search.sub_ui.daerah.Quiz.QuizActivity
 import com.example.exploreindonesia.ui.main_ui.search.sub_ui.daerah.sulawesi_selatan.SulawesiSelatanFlashcardActivity
 
 class SulawesiSelatanAdapter(
@@ -37,6 +38,13 @@ class SulawesiSelatanAdapter(
             val intent = Intent(holder.itemView.context, SulawesiSelatanFlashcardActivity::class.java)
             intent.putExtra("kategori", daerah.nama)
             holder.itemView.context.startActivity(intent)
+
+            if (daerah.nama == "Quiz Akhir") {
+                val intent = Intent(holder.itemView.context, QuizActivity::class.java)
+                intent.putExtra("Daerah", "Makassar")
+                intent.putExtra("a", true)
+                holder.itemView.context.startActivity(intent)
+            }
         }
     }
 }

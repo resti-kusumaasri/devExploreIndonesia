@@ -65,4 +65,9 @@ interface ApiService {
      suspend fun getRiwayat(
          @Path("id") id: String
      ) : RiwayatResponse
+
+     @GET("api/quiz/quizAkhir/{daerah}")
+     suspend fun getQuizAkhir(
+         @Path("daerah") daerah: String
+     ) : List<QuizResponse>
 }

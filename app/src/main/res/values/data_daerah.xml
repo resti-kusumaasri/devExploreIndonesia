@@ -25,7 +25,7 @@
         <item>@drawable/kuliner_nusantara</item>
         <item>@drawable/wisata_nusantara</item>
         <item>@drawable/bahasa_nusantara</item>
-        <item>@drawable/quiz_nusantara</item>
+        <item>@drawable/quiz_akhir</item>
     </string-array>
 
     <string-array name="nama_kategori">
@@ -39,7 +39,7 @@
         <item>Kuliner Nusantara</item>
         <item>Wisata Nusantara</item>
         <item>Bahasa Nusantara</item>
-        <item>Quiz Nusantara</item>
+        <item>Quiz Akhir</item>
     </string-array>
 
 

@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.exploreindonesia.R
 import com.example.exploreindonesia.data.model.kategori_model
+import com.example.exploreindonesia.ui.main_ui.search.sub_ui.daerah.Quiz.QuizActivity
 import com.example.exploreindonesia.ui.main_ui.search.sub_ui.daerah.papua.PapuaFlashcardActivity
 
 class PapuaAdater(
@@ -36,6 +37,13 @@ class PapuaAdater(
             val intent = Intent(holder.itemView.context, PapuaFlashcardActivity::class.java)
             intent.putExtra("kategori" ,daerah.nama)
             holder.itemView.context.startActivity(intent)
+
+            if (daerah.nama == "Quiz Akhir") {
+                val intent = Intent(holder.itemView.context, QuizActivity::class.java)
+                intent.putExtra("Daerah", "Papua")
+                intent.putExtra("a", true)
+                holder.itemView.context.startActivity(intent)
+            }
         }
     }
 }

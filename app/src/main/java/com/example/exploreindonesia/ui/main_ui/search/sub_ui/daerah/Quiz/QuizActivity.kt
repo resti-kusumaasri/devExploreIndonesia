@@ -28,6 +28,7 @@ class QuizActivity : AppCompatActivity() {
         val daerah = intent.getStringExtra("Daerah").toString()
         val kategori = intent.getStringExtra("kategori").toString()
         val c = intent.getBooleanExtra("c", false)
+        val a = intent.getBooleanExtra("a", false)
 
         viewModel.setDaerah(daerah)
         viewModel.setKategori(kategori)
@@ -37,6 +38,8 @@ class QuizActivity : AppCompatActivity() {
         bundle.putString("daerah", daerah)
         bundle.putString("kategori", kategori)
         bundle.putBoolean("c", c)
+        bundle.putBoolean("a", a)
+        Log.d("QuizActivity", "Daerah: $daerah, Kategori: $kategori")
 
         val quizFragment = QuizFragment()
         quizFragment.arguments = bundle

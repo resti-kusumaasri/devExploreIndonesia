@@ -71,4 +71,21 @@ class QuizViewModel : ViewModel()  {
             }
         }
     }
+
+    fun getQuizAkhir(daerah: String) {
+        viewModelScope.launch {
+            try {
+                val response = ApiConfig.getApiService().getQuizAkhir(daerah)
+                _quizList.postValue(response)
+            }catch (e: HttpException) {
+                Log.e("error", e.message.toString())
+            }
+            catch (e: NullPointerException) {
+                Log.e("error", e.message.toString())
+            }
+            catch (e: Exception) {
+                Log.e("error", e.message.toString())
+            }
+        }
+    }
 }

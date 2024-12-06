@@ -61,6 +61,7 @@ class QuizFragment : Fragment() {
         }
 
         val c = arguments?.getBoolean("c") ?: false
+        val a = arguments?.getBoolean("a") ?: false
 
         Log.d("QuizFragment", "Daerah: $daerah, Kategori: $kategori")
 
@@ -113,6 +114,9 @@ class QuizFragment : Fragment() {
 
         if (c==true) {
             quizViewModel.getQuizCategory(kategori)
+        }
+        else if (a==true) {
+            quizViewModel.getQuizAkhir(daerah)
         }
         else {
             quizViewModel.getQuiz(daerah, kategori)
