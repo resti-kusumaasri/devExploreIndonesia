@@ -30,7 +30,7 @@ class KategoriAdapter(private var list: List<kategori_model>) :
     }
 
 
-    override fun getItemCount() = list.size
+    override fun getItemCount() = list.size - 1
 
 
     override fun onBindViewHolder(holder: KategoriViewholder, position: Int) {
