@@ -70,4 +70,5 @@ interface ApiService {
      suspend fun getQuizAkhir(
          @Path("daerah") daerah: String
      ) : List<QuizResponse>
+
 }

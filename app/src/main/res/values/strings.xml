@@ -50,4 +50,13 @@
     <string name="description">description</string>
     <string name="quiz">Quiz</string>
     <string name="dua_mantis">%.2f</string>
+    <string name="ocr_penerjemah_bahasa">OCR Penerjemah</string>
+    <string name="medan">Medan</string>
+    <string name="makassar">Makassar</string>
+    <string name="papua">Papua</string>
+    <string name="pilih_bahasa_tujuan">Pilih Asal Bahasa</string>
+    <string name="ambil_gambar_teks_bahasa_daerah_lalu_terjemahkan_ke_bahasa_indonesia">Ambil gambar teks bahasa daerah, lalu terjemahkan ke bahasa Indonesia.</string>
+    <string name="hasil">Hasil</string>
+    <string name="camera">Camera</string>
+    <string name="gallery">Gallery</string>
 </resources>

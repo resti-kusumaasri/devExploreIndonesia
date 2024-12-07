@@ -97,9 +97,11 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
             android:src="@drawable/image_button_region" />
 
         <LinearLayout
+            android:layout_marginStart="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -109,14 +111,14 @@
                 android:layout_height="wrap_content"
                 style="@style/title_teks"
                 android:layout_marginStart="5dp"
-                android:text="@string/sejarah_nusantara" />
+                android:text="@string/ocr_penerjemah_bahasa" />
 
             <TextView
+                style="@style/teks"
                 android:layout_width="160dp"
                 android:layout_height="wrap_content"
-                style="@style/teks"
                 android:layout_marginStart="5dp"
-                android:text="@string/deskripsi_sejarah" />
+                android:text="@string/ambil_gambar_teks_bahasa_daerah_lalu_terjemahkan_ke_bahasa_indonesia" />
         </LinearLayout>
 
         <ImageView

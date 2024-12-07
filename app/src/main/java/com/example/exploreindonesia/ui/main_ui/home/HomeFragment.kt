@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.exploreindonesia.R
 import com.example.exploreindonesia.databinding.FragmentHomeBinding
+import com.example.exploreindonesia.ui.main_ui.ocr.OCRActivity
 import com.example.exploreindonesia.ui.main_ui.search.SearchFragment
 import com.example.exploreindonesia.ui.main_ui.search.sub_ui.kategori.KategoriFlashCardActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -44,8 +45,7 @@ class HomeFragment : Fragment() {
         button_home_third = binding.buttonHomeThird
 
         button_home_first.setOnClickListener {
-            val intent = Intent(context, KategoriFlashCardActivity::class.java)
-            intent.putExtra("kategori", "Sejarah Nusantara")
+            val intent = Intent(context, OCRActivity::class.java)
             startActivity(intent)
         }
         button_home_second.setOnClickListener {
