@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
 import com.example.exploreindonesia.R
 import com.example.exploreindonesia.data.adapter.FlashcardAdapter
+import com.example.exploreindonesia.data.adapter.KamusAdapter
 import com.example.exploreindonesia.data.request.AddRiwayatRequest
 import com.example.exploreindonesia.ui.main_ui.search.sub_ui.daerah.DaerahViewModel
 import com.example.exploreindonesia.ui.main_ui.search.sub_ui.daerah.Quiz.QuizActivity
@@ -49,6 +50,14 @@ class SulawesiSelatanFlashcardActivity : AppCompatActivity() {
 
         val adapter = FlashcardAdapter()
         rvSulawesiSelatan.adapter = adapter
+
+        if (kategori == "Bahasa Nusantara") {
+            val rvSulawesiSelatan = findViewById<RecyclerView>(R.id.rv_sulawesi_selatan_flashcard)
+            rvSulawesiSelatan.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+            viewModel.flashcards.observe(this, Observer { flashcards ->
+                rvSulawesiSelatan.adapter = KamusAdapter(flashcards)
+            })
+        }
 
         viewModel.flashcards.observe(this, Observer { flashcards ->
 

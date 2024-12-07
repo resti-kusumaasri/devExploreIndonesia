@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.example.exploreindonesia.R
 import com.example.exploreindonesia.data.adapter.FlashcardAdapter
+import com.example.exploreindonesia.data.adapter.KamusAdapter
 import com.example.exploreindonesia.data.request.AddRiwayatRequest
 import com.example.exploreindonesia.ui.main_ui.search.sub_ui.daerah.DaerahViewModel
 import com.example.exploreindonesia.ui.main_ui.search.sub_ui.daerah.Quiz.QuizActivity
@@ -44,6 +45,14 @@ class SumateraUtaraFlashcardActivity : AppCompatActivity() {
 
         val adapter = FlashcardAdapter()
         rvSumatraUtara.adapter = adapter
+
+        if (kategori == "Bahasa Nusantara") {
+            val rvSumatraUtara = findViewById<RecyclerView>(R.id.rv_sumatra_utara_flashcard)
+            rvSumatraUtara.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+            viewModel.flashcards.observe(this, Observer { flashcards ->
+                rvSumatraUtara.adapter = KamusAdapter(flashcards)
+            })
+        }
 
 
 

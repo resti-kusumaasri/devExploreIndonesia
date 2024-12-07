@@ -11,10 +11,11 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_sulawesi_selatan_flashcard"
-        android:background="#98FFE6E4"
-        android:layout_marginTop="5dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="50dp"
+        android:background="#98FFE6E4"
         android:padding="5dp"
         app:layout_constraintBottom_toTopOf="@+id/btn_quiz_sulawesi_selatan"
         app:layout_constraintEnd_toEndOf="parent"
@@ -27,7 +28,7 @@
         style="@style/title_teks"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="8dp"
         android:background="@drawable/submit_button"
         android:text="@string/quiz"
         android:textColor="@color/white"

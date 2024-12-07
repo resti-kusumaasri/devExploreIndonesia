@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.exploreindonesia.R
 import com.example.exploreindonesia.data.adapter.FlashCardCategoryAdapter
 import com.example.exploreindonesia.data.adapter.FlashcardAdapter
+import com.example.exploreindonesia.data.adapter.KamusAdapter
 import com.example.exploreindonesia.data.request.AddRiwayatRequest
 import com.example.exploreindonesia.ui.main_ui.search.sub_ui.daerah.DaerahViewModel
 import com.example.exploreindonesia.ui.main_ui.search.sub_ui.daerah.Quiz.QuizActivity
@@ -56,6 +57,14 @@ class KategoriFlashCardActivity : AppCompatActivity() {
          return
      }else {
          Toast.makeText(this, "Data Sedang Diproses, Mohon Tunggu", Toast.LENGTH_SHORT).show()
+     }
+
+     if (kategori == "Bahasa Nusantara") {
+         val rvKategori = findViewById<RecyclerView>(R.id.rv_kategori_flashcard)
+         rvKategori.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+         viewModel.flashcards.observe(this, Observer { flashcards ->
+             rvKategori.adapter = KamusAdapter(flashcards)
+         })
      }
      viewModel.getFlashCards(kategori)
 

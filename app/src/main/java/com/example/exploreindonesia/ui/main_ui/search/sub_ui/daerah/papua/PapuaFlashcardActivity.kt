@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.example.exploreindonesia.R
 import com.example.exploreindonesia.data.adapter.FlashcardAdapter
+import com.example.exploreindonesia.data.adapter.KamusAdapter
 import com.example.exploreindonesia.data.request.AddRiwayatRequest
 import com.example.exploreindonesia.ui.main_ui.search.sub_ui.daerah.DaerahViewModel
 import com.example.exploreindonesia.ui.main_ui.search.sub_ui.daerah.Quiz.QuizActivity
@@ -47,6 +48,14 @@ class PapuaFlashcardActivity : AppCompatActivity() {
 
         val adapter = FlashcardAdapter()
         rvPapua.adapter = adapter
+
+        if (kategori == "Bahasa Nusantara") {
+            val rvPapua = findViewById<RecyclerView>(R.id.rv_papua_flashcard)
+            rvPapua.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+            viewModel.flashcards.observe(this, Observer { flashcards ->
+                rvPapua.adapter = KamusAdapter(flashcards)
+            })
+        }
 
         viewModel.flashcards.observe(this, Observer { flashcards ->
             adapter.updateFlashcards(flashcards)

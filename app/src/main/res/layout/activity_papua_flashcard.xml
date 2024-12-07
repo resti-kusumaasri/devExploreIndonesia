@@ -27,7 +27,7 @@
        style="@style/title_teks"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
-       android:layout_marginBottom="24dp"
+       android:layout_marginBottom="8dp"
        android:background="@drawable/submit_button"
        android:text="@string/quiz"
        android:textColor="@color/white"
