@@ -25,6 +25,7 @@
         android:background="@drawable/submit_button"
         android:text="@string/logout"
         android:layout_margin="5dp"
+        android:backgroundTint="@color/merahmarun"
         app:layout_constraintEnd_toEndOf="@+id/btn_edit_profile"
         app:layout_constraintStart_toStartOf="@+id/btn_edit_profile"
         app:layout_constraintTop_toBottomOf="@+id/btn_edit_profile" />
@@ -36,6 +37,7 @@
         android:layout_margin="5dp"
         android:text="@string/edit_profile"
         android:background="@drawable/submit_button"
+        android:backgroundTint="@color/merahmarun"
         app:layout_constraintEnd_toEndOf="@id/profile_container"
         app:layout_constraintStart_toStartOf="@+id/profile_container"
         app:layout_constraintTop_toBottomOf="@+id/profile_container" />

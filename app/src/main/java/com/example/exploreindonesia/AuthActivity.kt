@@ -134,7 +134,9 @@ class AuthActivity : AppCompatActivity() {
         }
 
         setButton()
-        supportActionBar?.show()
+        supportActionBar?.apply {
+            title = "Explore Indonesia"
+        }
     }
 
     fun setButton() {

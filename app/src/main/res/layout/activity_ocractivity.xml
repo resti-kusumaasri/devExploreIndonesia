@@ -11,6 +11,7 @@
 
 
     <ImageView
+        android:contentDescription="@string/bingkai_gambar"
         android:layout_margin="5dp"
         android:id="@+id/imageOCR"
         android:layout_width="match_parent"

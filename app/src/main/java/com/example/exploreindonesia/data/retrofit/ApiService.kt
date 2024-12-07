@@ -6,6 +6,7 @@ import com.example.exploreindonesia.data.request.RegisterRequest
 import com.example.exploreindonesia.data.request.AddRiwayatRequest
 import com.example.exploreindonesia.data.response.AddRiwayatResponse
 import com.example.exploreindonesia.data.response.EditResponse
+import com.example.exploreindonesia.data.response.FAQResponse
 import com.example.exploreindonesia.data.response.FlashcardResponse
 import com.example.exploreindonesia.data.response.FlashcardResponseItem
 import com.example.exploreindonesia.data.response.LoginResponse
@@ -70,5 +71,9 @@ interface ApiService {
      suspend fun getQuizAkhir(
          @Path("daerah") daerah: String
      ) : List<QuizResponse>
+
+     @GET("api/FAQ")
+     suspend fun getFAQ() : List<FAQResponse>
+
 
 }

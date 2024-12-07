@@ -156,14 +156,14 @@
                 android:layout_height="wrap_content"
                 style="@style/title_teks"
                 android:layout_marginStart="5dp"
-                android:text="@string/kuliner_nusantara" />
+                android:text="@string/q_u0026_a" />
 
             <TextView
                 android:layout_width="160dp"
                 android:layout_height="wrap_content"
                 style="@style/teks"
                 android:layout_marginStart="5dp"
-                android:text="@string/deskripsi_kuliner" />
+                android:text="@string/cari_tahu_tentang_aplikasi_ini" />
         </LinearLayout>
 
         <ImageView

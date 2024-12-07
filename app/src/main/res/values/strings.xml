@@ -59,4 +59,11 @@
     <string name="hasil">Hasil</string>
     <string name="camera">Camera</string>
     <string name="gallery">Gallery</string>
+    <string name="cari_tahu_tentang_aplikasi_ini">Cari tahu tentang aplikasi ini</string>
+    <string name="q_u0026_a">FAQ</string>
+    <string name="app_logo">app logo</string>
+    <string name="login_form">login form</string>
+    <string name="register_form">register form</string>
+    <string name="bingkai_gambar">bingkai gambar</string>
+    <string name="flashcard_image">flashcard image</string>
 </resources>

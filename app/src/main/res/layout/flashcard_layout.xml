@@ -58,6 +58,7 @@
                     tools:src="@tools:sample/avatars" />
 
                 <TextView
+                    android:contentDescription="@string/flashcard_image"
                     android:id="@+id/title_flashcard"
                     style="@style/title_teks_bold"
                     android:layout_width="match_parent"

@@ -1,6 +1,9 @@
 package com.example.exploreindonesia.ui.main_ui.ocr
 
+import android.content.Context
 import android.content.Intent
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
@@ -145,6 +148,9 @@ class OCRActivity : AppCompatActivity() {
                 launcherIntentCamera.launch(intent)
             }
         }
+        if (!isInternetAvailable()) {
+            Toast.makeText(this, "Tidak ada koneksi internet", Toast.LENGTH_SHORT).show()
+        }
 
         supportActionBar?.apply {
             title = "OCR"
@@ -201,6 +207,18 @@ class OCRActivity : AppCompatActivity() {
                     i--
                 }
             }
+        }
+    }
+
+    private fun isInternetAvailable(): Boolean {
+        val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val network = connectivityManager.activeNetwork ?: return false
+        val activeNetwork = connectivityManager.getNetworkCapabilities(network) ?: return false
+        return when {
+            activeNetwork.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) -> true
+            activeNetwork.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) -> true
+            activeNetwork.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET) -> true
+            else -> false
         }
     }
 }

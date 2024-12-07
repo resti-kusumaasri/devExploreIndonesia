@@ -10,6 +10,7 @@
 
 
     <ImageView
+        android:contentDescription="@string/app_logo"
         android:id="@+id/imageView"
         android:layout_width="131dp"
         android:layout_height="94dp"
@@ -29,6 +30,7 @@
         android:layout_marginTop="-20dp"
         android:background="@drawable/submit_button"
         android:fontFamily="@font/poppins_bold"
+        android:backgroundTint="@color/merahmarun"
         android:text="@string/login"
         app:layout_constraintEnd_toEndOf="@+id/container_auth"
         app:layout_constraintStart_toStartOf="@+id/container_auth"
@@ -76,6 +78,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <ImageView
+            android:contentDescription="@string/login_form"
             android:id="@+id/btn_login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -84,6 +87,7 @@
             android:src="@drawable/btn_login_active" />
 
         <ImageView
+            android:contentDescription="@string/register_form"
             android:id="@+id/btn_register"
             android:paddingStart="1dp"
             android:layout_width="wrap_content"
