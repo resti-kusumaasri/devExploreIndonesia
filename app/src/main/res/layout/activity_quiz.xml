@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/main_background"
-    tools:context=".ui.main_ui.search.sub_ui.daerah.Quiz.QuizActivity">
+    tools:context=".ui.main_ui.search.sub_ui.daerah.quiz.QuizActivity">
 
     <FrameLayout
         android:id="@+id/container_quiz"

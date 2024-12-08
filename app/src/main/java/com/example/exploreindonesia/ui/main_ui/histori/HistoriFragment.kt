@@ -1,4 +1,4 @@
-package com.example.exploreindonesia.ui.main_ui.Histori
+package com.example.exploreindonesia.ui.main_ui.histori
 
 import android.app.Activity
 import android.os.Bundle
@@ -42,7 +42,7 @@ class HistoriFragment : Fragment() {
             requireContext().getSharedPreferences("akun", Activity.MODE_PRIVATE)
         val id = akunsharedpreferenches.getString("userId", "") ?: ""
 
-        val viewModel = ViewModelProvider(this).get(HistoriViewModel::class.java)
+        val viewModel = ViewModelProvider(this)[HistoriViewModel::class.java]
 
         val recyclerView: RecyclerView = view.findViewById(R.id.recyclerView_histori)
 

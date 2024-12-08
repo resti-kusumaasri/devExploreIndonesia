@@ -1,19 +1,18 @@
 package com.example.exploreindonesia.ui.main_ui.search.sub_ui.daerah.sumatra_utara
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.exploreindonesia.R
 import com.example.exploreindonesia.data.adapter.SumatraUtaraAdapter
-import com.example.exploreindonesia.data.model.kategori_model
+import com.example.exploreindonesia.data.model.Kategorimodel
 
 
 class SumateraUtaraFragment : Fragment() {
-
 
 
     override fun onCreateView(
@@ -32,17 +31,17 @@ class SumateraUtaraFragment : Fragment() {
         val adapter = SumatraUtaraAdapter(getList())
         rvSumatraUtara.adapter = adapter
 
-        rvSumatraUtara.layoutManager= GridLayoutManager(requireContext(),3)
+        rvSumatraUtara.layoutManager = GridLayoutManager(requireContext(), 3)
 
 
     }
 
-    fun getList(): ArrayList<kategori_model> {
+    private fun getList(): ArrayList<Kategorimodel> {
         val image = resources.obtainTypedArray(R.array.gambar_kategori)
         val name = resources.getStringArray(R.array.nama_kategori)
-        val list = ArrayList<kategori_model>()
+        val list = ArrayList<Kategorimodel>()
         for (i in name.indices) {
-            val kategori = kategori_model(image.getResourceId(i, -1), name[i])
+            val kategori = Kategorimodel(image.getResourceId(i, -1), name[i])
             list.add(kategori)
         }
         return list

@@ -45,7 +45,7 @@ class AuthActivity : AppCompatActivity() {
             finish()
         }
 
-        authViewModel = ViewModelProvider(this).get(AuthViewModel::class.java)
+        authViewModel = ViewModelProvider(this)[AuthViewModel::class.java]
 
         binding = ActivityAuthBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -107,13 +107,13 @@ class AuthActivity : AppCompatActivity() {
                 val email = findViewById<EditText>(R.id.edt_register_email).text.toString()
                 val username = findViewById<EditText>(R.id.edt_username).text.toString()
                 val password = findViewById<EditText>(R.id.edt_register_password).text.toString()
-                val confirm_password =
+                val confirmPassword =
                     findViewById<EditText>(R.id.edt_konfirmasi_password).text.toString()
 
 
-                if (name != "" && email != "" && username != "" && password != "" && confirm_password != "") {
+                if (name != "" && email != "" && username != "" && password != "" && confirmPassword != "") {
                     val registerData =
-                        RegisterRequest(name, email, username, password, confirm_password)
+                        RegisterRequest(name, email, username, password, confirmPassword)
                     authViewModel.registerUser(registerData)
                 }
                 authViewModel.registerResult.observe(this) { result ->
@@ -139,7 +139,7 @@ class AuthActivity : AppCompatActivity() {
         }
     }
 
-    fun setButton() {
+    private fun setButton() {
         if (supportFragmentManager.findFragmentById(R.id.container_auth) is LoginFragment) {
             btnlogin.setImageResource(R.drawable.btn_login_active)
             btnregister.setImageResource(R.drawable.btn_register_inactive)

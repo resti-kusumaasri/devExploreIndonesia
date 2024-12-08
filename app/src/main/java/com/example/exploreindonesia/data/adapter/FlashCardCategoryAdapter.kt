@@ -10,19 +10,21 @@ import com.bumptech.glide.Glide
 import com.example.exploreindonesia.R
 import com.example.exploreindonesia.data.response.FlashcardResponseItem
 
-class FlashCardCategoryAdapter : RecyclerView.Adapter<FlashCardCategoryAdapter.FlashCardCategoryViewHolder>() {
+class FlashCardCategoryAdapter :
+    RecyclerView.Adapter<FlashCardCategoryAdapter.FlashCardCategoryViewHolder>() {
 
     var flashcardsCategory: List<FlashcardResponseItem> = listOf()
 
     class FlashCardCategoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val KategoriTextView: TextView = itemView.findViewById(R.id.kategori_flashcard)
+        private val kategoriTextView: TextView = itemView.findViewById(R.id.kategori_flashcard)
         private val imageView: ImageView = itemView.findViewById(R.id.image_flashcard)
         private val titleTextView: TextView = itemView.findViewById(R.id.title_flashcard)
-        private val descriptionTextView: TextView = itemView.findViewById(R.id.description_flashcard)
+        private val descriptionTextView: TextView =
+            itemView.findViewById(R.id.description_flashcard)
         private val areaTextView: TextView = itemView.findViewById(R.id.daerah)
 
         fun bind(flashcard: FlashcardResponseItem) {
-            KategoriTextView.text = flashcard.category
+            kategoriTextView.text = flashcard.category
             titleTextView.text = flashcard.title
             descriptionTextView.text = flashcard.description
             areaTextView.text = flashcard.languageType
@@ -35,8 +37,7 @@ class FlashCardCategoryAdapter : RecyclerView.Adapter<FlashCardCategoryAdapter.F
                         .error(R.drawable.baseline_image_24)
                         .centerCrop()
                         .into(imageView)
-                }
-                else {
+                } else {
                     imageView.setImageResource(R.drawable.baseline_image_24)
                 }
             }
@@ -54,7 +55,7 @@ class FlashCardCategoryAdapter : RecyclerView.Adapter<FlashCardCategoryAdapter.F
         return FlashCardCategoryViewHolder(view)
     }
 
-    override fun getItemCount() =  flashcardsCategory.size
+    override fun getItemCount() = flashcardsCategory.size
 
     override fun onBindViewHolder(holder: FlashCardCategoryViewHolder, position: Int) {
         val flashcard = flashcardsCategory[position]

@@ -8,7 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.exploreindonesia.R
 import com.example.exploreindonesia.data.response.FlashcardResponseItem
 
-class KamusAdapter(private val kamusList: List<FlashcardResponseItem>) : RecyclerView.Adapter<KamusAdapter.KamusViewHolder>() {
+class KamusAdapter(private val kamusList: List<FlashcardResponseItem>) :
+    RecyclerView.Adapter<KamusAdapter.KamusViewHolder>() {
     class KamusViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val bahasaDaerah: TextView = itemView.findViewById(R.id.tv_daerah)
         val bahasaIndo: TextView = itemView.findViewById(R.id.tv_indo)
@@ -16,7 +17,8 @@ class KamusAdapter(private val kamusList: List<FlashcardResponseItem>) : Recycle
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): KamusViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.layout_bahasa, parent, false)
+        val view =
+            LayoutInflater.from(parent.context).inflate(R.layout.layout_bahasa, parent, false)
         return KamusViewHolder(view)
     }
 

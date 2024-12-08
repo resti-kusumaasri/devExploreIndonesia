@@ -2,20 +2,20 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/auth_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/auth_background"
-    android:id="@+id/auth_container"
     tools:context=".AuthActivity">
 
 
     <ImageView
-        android:contentDescription="@string/app_logo"
         android:id="@+id/imageView"
         android:layout_width="131dp"
         android:layout_height="94dp"
         android:layout_marginStart="148dp"
         android:layout_marginEnd="148dp"
+        android:contentDescription="@string/app_logo"
         android:src="@drawable/logo"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="@+id/container_auth"
@@ -29,8 +29,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="-20dp"
         android:background="@drawable/submit_button"
-        android:fontFamily="@font/poppins_bold"
         android:backgroundTint="@color/merahmarun"
+        android:fontFamily="@font/poppins_bold"
         android:text="@string/login"
         app:layout_constraintEnd_toEndOf="@+id/container_auth"
         app:layout_constraintStart_toStartOf="@+id/container_auth"
@@ -58,7 +58,7 @@
         android:layout_marginTop="20dp"
         android:fontFamily="@font/poppins_medium"
         android:maxLines="2"
-        android:text="Kenali Budaya Indonesia dengan cara yang menarik"
+        android:text="@string/kenali_budaya_indonesia_dengan_cara_yang_menarik"
         android:textAlignment="center"
         android:textColor="@color/merahmarun"
         app:layout_constraintEnd_toEndOf="@+id/container_auth"
@@ -78,21 +78,21 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <ImageView
-            android:contentDescription="@string/login_form"
             android:id="@+id/btn_login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingEnd="1dp"
             android:layout_marginStart="88dp"
+            android:contentDescription="@string/login_form"
+            android:paddingEnd="1dp"
             android:src="@drawable/btn_login_active" />
 
         <ImageView
-            android:contentDescription="@string/register_form"
             android:id="@+id/btn_register"
-            android:paddingStart="1dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="92dp"
+            android:contentDescription="@string/register_form"
+            android:paddingStart="1dp"
             android:src="@drawable/btn_register_inactive" />
     </LinearLayout>
 

@@ -1,8 +1,7 @@
 <resources>
     <string name="app_name">ExploreIndonesia</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="masukan_password">Masukan Password</string>
@@ -16,14 +15,9 @@
     <string name="konfirmasi_password">Konfirmasi Password</string>
     <string name="masukan_username">Masukan Username</string>
     <string name="greetings">Selamat datang</string>
-    <string name="profile_name">profile name</string>
     <string name="yuk_jelajahi">Yuk Jelajahi</string>
     <string name="kekayaan_nusantara">Kekayaan Nusantara</string>
     <string name="jelajahi_nusantara">Jelajah Nusantara</string>
-    <string name="deskripsi_sejarah">Yuk jelajahi pengetahuan sejarah dari penjuru Nusantara</string>
-    <string name="sejarah_nusantara">Sejarah Nusantara</string>
-    <string name="kuliner_nusantara">Kuliner Nusantara</string>
-    <string name="deskripsi_kuliner">Yuk jelajahi cita rasa kuliner dari penjuru Nusantara</string>
     <string name="selengkapnya">Selengkapnya</string>
     <string name="kategori">Kategori</string>
     <string name="daerah">Daerah</string>
@@ -39,12 +33,8 @@
     <string name="username">Username</string>
     <string name="edit_profile">Edit Profile</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="masukan_username_baru">Masukan Username Baru</string>
-    <string name="simpan">Simpan</string>
-    <string name="batal">Batal</string>
     <string name="masukan_nama_lengkap_baru">Masukan Nama Lengkap Baru</string>
-    <string name="jelajah_nusantara">Jelajah Nusantara</string>
     <string name="jelajah_sumatra_utara">Jelajah Sumatra Utara</string>
     <string name="jelajah_sulawesi_selatan">Jelajah Sulawesi Selatan</string>
     <string name="description">description</string>
@@ -56,7 +46,6 @@
     <string name="papua">Papua</string>
     <string name="pilih_bahasa_tujuan">Pilih Asal Bahasa</string>
     <string name="ambil_gambar_teks_bahasa_daerah_lalu_terjemahkan_ke_bahasa_indonesia">Ambil gambar teks bahasa daerah, lalu terjemahkan ke bahasa Indonesia.</string>
-    <string name="hasil">Hasil</string>
     <string name="camera">Camera</string>
     <string name="gallery">Gallery</string>
     <string name="cari_tahu_tentang_aplikasi_ini">Cari tahu tentang aplikasi ini</string>
@@ -67,4 +56,23 @@
     <string name="bingkai_gambar">bingkai gambar</string>
     <string name="flashcard_image">flashcard image</string>
     <string name="bahasa">Bahasa :</string>
+    <string name="map_daerah">map daerah</string>
+    <string name="map_home">map_home</string>
+    <string name="image_button_ocr">image button OCR</string>
+    <string name="image">image</string>
+    <string name="kenali_budaya_indonesia_dengan_cara_yang_menarik">Kenali Budaya Indonesia dengan cara yang menarik</string>
+    <string name="submit">Submit</string>
+    <string name="hasil_deteksi">Hasil Deteksi</string>
+    <string name="hasil_terjemahan">Hasil terjemahan</string>
+    <string name="nilai_anda">Nilai Anda</string>
+    <string name="kembali">Kembali</string>
+    <string name="title">Title</string>
+    <string name="jelajah_papua">Jelajah Papua</string>
+    <string name="pertanyaan_akan_tampil_di_sini">Pertanyaan akan tampil di sini</string>
+    <string name="pilihan_a">Pilihan A</string>
+    <string name="pilihan_b">Pilihan B</string>
+    <string name="pilihan_c">Pilihan C</string>
+    <string name="pilihan_d">Pilihan D</string>
+    <string name="selanjutnya">Selanjutnya</string>
+    <string name="this_nama_lengkap">This Nama Lengkap</string>
 </resources>

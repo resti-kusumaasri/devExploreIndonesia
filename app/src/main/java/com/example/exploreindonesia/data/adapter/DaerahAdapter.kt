@@ -9,13 +9,16 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.exploreindonesia.R
-import com.example.exploreindonesia.data.model.daerah_model
+import com.example.exploreindonesia.data.model.Daerahmodel
 
-class DaerahAdapter(private var list: List<daerah_model>, private val onItemClick: (daerah_model) -> Unit) :
+class DaerahAdapter(
+    private var list: List<Daerahmodel>,
+    private val onItemClick: (Daerahmodel) -> Unit
+) :
     RecyclerView.Adapter<DaerahAdapter.DaerahViewholder>(),
     Filterable {
 
-    private var listFull: List<daerah_model> = list
+    private var listFull: List<Daerahmodel> = list
 
     class DaerahViewholder(view: View) : RecyclerView.ViewHolder(view) {
         val imageView: ImageView = view.findViewById(R.id.image_item)
@@ -41,7 +44,7 @@ class DaerahAdapter(private var list: List<daerah_model>, private val onItemClic
     override fun getFilter(): Filter {
         return object : Filter() {
             override fun performFiltering(constraint: CharSequence?): FilterResults {
-                val filteredList: List<daerah_model> = if (constraint.isNullOrEmpty()) {
+                val filteredList: List<Daerahmodel> = if (constraint.isNullOrEmpty()) {
                     listFull
                 } else {
                     listFull.filter {
@@ -55,8 +58,7 @@ class DaerahAdapter(private var list: List<daerah_model>, private val onItemClic
             }
 
             override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
-                list = results?.values as List<daerah_model>
-                notifyDataSetChanged()
+                list = results?.values as List<Daerahmodel>
             }
         }
     }

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.main_ui.search.sub_ui.daerah.Quiz.QuizFragment">
+    tools:context=".ui.main_ui.search.sub_ui.daerah.quiz.QuizFragment">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -13,28 +13,28 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center_horizontal">
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/pertanyaan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Pertanyaan akan tampil di sini"
-                android:textSize="18sp"
-                android:textColor="@color/black"
-                android:textStyle="bold"
                 android:layout_marginBottom="16dp"
+                android:gravity="center"
+                android:text="@string/pertanyaan_akan_tampil_di_sini"
+                android:textColor="@color/black"
+                android:textSize="18sp"
 
-                android:gravity="center" />
+                android:textStyle="bold" />
 
 
             <RadioGroup
                 android:id="@+id/setjawaban"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginBottom="24dp">
+                android:layout_marginBottom="24dp"
+                android:orientation="vertical">
 
                 <RadioButton
                     android:id="@+id/jawabanA"
@@ -42,7 +42,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:minHeight="48dp"
-                    android:text="Pilihan A"
+                    android:text="@string/pilihan_a"
                     android:textSize="16sp" />
 
                 <RadioButton
@@ -51,7 +51,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:minHeight="48dp"
-                    android:text="Pilihan B"
+                    android:text="@string/pilihan_b"
                     android:textSize="16sp" />
 
                 <RadioButton
@@ -60,7 +60,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:minHeight="48dp"
-                    android:text="Pilihan C"
+                    android:text="@string/pilihan_c"
                     android:textSize="16sp" />
 
                 <RadioButton
@@ -69,7 +69,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:minHeight="48dp"
-                    android:text="Pilihan D"
+                    android:text="@string/pilihan_d"
                     android:textSize="16sp" />
             </RadioGroup>
 
@@ -78,15 +78,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
                 <Button
-                    android:background="@drawable/submit_button"
                     android:id="@+id/btn_next"
-                    android:layout_margin="8dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Selanjutnya"
-                    android:textColor="@color/white"
-                    android:layout_marginTop="16dp"/>
+                    android:layout_margin="8dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/submit_button"
+                    android:text="@string/selanjutnya"
+                    android:textColor="@color/white" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

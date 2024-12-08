@@ -4,7 +4,7 @@ import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class daerah_model(
+data class Daerahmodel(
     val gambar: Int,
     val nama: String
 ) : Parcelable

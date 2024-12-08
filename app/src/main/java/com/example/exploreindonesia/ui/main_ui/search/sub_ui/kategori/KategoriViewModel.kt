@@ -17,8 +17,6 @@ class KategoriViewModel : ViewModel() {
     val flashcards: LiveData<List<FlashcardResponseItem>> = _flashcards
 
 
-
-
     fun getFlashCards(kategori: String) {
         viewModelScope.launch {
             try {

@@ -3,174 +3,179 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    android:padding="10dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/auth_background"
+    android:padding="10dp"
     tools:context=".ui.main_ui.ocr.OCRActivity">
-
-
-    <ImageView
-        android:contentDescription="@string/bingkai_gambar"
-        android:layout_margin="5dp"
-        android:id="@+id/imageOCR"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:src="@tools:sample/avatars" />
+        android:layout_height="match_parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/imageOCR"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_margin="5dp"
+                android:contentDescription="@string/bingkai_gambar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@tools:sample/avatars" />
 
 
+            <LinearLayout
+                android:id="@+id/linearLayout2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/imageOCR"
+                app:layout_constraintTop_toBottomOf="@+id/imageOCR">
 
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/imageOCR"
-        app:layout_constraintTop_toBottomOf="@+id/imageOCR">
+                <Button
+                    android:id="@+id/btn_gallery"
+                    style="@style/title_teks"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:background="@drawable/submit_button"
+                    android:text="@string/gallery"
+                    android:textColor="@color/white" />
 
-        <Button
-            android:id="@+id/btn_gallery"
-            style="@style/title_teks"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:background="@drawable/submit_button"
-            android:text="@string/gallery"
-            android:textColor="@color/white" />
+                <Button
+                    android:id="@+id/btn_camera"
+                    style="@style/title_teks"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:background="@drawable/submit_button"
+                    android:text="@string/camera"
+                    android:textColor="@color/white" />
 
-        <Button
-            android:id="@+id/btn_camera"
-            style="@style/title_teks"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:background="@drawable/submit_button"
-            android:text="@string/camera"
-            android:textColor="@color/white" />
-
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/textView7"
-        style="@style/title_teks"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="15dp"
-        android:text="@string/pilih_bahasa_tujuan"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
-
-    <RadioGroup
-        android:id="@+id/radioGroupBahasa"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="@+id/textView7"
-        app:layout_constraintStart_toStartOf="@+id/textView7"
-        app:layout_constraintTop_toBottomOf="@+id/textView7">
-
-        <RadioButton
-            style="@style/title_teks"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:minHeight="48dp"
-            android:text="@string/medan" />
-
-        <RadioButton
-            style="@style/title_teks"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:minHeight="48dp"
-            android:text="@string/makassar" />
-
-        <RadioButton
-            style="@style/title_teks"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:minHeight="48dp"
-            android:text="@string/papua" />
-    </RadioGroup>
-
-    <Button
-        android:id="@+id/btn_scan"
-        style="@style/title_teks"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/submit_button"
-        android:text="Submit"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/radioGroupBahasa"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.487"
-        app:layout_constraintStart_toEndOf="@+id/radioGroupBahasa"
-        app:layout_constraintTop_toTopOf="@+id/radioGroupBahasa"
-        app:layout_constraintVertical_bias="0.52" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="#B3FFE6E4"
-        android:gravity="start"
-        android:orientation="vertical"
-        android:padding="5dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:padding="5dp">
+            </LinearLayout>
 
             <TextView
+                android:id="@+id/textView7"
                 style="@style/title_teks"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="3dp"
-                android:text="Hasil Deteksi" />
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="15dp"
+                android:text="@string/pilih_bahasa_tujuan"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
 
-            <TextView
-                android:id="@+id/txt_asal"
+            <RadioGroup
+                android:id="@+id/radioGroupBahasa"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="@+id/textView7"
+                app:layout_constraintStart_toStartOf="@+id/textView7"
+                app:layout_constraintTop_toBottomOf="@+id/textView7">
+
+                <RadioButton
+                    style="@style/title_teks"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:text="@string/medan" />
+
+                <RadioButton
+                    style="@style/title_teks"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:text="@string/makassar" />
+
+                <RadioButton
+                    style="@style/title_teks"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:text="@string/papua" />
+            </RadioGroup>
+
+            <Button
+                android:id="@+id/btn_scan"
                 style="@style/title_teks"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="3dp"
-                android:layout_marginStart="50dp"
-                tools:text="Hasil" />
-        </LinearLayout>
+                android:background="@drawable/submit_button"
+                android:text="@string/submit"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="@+id/radioGroupBahasa"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.487"
+                app:layout_constraintStart_toEndOf="@+id/radioGroupBahasa"
+                app:layout_constraintTop_toTopOf="@+id/radioGroupBahasa"
+                app:layout_constraintVertical_bias="0.52" />
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:padding="5dp">
-
-            <TextView
-                style="@style/title_teks"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:id="@+id/linearLayout3"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="3dp"
-                android:text="Hasil terjemahan" />
+                android:layout_marginTop="16dp"
+                android:background="#B3FFE6E4"
+                android:gravity="start"
+                android:orientation="vertical"
+                android:padding="5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
-            <TextView
-                android:id="@+id/txt_translasi"
-                style="@style/title_teks"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="3dp"
-                android:layout_marginStart="18dp"
-                tools:text="Hasil" />
-        </LinearLayout>
-    </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <TextView
+                        style="@style/title_teks"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="3dp"
+                        android:text="@string/hasil_deteksi" />
+
+                    <TextView
+                        android:id="@+id/txt_asal"
+                        style="@style/title_teks"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="3dp"
+                        android:layout_marginStart="50dp"
+                        tools:text="Hasil" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <TextView
+                        style="@style/title_teks"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="3dp"
+                        android:text="@string/hasil_terjemahan" />
+
+                    <TextView
+                        android:id="@+id/txt_translasi"
+                        style="@style/title_teks"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="3dp"
+                        android:layout_marginStart="18dp"
+                        tools:text="Hasil" />
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

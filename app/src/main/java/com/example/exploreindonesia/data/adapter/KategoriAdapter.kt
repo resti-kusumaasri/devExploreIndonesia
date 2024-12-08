@@ -10,14 +10,14 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.exploreindonesia.R
-import com.example.exploreindonesia.data.model.kategori_model
+import com.example.exploreindonesia.data.model.Kategorimodel
 import com.example.exploreindonesia.ui.main_ui.search.sub_ui.kategori.KategoriFlashCardActivity
 
-class KategoriAdapter(private var list: List<kategori_model>) :
+class KategoriAdapter(private var list: List<Kategorimodel>) :
     RecyclerView.Adapter<KategoriAdapter.KategoriViewholder>(),
     Filterable {
 
-    private var listFull: List<kategori_model> = list
+    private var listFull: List<Kategorimodel> = list
 
     class KategoriViewholder(view: View) : RecyclerView.ViewHolder(view) {
         val imageView: ImageView = view.findViewById(R.id.image_item)
@@ -48,7 +48,7 @@ class KategoriAdapter(private var list: List<kategori_model>) :
     override fun getFilter(): Filter {
         return object : Filter() {
             override fun performFiltering(constraint: CharSequence?): FilterResults {
-                val filteredList: List<kategori_model> = if (constraint.isNullOrEmpty()) {
+                val filteredList: List<Kategorimodel> = if (constraint.isNullOrEmpty()) {
                     listFull
                 } else {
                     listFull.filter {
@@ -62,7 +62,7 @@ class KategoriAdapter(private var list: List<kategori_model>) :
             }
 
             override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
-                list = results?.values as List<kategori_model>
+                list = results?.values as List<Kategorimodel>
                 notifyDataSetChanged()
             }
         }

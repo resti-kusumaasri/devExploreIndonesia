@@ -8,13 +8,11 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.exploreindonesia.R
-import com.example.exploreindonesia.data.request.AddRiwayatRequest
 import com.example.exploreindonesia.data.response.FlashcardResponseItem
-import com.example.exploreindonesia.ui.main_ui.search.sub_ui.daerah.DaerahViewModel
 
 
-class FlashcardAdapter(
-) : RecyclerView.Adapter<FlashcardAdapter.FlashcardViewHolder>() {
+class FlashcardAdapter
+ : RecyclerView.Adapter<FlashcardAdapter.FlashcardViewHolder>() {
 
     var flashcards: List<FlashcardResponseItem> = listOf()
 
@@ -37,14 +35,15 @@ class FlashcardAdapter(
     override fun getItemCount(): Int = flashcards.size
 
     inner class FlashcardViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val KategoriTextView: TextView = itemView.findViewById(R.id.kategori_flashcard)
+        private val kategoriTextView: TextView = itemView.findViewById(R.id.kategori_flashcard)
         private val imageView: ImageView = itemView.findViewById(R.id.image_flashcard)
         private val titleTextView: TextView = itemView.findViewById(R.id.title_flashcard)
-        private val descriptionTextView: TextView = itemView.findViewById(R.id.description_flashcard)
+        private val descriptionTextView: TextView =
+            itemView.findViewById(R.id.description_flashcard)
         private val areaTextView: TextView = itemView.findViewById(R.id.daerah)
 
         fun bind(flashcard: FlashcardResponseItem) {
-            KategoriTextView.text = flashcard.category
+            kategoriTextView.text = flashcard.category
             titleTextView.text = flashcard.title
             descriptionTextView.text = flashcard.description
             areaTextView.text = flashcard.languageType
@@ -57,8 +56,7 @@ class FlashcardAdapter(
                         .error(R.drawable.baseline_image_24)
                         .centerCrop()
                         .into(imageView)
-                }
-                else {
+                } else {
                     imageView.setImageResource(R.drawable.baseline_image_24)
                 }
             }

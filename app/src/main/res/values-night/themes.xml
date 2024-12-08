@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Theme.ExploreIndonesia" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary" >@color/merahmarun</item>
+        <item name="colorPrimary">@color/merahmarun</item>
         <item name="colorPrimaryVariant">@color/merahmarun</item>
         <item name="colorOnPrimary">@color/krem</item>
         <!-- Secondary brand color. -->

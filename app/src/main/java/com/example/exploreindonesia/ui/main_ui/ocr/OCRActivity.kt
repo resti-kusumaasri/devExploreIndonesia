@@ -42,16 +42,16 @@ class OCRActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_ocractivity)
 
-        var asal = findViewById<TextView>(R.id.txt_asal)
-        var translasi = findViewById<TextView>(R.id.txt_translasi)
+        val asal = findViewById<TextView>(R.id.txt_asal)
+        val translasi = findViewById<TextView>(R.id.txt_translasi)
 
         var bahasa = ""
-        var selectedImage : Uri? = null
-        val btn_gallery = findViewById<Button>(R.id.btn_gallery)
-        val btn_camera = findViewById<Button>(R.id.btn_camera)
+        var selectedImage: Uri? = null
+        val btnGallery = findViewById<Button>(R.id.btn_gallery)
+        val btnCamera = findViewById<Button>(R.id.btn_camera)
         val ocrImage = findViewById<ImageView>(R.id.imageOCR)
-        val btn_scan = findViewById<Button>(R.id.btn_scan)
-        val viewModel = ViewModelProvider(this).get(OCRviewModel::class.java)
+        val btnScan = findViewById<Button>(R.id.btn_scan)
+        val viewModel = ViewModelProvider(this)[OCRviewModel::class.java]
         val radioGroup = findViewById<RadioGroup>(R.id.radioGroupBahasa)
         var selectedRadioButtonId: Int
 
@@ -83,22 +83,24 @@ class OCRActivity : AppCompatActivity() {
 
 
 
-        btn_scan.setOnClickListener(){
+        btnScan.setOnClickListener {
             if (selectedImage == null || bahasa.isEmpty()) {
-                Toast.makeText(this, "Pilih gambar terlebih dahulu dan pilih bahasa terlebih dahulu", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this,
+                    "Pilih gambar terlebih dahulu dan pilih bahasa terlebih dahulu",
+                    Toast.LENGTH_SHORT
+                ).show()
             } else {
                 Toast.makeText(this, "Sedang melakukan OCR...", Toast.LENGTH_SHORT).show()
-                btn_scan.isEnabled = false
+                btnScan.isEnabled = false
                 asal.text = ""
                 translasi.text = ""
                 selectedImage?.let { translateText(it, bahasa) }
-                btn_scan.isEnabled = true
+                btnScan.isEnabled = true
                 selectedRadioButton.isChecked = false
                 selectedRadioButton.isChecked = true
             }
         }
-
-
 
 
         val launcherIntentGallery = registerForActivityResult(
@@ -107,7 +109,7 @@ class OCRActivity : AppCompatActivity() {
             if (result.resultCode == RESULT_OK) {
                 selectedImage = result.data?.data as Uri
                 ocrImage.setImageURI(selectedImage)
-                btn_scan.visibility = View.VISIBLE
+                btnScan.visibility = View.VISIBLE
 
             }
         }
@@ -117,7 +119,7 @@ class OCRActivity : AppCompatActivity() {
         ) { result: ActivityResult ->
             if (result.resultCode == RESULT_OK) {
                 ocrImage.setImageURI(selectedImage)
-                btn_scan.visibility = View.VISIBLE
+                btnScan.visibility = View.VISIBLE
             } else {
                 selectedImage = null
             }
@@ -125,7 +127,7 @@ class OCRActivity : AppCompatActivity() {
 
 
 
-        btn_gallery.setOnClickListener {
+        btnGallery.setOnClickListener {
             val intent = Intent()
             intent.type = "image/*"
             intent.action = Intent.ACTION_GET_CONTENT
@@ -133,7 +135,7 @@ class OCRActivity : AppCompatActivity() {
             launcherIntentGallery.launch(chooser)
         }
 
-        btn_camera.setOnClickListener {
+        btnCamera.setOnClickListener {
             val photoFile = createImageFile()
             photoFile?.also {
                 val photoURI = FileProvider.getUriForFile(
@@ -160,7 +162,8 @@ class OCRActivity : AppCompatActivity() {
     }
 
     private fun createImageFile(): File? {
-        val timeStamp: String = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(Date())
+        val timeStamp: String =
+            SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(Date())
         val storageDir: File? = getExternalFilesDir(Environment.DIRECTORY_PICTURES)
         return try {
             File.createTempFile(
@@ -181,12 +184,13 @@ class OCRActivity : AppCompatActivity() {
                 startActivity(intent)
                 return true
             }
+
             else -> return super.onOptionsItemSelected(item)
         }
     }
 
     private fun translateText(image: Uri, bahasa: String) {
-        val viewModel = ViewModelProvider(this).get(OCRviewModel::class.java)
+        val viewModel = ViewModelProvider(this)[OCRviewModel::class.java]
         val inputStream: InputStream? = contentResolver.openInputStream(image)
 
         val requestBody = bahasa.toRequestBody("text/plain".toMediaType())
@@ -200,18 +204,15 @@ class OCRActivity : AppCompatActivity() {
         viewModel.translateText(multipartBody, requestBody)
 
         viewModel.error.observe(this) { error ->
-            if (error == "timeout") {
-                var i = 1
-                while (i>0) {
-                    Toast.makeText(this, "gagal terdeteksi", Toast.LENGTH_SHORT).show()
-                    i--
-                }
+            if (error!= null) {
+                Toast.makeText(this, "gagal terdeteksi", Toast.LENGTH_SHORT).show()
             }
         }
     }
 
     private fun isInternetAvailable(): Boolean {
-        val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val connectivityManager =
+            getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val network = connectivityManager.activeNetwork ?: return false
         val activeNetwork = connectivityManager.getNetworkCapabilities(network) ?: return false
         return when {

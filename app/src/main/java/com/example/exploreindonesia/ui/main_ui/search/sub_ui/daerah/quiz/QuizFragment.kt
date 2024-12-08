@@ -1,9 +1,8 @@
-package com.example.exploreindonesia.ui.main_ui.search.sub_ui.daerah.Quiz
+package com.example.exploreindonesia.ui.main_ui.search.sub_ui.daerah.quiz
 
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,8 +11,8 @@ import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.TextView
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.example.exploreindonesia.MainActivity
 import com.example.exploreindonesia.R
 import com.example.exploreindonesia.data.response.QuizResponse
 import com.example.exploreindonesia.ui.main_ui.ScoreActivity
@@ -26,7 +25,7 @@ import kotlinx.coroutines.launch
 class QuizFragment : Fragment() {
 
     private val userAnswers = mutableMapOf<Int, String>()
-    private  var score = 0
+    private var score = 0
 
     private val quizViewModel: QuizViewModel by viewModels()
 
@@ -108,17 +107,16 @@ class QuizFragment : Fragment() {
                     }
                 }
             } else {
-                Toast.makeText(context, "Silakan pilih jawaban terlebih dahulu", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Silakan pilih jawaban terlebih dahulu", Toast.LENGTH_SHORT)
+                    .show()
             }
         }
 
-        if (c==true) {
+        if (c) {
             quizViewModel.getQuizCategory(kategori)
-        }
-        else if (a==true) {
+        } else if (a) {
             quizViewModel.getQuizAkhir(daerah)
-        }
-        else {
+        } else {
             quizViewModel.getQuiz(daerah, kategori)
         }
     }

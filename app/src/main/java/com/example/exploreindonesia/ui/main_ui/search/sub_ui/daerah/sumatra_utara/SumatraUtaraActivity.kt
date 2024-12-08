@@ -25,7 +25,7 @@ class SumatraUtaraActivity : AppCompatActivity() {
 
 
         supportFragmentManager.beginTransaction()
-            .add(R.id.container_sumatra_utara,SumateraUtaraFragment())
+            .add(R.id.container_sumatra_utara, SumateraUtaraFragment())
             .commitNow()
     }
 
@@ -37,6 +37,7 @@ class SumatraUtaraActivity : AppCompatActivity() {
                 startActivity(intent)
                 true
             }
+
             else -> super.onOptionsItemSelected(item)
         }
     }

@@ -13,4 +13,4 @@ data class LoginResponse(
     @field:SerializedName("userId")
     val userId: String,
 
-) : Parcelable
+    ) : Parcelable

@@ -18,7 +18,7 @@ class OCRviewModel : ViewModel() {
     val ocrResponse: LiveData<OCRResponse> = _ocrResponse
 
 
-    private  val _error = MutableLiveData<String>()
+    private val _error = MutableLiveData<String>()
     val error: LiveData<String> = _error
 
 

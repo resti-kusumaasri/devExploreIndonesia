@@ -19,11 +19,11 @@ class FAQActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_faq_activity)
 
-        val viewModel = ViewModelProvider(this).get(FAQViewModel::class.java)
+        val viewModel = ViewModelProvider(this)[FAQViewModel::class.java]
 
 
         val recyclerView = findViewById<RecyclerView>(R.id.rv_faq)
-        recyclerView.layoutManager= LinearLayoutManager(this)
+        recyclerView.layoutManager = LinearLayoutManager(this)
 
         viewModel.fetchFAQ()
 
@@ -49,12 +49,15 @@ class FAQActivity : AppCompatActivity() {
                 finish()
                 return true
             }
+
             else -> return super.onOptionsItemSelected(item)
         }
 
     }
+
     private fun isInternetAvailable(): Boolean {
-        val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val connectivityManager =
+            getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val network = connectivityManager.activeNetwork ?: return false
         val activeNetwork = connectivityManager.getNetworkCapabilities(network) ?: return false
         return when {

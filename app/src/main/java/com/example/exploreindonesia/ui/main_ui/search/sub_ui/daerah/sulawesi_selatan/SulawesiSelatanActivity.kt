@@ -3,10 +3,7 @@ package com.example.exploreindonesia.ui.main_ui.search.sub_ui.daerah.sulawesi_se
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.example.exploreindonesia.MainActivity
 import com.example.exploreindonesia.R
 
@@ -19,7 +16,7 @@ class SulawesiSelatanActivity : AppCompatActivity() {
         supportActionBar?.setDisplayShowHomeEnabled(true)
         supportActionBar?.title = "Sulawesi Selatan"
         supportFragmentManager.beginTransaction()
-            .add(R.id.container_sulawesi_selatan,SulawesiSelatanFragment())
+            .add(R.id.container_sulawesi_selatan, SulawesiSelatanFragment())
             .commitNow()
     }
 
@@ -31,6 +28,7 @@ class SulawesiSelatanActivity : AppCompatActivity() {
                 startActivity(intent)
                 true
             }
+
             else -> super.onOptionsItemSelected(item)
         }
     }

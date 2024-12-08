@@ -25,8 +25,6 @@ class ProfileViewModel : ViewModel() {
     val profileResult: MutableLiveData<ResponseProfile?> = _profileResult
 
 
-
-
     fun getProfile(
         id: String
     ) {
@@ -42,8 +40,7 @@ class ProfileViewModel : ViewModel() {
                 println("HttpException: ${e.message}")
             } catch (e: NullPointerException) {
                 Log.d("ProfileViewModel", "NullPointerException: ${e.message}")
-            }
-            catch (e: Exception) {
+            } catch (e: Exception) {
                 _profileResult.value = null
                 println("Exception: ${e.message}")
             }

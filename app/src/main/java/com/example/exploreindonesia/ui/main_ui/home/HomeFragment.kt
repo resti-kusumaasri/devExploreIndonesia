@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -15,16 +14,15 @@ import com.example.exploreindonesia.databinding.FragmentHomeBinding
 import com.example.exploreindonesia.ui.faq.FAQActivity
 import com.example.exploreindonesia.ui.main_ui.ocr.OCRActivity
 import com.example.exploreindonesia.ui.main_ui.search.SearchFragment
-import com.example.exploreindonesia.ui.main_ui.search.sub_ui.kategori.KategoriFlashCardActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
 
-    lateinit var button_home_first: LinearLayout
-    lateinit var button_home_second: LinearLayout
-    lateinit var button_home_third: LinearLayout
+    private lateinit var buttonhomefirst: LinearLayout
+    private lateinit var buttonhomesecond: LinearLayout
+    private lateinit var buttonhomethird: LinearLayout
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -36,25 +34,25 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
+            ViewModelProvider(this)[HomeViewModel::class.java]
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        button_home_first = binding.buttonHomeFirst
-        button_home_second = binding.buttonHomeSecond
-        button_home_third = binding.buttonHomeThird
+        buttonhomefirst = binding.buttonHomeFirst
+        buttonhomesecond = binding.buttonHomeSecond
+        buttonhomethird = binding.buttonHomeThird
 
-        button_home_first.setOnClickListener {
+        buttonhomefirst.setOnClickListener {
             val intent = Intent(context, OCRActivity::class.java)
             startActivity(intent)
         }
-        button_home_second.setOnClickListener {
+        buttonhomesecond.setOnClickListener {
             val intent = Intent(context, FAQActivity::class.java)
             startActivity(intent)
         }
 
-        button_home_third.setOnClickListener {
+        buttonhomethird.setOnClickListener {
 
             val bundle = Bundle()
             bundle.putBoolean("s", true)

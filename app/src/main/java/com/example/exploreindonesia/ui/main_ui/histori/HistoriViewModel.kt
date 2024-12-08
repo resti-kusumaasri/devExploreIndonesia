@@ -1,4 +1,4 @@
-package com.example.exploreindonesia.ui.main_ui.Histori
+package com.example.exploreindonesia.ui.main_ui.histori
 
 import android.util.Log
 import androidx.lifecycle.LiveData
@@ -13,15 +13,11 @@ import retrofit2.HttpException
 class HistoriViewModel : ViewModel() {
 
 
-
     private val _historiList = MutableLiveData<RiwayatResponse>()
     val historiList: LiveData<RiwayatResponse> get() = _historiList
 
     private val errorMessage = MutableLiveData<String>()
     val error: LiveData<String> get() = errorMessage
-
-
-
 
 
     fun getRiwayat(id: String) {
@@ -36,8 +32,7 @@ class HistoriViewModel : ViewModel() {
                 }
             } catch (e: NullPointerException) {
                 Log.e("error", e.message.toString())
-            }
-            catch (e: Exception) {
+            } catch (e: Exception) {
                 Log.e("error", e.message.toString())
             }
         }

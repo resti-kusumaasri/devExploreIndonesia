@@ -15,12 +15,11 @@
         android:id="@+id/navigation_search"
         android:name="com.example.exploreindonesia.ui.main_ui.search.SearchFragment"
         android:label="@string/search"
-        tools:layout="@layout/fragment_search">
-    </fragment>
+        tools:layout="@layout/fragment_search"/>
 
     <fragment
         android:id="@+id/navigation_history"
-        android:name="com.example.exploreindonesia.ui.main_ui.Histori.HistoriFragment"
+        android:name="com.example.exploreindonesia.ui.main_ui.histori.HistoriFragment"
         android:label="@string/history"
         tools:layout="@layout/fragment_histori" />
 
@@ -34,5 +33,5 @@
         android:id="@+id/navigation_edit_profile"
         android:name="com.example.exploreindonesia.ui.main_ui.profile.EditProfileFragment"
         android:label="@string/profile"
-        tools:layout="@layout/fragment_edit_profile"/>
+        tools:layout="@layout/fragment_edit_profile" />
 </navigation>

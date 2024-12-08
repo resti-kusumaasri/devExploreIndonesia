@@ -8,12 +8,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.exploreindonesia.R
 import com.example.exploreindonesia.data.response.FAQResponse
 
-class FAQadapter (private val listFAQ: ArrayList<FAQResponse>) : RecyclerView.Adapter<FAQadapter.ListViewHolder>()  {
+class FAQadapter(private val listFAQ: ArrayList<FAQResponse>) :
+    RecyclerView.Adapter<FAQadapter.ListViewHolder>() {
 
 
     class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val pertanyaan = itemView.findViewById<TextView>(R.id.faq_pertanyaan)
-        val jawaban = itemView.findViewById<TextView>(R.id.faq_jawaban)
+        val pertanyaan: TextView? = itemView.findViewById(R.id.faq_pertanyaan)
+        val jawaban: TextView? = itemView.findViewById(R.id.faq_jawaban)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
@@ -25,7 +26,7 @@ class FAQadapter (private val listFAQ: ArrayList<FAQResponse>) : RecyclerView.Ad
 
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
         val (question, answer) = listFAQ[position]
-        holder.pertanyaan.text = question
-        holder.jawaban.text = answer
+        holder.pertanyaan?.text = question
+        holder.jawaban?.text = answer
     }
 }

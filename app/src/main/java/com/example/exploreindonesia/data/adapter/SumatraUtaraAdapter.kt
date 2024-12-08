@@ -8,12 +8,12 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.exploreindonesia.R
-import com.example.exploreindonesia.data.model.kategori_model
-import com.example.exploreindonesia.ui.main_ui.search.sub_ui.daerah.Quiz.QuizActivity
+import com.example.exploreindonesia.data.model.Kategorimodel
+import com.example.exploreindonesia.ui.main_ui.search.sub_ui.daerah.quiz.QuizActivity
 import com.example.exploreindonesia.ui.main_ui.search.sub_ui.daerah.sumatra_utara.SumateraUtaraFlashcardActivity
 
 class SumatraUtaraAdapter(
-    private val SumatraUtaraList: List<kategori_model>
+    private val sumatraUtaraList: List<Kategorimodel>
 ) : RecyclerView.Adapter<SumatraUtaraAdapter.SumatraUtaraViewHolder>() {
 
     class SumatraUtaraViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -22,15 +22,16 @@ class SumatraUtaraAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SumatraUtaraViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_daerah_kategori, parent, false)
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.item_daerah_kategori, parent, false)
         return SumatraUtaraViewHolder(view)
     }
 
-    override fun getItemCount() = SumatraUtaraList.size
+    override fun getItemCount() = sumatraUtaraList.size
 
     override fun onBindViewHolder(holder: SumatraUtaraViewHolder, position: Int) {
 
-        val daerah = SumatraUtaraList[position]
+        val daerah = sumatraUtaraList[position]
         holder.imageView.setImageResource(daerah.gambar)
         holder.textView.text = daerah.nama
 

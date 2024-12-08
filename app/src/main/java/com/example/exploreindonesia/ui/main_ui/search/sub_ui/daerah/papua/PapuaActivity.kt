@@ -3,16 +3,9 @@ package com.example.exploreindonesia.ui.main_ui.search.sub_ui.daerah.papua
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import com.example.exploreindonesia.MainActivity
 import com.example.exploreindonesia.R
-import com.example.exploreindonesia.ui.main_ui.search.sub_ui.daerah.sumatra_utara.SumateraUtaraFragment
-import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class PapuaActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,6 +31,7 @@ class PapuaActivity : AppCompatActivity() {
                 startActivity(intent)
                 true
             }
+
             else -> super.onOptionsItemSelected(item)
         }
     }

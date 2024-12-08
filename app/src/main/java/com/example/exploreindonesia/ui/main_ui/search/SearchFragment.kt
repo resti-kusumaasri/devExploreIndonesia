@@ -4,9 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import com.example.exploreindonesia.R
 import com.example.exploreindonesia.databinding.FragmentSearchBinding
 import com.example.exploreindonesia.ui.main_ui.search.sub_ui.daerah.DaerahFragment
@@ -14,13 +12,7 @@ import com.example.exploreindonesia.ui.main_ui.search.sub_ui.kategori.KategoriFr
 
 class SearchFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = SearchFragment()
-    }
-
-    private val viewModel: SearchViewModel by viewModels()
     private lateinit var binding: FragmentSearchBinding
-    private lateinit var conatiner: ConstraintLayout
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -61,10 +53,6 @@ class SearchFragment : Fragment() {
 
     }
 
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-
-    }
 
 
 }

@@ -29,6 +29,7 @@
             android:id="@+id/map"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:contentDescription="@string/map_home"
             android:src="@drawable/map"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -39,6 +40,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="-60dp"
+            android:contentDescription="@string/greetings"
             android:src="@drawable/welcome_teks_background"
             app:layout_constraintEnd_toEndOf="@+id/map"
             app:layout_constraintStart_toStartOf="@+id/map"
@@ -59,11 +61,11 @@
             app:layout_constraintTop_toTopOf="@+id/background_welcome_text" />
 
         <TextView
+            style="@style/title_teks"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="-5dp"
             android:layout_marginBottom="32dp"
-            style="@style/title_teks"
             android:text="@string/kekayaan_nusantara"
             app:layout_constraintBottom_toBottomOf="@+id/background_welcome_text"
             app:layout_constraintStart_toStartOf="@+id/yuk_jelajahi"
@@ -89,8 +91,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/button_jelajah_background"
-        app:layout_constraintEnd_toEndOf="parent"
         android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2">
 
@@ -98,18 +100,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
+            android:contentDescription="@string/image_button_ocr"
             android:src="@drawable/image_button_region" />
 
         <LinearLayout
-            android:layout_marginStart="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
             android:orientation="vertical">
 
             <TextView
+                style="@style/title_teks"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/title_teks"
                 android:layout_marginStart="5dp"
                 android:text="@string/ocr_penerjemah_bahasa" />
 
@@ -124,8 +127,9 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/button_jelajah"
-            android:padding="5dp" />
+            android:contentDescription="@string/image"
+            android:padding="5dp"
+            android:src="@drawable/button_jelajah" />
     </LinearLayout>
 
     <LinearLayout
@@ -133,17 +137,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:orientation="horizontal"
-        android:gravity="center"
         android:background="@drawable/button_jelajah_background"
+        android:gravity="center"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="@+id/button_home_first"
         app:layout_constraintStart_toStartOf="@+id/button_home_first"
         app:layout_constraintTop_toBottomOf="@+id/button_home_first">
 
         <ImageView
-            android:layout_margin="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:contentDescription="@string/image"
             android:src="@drawable/image_button_region" />
 
         <LinearLayout
@@ -152,16 +157,16 @@
             android:orientation="vertical">
 
             <TextView
+                style="@style/title_teks"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/title_teks"
                 android:layout_marginStart="5dp"
                 android:text="@string/q_u0026_a" />
 
             <TextView
+                style="@style/teks"
                 android:layout_width="160dp"
                 android:layout_height="wrap_content"
-                style="@style/teks"
                 android:layout_marginStart="5dp"
                 android:text="@string/cari_tahu_tentang_aplikasi_ini" />
         </LinearLayout>
@@ -169,8 +174,9 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/button_jelajah"
-            android:padding="5dp" />
+            android:contentDescription="@string/image"
+            android:padding="5dp"
+            android:src="@drawable/button_jelajah" />
 
 
     </LinearLayout>
@@ -179,28 +185,29 @@
         android:id="@+id/button_home_third"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_marginTop="8dp"
-        android:gravity="center"
         android:background="@drawable/button_jelajah_background"
+        android:gravity="center"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="@+id/button_home_second"
         app:layout_constraintStart_toStartOf="@+id/button_home_second"
         app:layout_constraintTop_toBottomOf="@+id/button_home_second">
 
         <TextView
+            style="@style/title_teks_bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/title_teks_bold"
             android:layout_marginStart="5dp"
-            android:textSize="30sp"
             android:paddingHorizontal="10dp"
-            android:text="@string/selengkapnya" />
+            android:text="@string/selengkapnya"
+            android:textSize="30sp" />
 
         <ImageView
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:src="@drawable/button_jelajah"
-            android:padding="5dp" />
+            android:contentDescription="@string/image"
+            android:padding="5dp"
+            android:src="@drawable/button_jelajah" />
     </LinearLayout>
 
 

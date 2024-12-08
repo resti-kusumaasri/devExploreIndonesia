@@ -5,15 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SearchView
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.constraintlayout.widget.ConstraintSet
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.exploreindonesia.R
 import com.example.exploreindonesia.data.adapter.KategoriAdapter
-import com.example.exploreindonesia.data.model.kategori_model
+import com.example.exploreindonesia.data.model.Kategorimodel
 
 class KategoriFragment : Fragment() {
 
@@ -21,13 +18,7 @@ class KategoriFragment : Fragment() {
         fun newInstance() = KategoriFragment()
     }
 
-    private val viewModel: KategoriViewModel by viewModels()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        // TODO: Use the ViewModel
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -59,12 +50,12 @@ class KategoriFragment : Fragment() {
 
     }
 
-    fun getList(): ArrayList<kategori_model> {
+    private fun getList(): ArrayList<Kategorimodel> {
         val image = resources.obtainTypedArray(R.array.gambar_kategori)
         val name = resources.getStringArray(R.array.nama_kategori)
-        val list = ArrayList<kategori_model>()
+        val list = ArrayList<Kategorimodel>()
         for (i in name.indices) {
-            val kategori = kategori_model(image.getResourceId(i, -1), name[i])
+            val kategori = Kategorimodel(image.getResourceId(i, -1), name[i])
             list.add(kategori)
         }
         return list

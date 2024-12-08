@@ -62,13 +62,13 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-
     override fun onResume() {
         super.onResume()
-        var intent = intent.getStringExtra("daerah")
+        val intent = intent.getStringExtra("daerah")
 
         if (intent == "true") {
-            val navGraph = findNavController(R.id.nav_host_fragment_activity_main).navInflater.inflate(R.navigation.mobile_navigation)
+            val navGraph =
+                findNavController(R.id.nav_host_fragment_activity_main).navInflater.inflate(R.navigation.mobile_navigation)
             navGraph.setStartDestination(R.id.navigation_search)
             findNavController(R.id.nav_host_fragment_activity_main).graph = navGraph
         }
@@ -85,7 +85,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun isInternetAvailable(): Boolean {
-        val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val connectivityManager =
+            getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val network = connectivityManager.activeNetwork ?: return false
         val activeNetwork = connectivityManager.getNetworkCapabilities(network) ?: return false
         return when {

@@ -4,7 +4,7 @@ import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class histori_model(
+data class Historimodel(
 
     val activityName: String,
     val timestamp: String

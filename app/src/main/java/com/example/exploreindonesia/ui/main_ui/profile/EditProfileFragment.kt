@@ -2,21 +2,14 @@ package com.example.exploreindonesia.ui.main_ui.profile
 
 import android.content.Context.MODE_PRIVATE
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.EditText
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.exploreindonesia.R
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
@@ -49,11 +42,9 @@ class EditProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         val akunSharedPreferences = requireActivity().getSharedPreferences("akun", MODE_PRIVATE)
-        var userId = akunSharedPreferences.getString("userId", null).toString()
+        val userId = akunSharedPreferences.getString("userId", null).toString()
 
         val akunEditprefences = requireActivity().getSharedPreferences("edit", MODE_PRIVATE)
-
-
 
 
         val viewModel = ViewModelProvider(this)[ProfileViewModel::class.java]
@@ -70,9 +61,6 @@ class EditProfileFragment : Fragment() {
         viewModel.username.observe(viewLifecycleOwner) {
             editUsername.setText(it)
         }
-
-
-
 
 
     }

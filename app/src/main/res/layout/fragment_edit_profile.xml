@@ -13,7 +13,6 @@
         style="@style/title_teks"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:labelFor="@+id/name_edit"
         android:text="@string/nama_lengkap"
         app:layout_constraintBottom_toTopOf="@+id/name_edit"
         app:layout_constraintStart_toStartOf="@+id/name_edit" />
@@ -26,6 +25,7 @@
         android:layout_marginTop="200dp"
         android:background="@drawable/edt_background"
         android:hint="@string/masukan_nama_lengkap_baru"
+        android:importantForAutofill="no"
         android:inputType="textPersonName"
         android:paddingStart="30dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -51,6 +51,7 @@
         android:layout_marginTop="32dp"
         android:background="@drawable/edt_background"
         android:hint="@string/masukan_username_baru"
+        android:importantForAutofill="no"
         android:inputType="textPersonName"
         android:paddingStart="30dp"
         app:layout_constraintBottom_toBottomOf="parent"

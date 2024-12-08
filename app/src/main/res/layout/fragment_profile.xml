@@ -22,10 +22,10 @@
         android:id="@+id/btn_logout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/submit_button"
-        android:text="@string/logout"
         android:layout_margin="5dp"
+        android:background="@drawable/submit_button"
         android:backgroundTint="@color/merahmarun"
+        android:text="@string/logout"
         app:layout_constraintEnd_toEndOf="@+id/btn_edit_profile"
         app:layout_constraintStart_toStartOf="@+id/btn_edit_profile"
         app:layout_constraintTop_toBottomOf="@+id/btn_edit_profile" />
@@ -35,9 +35,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:text="@string/edit_profile"
         android:background="@drawable/submit_button"
         android:backgroundTint="@color/merahmarun"
+        android:text="@string/edit_profile"
         app:layout_constraintEnd_toEndOf="@id/profile_container"
         app:layout_constraintStart_toStartOf="@+id/profile_container"
         app:layout_constraintTop_toBottomOf="@+id/profile_container" />

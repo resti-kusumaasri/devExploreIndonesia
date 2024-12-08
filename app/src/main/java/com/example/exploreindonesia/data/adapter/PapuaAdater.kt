@@ -8,34 +8,35 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.exploreindonesia.R
-import com.example.exploreindonesia.data.model.kategori_model
-import com.example.exploreindonesia.ui.main_ui.search.sub_ui.daerah.Quiz.QuizActivity
+import com.example.exploreindonesia.data.model.Kategorimodel
 import com.example.exploreindonesia.ui.main_ui.search.sub_ui.daerah.papua.PapuaFlashcardActivity
+import com.example.exploreindonesia.ui.main_ui.search.sub_ui.daerah.quiz.QuizActivity
 
 class PapuaAdater(
-    private val PapuaList : List<kategori_model>
+    private val papuaList: List<Kategorimodel>
 ) : RecyclerView.Adapter<PapuaAdater.PapuaViewHolder>() {
     class PapuaViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val imageView = view.findViewById<ImageView>(R.id.image_item)
-        val textView = view.findViewById<TextView>(R.id.teks_item)
+        val imageView: ImageView = view.findViewById(R.id.image_item)
+        val textView: TextView? = view.findViewById(R.id.teks_item)
 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PapuaViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_daerah_kategori, parent, false)
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.item_daerah_kategori, parent, false)
         return PapuaViewHolder(view)
     }
 
-    override fun getItemCount() = PapuaList.size
+    override fun getItemCount() = papuaList.size
 
     override fun onBindViewHolder(holder: PapuaViewHolder, position: Int) {
-        val daerah = PapuaList[position]
+        val daerah = papuaList[position]
         holder.imageView.setImageResource(daerah.gambar)
-        holder.textView.text = daerah.nama
+        holder.textView?.text = daerah.nama
 
         holder.itemView.setOnClickListener {
             val intent = Intent(holder.itemView.context, PapuaFlashcardActivity::class.java)
-            intent.putExtra("kategori" ,daerah.nama)
+            intent.putExtra("kategori", daerah.nama)
             holder.itemView.context.startActivity(intent)
 
             if (daerah.nama == "Quiz Akhir") {

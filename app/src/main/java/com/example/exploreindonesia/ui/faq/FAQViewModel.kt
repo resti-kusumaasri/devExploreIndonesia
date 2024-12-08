@@ -18,18 +18,16 @@ class FAQViewModel : ViewModel() {
     val error: LiveData<String> = _error
 
 
-   fun fetchFAQ() {
-       viewModelScope.launch {
-           try {
-               val response = ApiConfig.getApiService().getFAQ()
-               _listFAQ.value = response
-           }
-           catch (e: HttpException) {
-               _error.value = e.message()
-           }
-           catch (e: Exception) {
-               _error.value = e.message
-           }
-       }
-   }
+    fun fetchFAQ() {
+        viewModelScope.launch {
+            try {
+                val response = ApiConfig.getApiService().getFAQ()
+                _listFAQ.value = response
+            } catch (e: HttpException) {
+                _error.value = e.message()
+            } catch (e: Exception) {
+                _error.value = e.message
+            }
+        }
+    }
 }

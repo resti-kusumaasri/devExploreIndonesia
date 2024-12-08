@@ -9,7 +9,6 @@ import android.view.MenuItem
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
@@ -19,12 +18,12 @@ import com.example.exploreindonesia.data.adapter.FlashcardAdapter
 import com.example.exploreindonesia.data.adapter.KamusAdapter
 import com.example.exploreindonesia.data.request.AddRiwayatRequest
 import com.example.exploreindonesia.ui.main_ui.search.sub_ui.daerah.DaerahViewModel
-import com.example.exploreindonesia.ui.main_ui.search.sub_ui.daerah.Quiz.QuizActivity
+import com.example.exploreindonesia.ui.main_ui.search.sub_ui.daerah.quiz.QuizActivity
 
 class SumateraUtaraFlashcardActivity : AppCompatActivity() {
 
     companion object {
-        const val Medan = "Medan"
+        const val MEDAN = "Medan"
     }
 
     private var lastVisibleItemId: String? = null
@@ -37,7 +36,8 @@ class SumateraUtaraFlashcardActivity : AppCompatActivity() {
 
         val kategori = intent.getStringExtra("kategori")
         val rvSumatraUtara = findViewById<RecyclerView>(R.id.rv_sumatra_utara_flashcard)
-        rvSumatraUtara.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        rvSumatraUtara.layoutManager =
+            LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         val quizButton = findViewById<Button>(R.id.btn_quiz_sumatra_utara)
 
         val pagerSnapHelper = PagerSnapHelper()
@@ -48,28 +48,29 @@ class SumateraUtaraFlashcardActivity : AppCompatActivity() {
 
         if (kategori == "Bahasa Nusantara") {
             val rvSumatraUtara = findViewById<RecyclerView>(R.id.rv_sumatra_utara_flashcard)
-            rvSumatraUtara.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-            viewModel.flashcards.observe(this, Observer { flashcards ->
+            rvSumatraUtara.layoutManager =
+                LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+            viewModel.flashcards.observe(this) { flashcards ->
                 rvSumatraUtara.adapter = KamusAdapter(flashcards)
-            })
+            }
         }
 
 
 
-        viewModel.flashcards.observe(this, Observer { flashcards ->
+        viewModel.flashcards.observe(this) { flashcards ->
             adapter.updateFlashcards(flashcards)
-        })
+        }
 
         if (!isInternetAvailable()) {
             Toast.makeText(this, "Tidak ada koneksi internet", Toast.LENGTH_SHORT).show()
             return
-        }else {
+        } else {
             Toast.makeText(this, "Data Sedang Diproses, Mohon Tunggu", Toast.LENGTH_SHORT).show()
         }
 
 
 
-        viewModel.getFlashCards(Medan, kategori ?: "")
+        viewModel.getFlashCards(MEDAN, kategori ?: "")
 
 
         rvSumatraUtara.addOnScrollListener(object : RecyclerView.OnScrollListener() {
@@ -113,7 +114,8 @@ class SumateraUtaraFlashcardActivity : AppCompatActivity() {
     }
 
     private fun isInternetAvailable(): Boolean {
-        val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val connectivityManager =
+            getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val network = connectivityManager.activeNetwork ?: return false
         val activeNetwork = connectivityManager.getNetworkCapabilities(network) ?: return false
         return when {

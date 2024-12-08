@@ -1,4 +1,4 @@
-package com.example.exploreindonesia.ui.main_ui.search.sub_ui.daerah.Quiz
+package com.example.exploreindonesia.ui.main_ui.search.sub_ui.daerah.quiz
 
 import android.util.Log
 import androidx.lifecycle.LiveData
@@ -10,7 +10,7 @@ import com.example.exploreindonesia.data.retrofit.ApiConfig
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
 
-class QuizViewModel : ViewModel()  {
+class QuizViewModel : ViewModel() {
 
     private val _quizList = MutableLiveData<List<QuizResponse>>()
     val quizList: LiveData<List<QuizResponse>> get() = _quizList
@@ -39,13 +39,11 @@ class QuizViewModel : ViewModel()  {
             try {
                 val response = ApiConfig.getApiService().getQuiz(daerah, kategori)
                 _quizList.postValue(response)
-            }catch (e: HttpException) {
+            } catch (e: HttpException) {
                 Log.e("error", e.message.toString())
-            }
-            catch (e: NullPointerException) {
+            } catch (e: NullPointerException) {
                 Log.e("error", e.message.toString())
-            }
-            catch (e: Exception) {
+            } catch (e: Exception) {
                 Log.e("error", e.message.toString())
             }
         }
@@ -60,13 +58,11 @@ class QuizViewModel : ViewModel()  {
 
                 val response = response1 + response2 + response3
                 _quizList.postValue(response)
-            }catch (e: HttpException) {
+            } catch (e: HttpException) {
                 Log.e("error", e.message.toString())
-            }
-            catch (e: NullPointerException) {
+            } catch (e: NullPointerException) {
                 Log.e("error", e.message.toString())
-            }
-            catch (e: Exception) {
+            } catch (e: Exception) {
                 Log.e("error", e.message.toString())
             }
         }
@@ -77,13 +73,11 @@ class QuizViewModel : ViewModel()  {
             try {
                 val response = ApiConfig.getApiService().getQuizAkhir(daerah)
                 _quizList.postValue(response)
-            }catch (e: HttpException) {
+            } catch (e: HttpException) {
                 Log.e("error", e.message.toString())
-            }
-            catch (e: NullPointerException) {
+            } catch (e: NullPointerException) {
                 Log.e("error", e.message.toString())
-            }
-            catch (e: Exception) {
+            } catch (e: Exception) {
                 Log.e("error", e.message.toString())
             }
         }

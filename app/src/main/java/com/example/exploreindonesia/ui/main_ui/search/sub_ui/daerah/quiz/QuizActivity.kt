@@ -1,10 +1,9 @@
-package com.example.exploreindonesia.ui.main_ui.search.sub_ui.daerah.Quiz
+package com.example.exploreindonesia.ui.main_ui.search.sub_ui.daerah.quiz
 
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.example.exploreindonesia.MainActivity
@@ -22,7 +21,6 @@ class QuizActivity : AppCompatActivity() {
         }
 
         val viewModel = ViewModelProvider(this)[QuizViewModel::class.java]
-
 
 
         val daerah = intent.getStringExtra("Daerah").toString()
@@ -45,7 +43,7 @@ class QuizActivity : AppCompatActivity() {
         quizFragment.arguments = bundle
 
         supportFragmentManager.beginTransaction()
-            .add(R.id.container_quiz,quizFragment)
+            .add(R.id.container_quiz, quizFragment)
             .commitNow()
     }
 

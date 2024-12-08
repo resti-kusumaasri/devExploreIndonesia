@@ -1,20 +1,17 @@
 package com.example.exploreindonesia.ui.main_ui.search.sub_ui.daerah
 
 import android.content.Intent
-import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
 import android.widget.SearchView
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.exploreindonesia.R
 import com.example.exploreindonesia.data.adapter.DaerahAdapter
-import com.example.exploreindonesia.data.model.daerah_model
+import com.example.exploreindonesia.data.model.Daerahmodel
 import com.example.exploreindonesia.ui.main_ui.search.sub_ui.daerah.papua.PapuaActivity
 import com.example.exploreindonesia.ui.main_ui.search.sub_ui.daerah.sulawesi_selatan.SulawesiSelatanActivity
 import com.example.exploreindonesia.ui.main_ui.search.sub_ui.daerah.sumatra_utara.SumatraUtaraActivity
@@ -25,11 +22,6 @@ class DaerahFragment : Fragment() {
         fun newInstance() = DaerahFragment()
     }
 
-    private val viewModel: DaerahViewModel by viewModels()
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -54,10 +46,12 @@ class DaerahFragment : Fragment() {
                     val intent = Intent(requireContext(), SulawesiSelatanActivity::class.java)
                     startActivity(intent)
                 }
+
                 "Papua" -> {
                     val intent = Intent(requireContext(), PapuaActivity::class.java)
                     startActivity(intent)
                 }
+
                 else -> {
 
                 }
@@ -83,12 +77,12 @@ class DaerahFragment : Fragment() {
         })
     }
 
-    fun getList(): ArrayList<daerah_model> {
+    private fun getList(): ArrayList<Daerahmodel> {
         val image = resources.obtainTypedArray(R.array.gambar_daerah)
         val name = resources.getStringArray(R.array.nama_daerah)
-        val list = ArrayList<daerah_model>()
+        val list = ArrayList<Daerahmodel>()
         for (i in name.indices) {
-            val daerah = daerah_model(image.getResourceId(i, -1), name[i])
+            val daerah = Daerahmodel(image.getResourceId(i, -1), name[i])
             list.add(daerah)
         }
         return list
