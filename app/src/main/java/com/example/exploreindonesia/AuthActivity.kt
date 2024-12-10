@@ -122,6 +122,7 @@ class AuthActivity : AppCompatActivity() {
                     if (result == "Registrasi berhasil") {
                         CoroutineScope(Dispatchers.Main).launch {
                             delay(1000)
+                            btnsubmit.setText(R.string.login)
                             btnlogin.setImageResource(R.drawable.btn_login_active)
                             btnregister.setImageResource(R.drawable.btn_register_inactive)
                             supportFragmentManager.beginTransaction()
