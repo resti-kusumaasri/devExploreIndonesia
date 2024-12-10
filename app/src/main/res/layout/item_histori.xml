@@ -18,7 +18,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.213"
+        app:layout_constraintVertical_bias="0.110000014"
         tools:text="Aktivitas" />
 
     <TextView
@@ -38,6 +38,7 @@
         style="@style/title_teks"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/nama_item_histori"
         app:layout_constraintTop_toBottomOf="@+id/nama_item_histori"
@@ -48,13 +49,13 @@
         android:id="@+id/waktu_item_hostori"
         style="@style/title_teks_bold"
         android:layout_width="wrap_content"
-        android:layout_height="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="16dp"
         android:gravity="center_vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
         tools:text="Waktu" />
 
 

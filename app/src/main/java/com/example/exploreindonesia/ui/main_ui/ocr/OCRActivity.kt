@@ -204,9 +204,7 @@ class OCRActivity : AppCompatActivity() {
         viewModel.translateText(multipartBody, requestBody)
 
         viewModel.error.observe(this) { error ->
-            if (error!= null) {
-                Toast.makeText(this, "gagal terdeteksi", Toast.LENGTH_SHORT).show()
-            }
+            Toast.makeText(this, "Error $error", Toast.LENGTH_SHORT).show()
         }
     }
 

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ExploreIndonesia</string>
+    <string name="app_name">Explore Indonesia</string>
     <string name="title_home">Home</string>
 
     <string name="email">Email</string>
@@ -75,4 +75,5 @@
     <string name="pilihan_d">Pilihan D</string>
     <string name="selanjutnya">Selanjutnya</string>
     <string name="this_nama_lengkap">This Nama Lengkap</string>
+    <string name="explore">Explore</string>
 </resources>

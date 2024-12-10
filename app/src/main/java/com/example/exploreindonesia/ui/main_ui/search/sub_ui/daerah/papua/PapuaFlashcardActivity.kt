@@ -81,6 +81,12 @@ class PapuaFlashcardActivity : AppCompatActivity() {
         })
 
         btnQuizPapua.setOnClickListener {
+            val akunSharedPreferences = getSharedPreferences("akun", MODE_PRIVATE)
+            val userId = akunSharedPreferences.getString("userId", null).toString()
+            lastVisibleItemId?.let { id ->
+                val request = AddRiwayatRequest(userId, id)
+                viewModel.addRiwayat(request)
+            }
             val intent = Intent(this, QuizActivity::class.java)
             intent.putExtra("Daerah", "Papua")
             intent.putExtra("kategori", kategori)
