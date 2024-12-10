@@ -54,9 +54,5 @@ class ViewProfileFragment : Fragment() {
         viewModel.fullname.observe(viewLifecycleOwner) {
             name.text = it
         }
-
-        viewModel.profileResult.observe(viewLifecycleOwner) {
-            Toast.makeText(requireContext(), "Berhasil", Toast.LENGTH_SHORT).show()
-        }
     }
 }

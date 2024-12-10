@@ -91,8 +91,11 @@ class AuthActivity : AppCompatActivity() {
                         userId = result.toString()
                         akunSharedPreferences.edit().putString("userId", userId).apply()
                         if (result != null) {
-                            startActivity(intent)
-                            finish()
+                            if (userId != null) {
+                                startActivity(intent)
+                                finish()
+                            }
+
                         } else {
                             Toast.makeText((this@AuthActivity), "Login Gagal", Toast.LENGTH_SHORT)
                                 .show()
