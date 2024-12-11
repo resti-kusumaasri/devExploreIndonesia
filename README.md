@@ -1,5 +1,5 @@
 # ExploreIndonesia - Mobile Development
-As mobile developer, our task are to delivered what our team already make and compile into Structured back end. We create the User interface also 
+As mobile developer, our task are to delivered what our team already make and compiled into Structured back end. We create the User interface also compiled it with the back end into a ready to use application
 
 # Authors
 1. Muhammad Irfan Noufal
