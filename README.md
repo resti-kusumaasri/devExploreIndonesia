@@ -1,8 +1,8 @@
-/h1
+\h1
 ExploreIndonesia - Mobile Development
-// As mobile developer, our task are to delivered what our team already make and compile into Structured back end. We create the User interface also 
+\n As mobile developer, our task are to delivered what our team already make and compile into Structured back end. We create the User interface also 
 
-/h1 
+\h1 
 Authors
 Muhammad Irfan Noufal
 
